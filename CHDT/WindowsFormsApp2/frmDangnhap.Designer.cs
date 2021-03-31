@@ -90,7 +90,7 @@
             this.btndangnhap.Name = "btndangnhap";
             this.btndangnhap.Size = new System.Drawing.Size(119, 31);
             this.btndangnhap.TabIndex = 25;
-            this.btndangnhap.Text = "Đăng nhập ";
+            this.btndangnhap.Text = "Đăng nhập 1";
             this.btndangnhap.UseVisualStyleBackColor = true;
             this.btndangnhap.Click += new System.EventHandler(this.btndangnhap_Click);
             // 
