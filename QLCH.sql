@@ -135,16 +135,14 @@ CREATE TABLE loaithongso (
 CREATE TABLE thongsokythuat (
   matskt int PRIMARY KEY IDENTITY (1, 1),
   ten nvarchar(100),
-  thongsokythuat nvarchar(200),
-  maloai int FOREIGN KEY REFERENCES loaihang (maloai),
+  thongsokythuat nvarchar(200)
   masp int FOREIGN KEY REFERENCES sanpham (masp),
   sothutu int,
   malts int FOREIGN KEY REFERENCES loaithongso (malts)
 )
 
 
-insert into nhanvien values ('Lieu','nu','0967345765','mailieu@gmail.com','Hanoi','0987654345','25d55ad283aa400af464c76d713c07ad','1','1')
+insert into nhanvien values ('Lieu','nu','0967345765','maithulieu@gmail.com','Hanoi','0987654345','25d55ad283aa400af464c76d713c07ad','1','1')
 insert into nhanvien values ('Nam','nu','0967345965','Nguyennam@gmail.com','Hanoi','0987654343','4428c6c474502e61151877825bb41961','2','1')
 
 
-update nhanvien set passwword='25d55ad283aa400af464c76d713c07ad'
