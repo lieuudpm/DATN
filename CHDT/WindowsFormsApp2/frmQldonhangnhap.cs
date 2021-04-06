@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Classss;
 
 namespace WindowsFormsApp2
 {
@@ -17,59 +18,44 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+
+        private void btntaohoadonnhap_Click(object sender, EventArgs e)
+        {
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+
+            //them mơi
+            //loaihang tv = new loaihang();
+            //tv.tenloai = "test";
+            //dl.loaihangs.Add(tv);
+            //dl.SaveChanges();
+
+            //update
+            //loaihang tv = dl.loaihangs.First();
+            //tv.tenloai = "test1";
+            //dl.SaveChanges();
+            loaihang tv = dl.loaihangs.First();
+            dl.loaihangs.Remove(tv);
+            dl.SaveChanges();
+        }
+        private void frmQldonhangnhap_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-
+            frmttSanpham frm = new frmttSanpham();
+            frm.ShowDialog();
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void frmQldonhangnhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
+            if (dlChung.thoatCT == true)
+            {
+                Application.Exit();
+            }
+            dlChung.thoatCT = true;
         }
     }
 }
+

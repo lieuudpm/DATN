@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Classss;
 
 namespace WindowsFormsApp2
 {
@@ -16,35 +17,20 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-
-        private void dgvDssanpham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void btnThemnv_Click(object sender, EventArgs e)
         {
-
+            frmThemmoisanpham frm = new frmThemmoisanpham();
+            frm.ShowDialog();
         }
 
-        private void frmQlsanpham_Load(object sender, EventArgs e)
+        private void frmQlsanpham_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void btnTimkiem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDssanpham_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txtMactbh_TextChanged(object sender, EventArgs e)
-        {
-
+            if (dlChung.thoatCT == true)
+            {
+                Application.Exit();
+            }
+            dlChung.thoatCT = true;
         }
     }
 }

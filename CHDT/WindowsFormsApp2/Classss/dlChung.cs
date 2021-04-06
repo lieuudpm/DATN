@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Classss
 {
-    class dlChung
+  public  class dlChung
     {
+       // public static string url = "frmDangnhap";
+        public static bool thoatCT = true;
     }
 }

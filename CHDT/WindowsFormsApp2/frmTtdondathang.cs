@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Classss;
 
 namespace WindowsFormsApp2
 {
@@ -25,6 +26,15 @@ namespace WindowsFormsApp2
         private void btnthemHD_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmTtdondathang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (dlChung.thoatCT == true)
+            {
+                Application.Exit();
+            }
+            dlChung.thoatCT = true;
         }
     }
 }

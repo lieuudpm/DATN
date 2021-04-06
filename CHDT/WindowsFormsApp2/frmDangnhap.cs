@@ -76,8 +76,9 @@ namespace WindowsFormsApp2
                         //    //trường hợp tài khoản là user sẽ dẫn tời form home user
                         //}
                         //trường hợp tài khoản là admin form home admin
-                        frmQldonhangnhap frm = new frmQldonhangnhap();
+                     frmQlNhanvien frm = new frmQlNhanvien();
                         frm.Show();
+                        this.Hide();
 
                     }
                     else
@@ -111,6 +112,12 @@ namespace WindowsFormsApp2
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDoimatkhau frm = new frmDoimatkhau();
+            frm.ShowDialog();
         }
 
         private void frmdangnhap_Load(object sender, EventArgs e)

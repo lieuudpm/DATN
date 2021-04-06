@@ -60,15 +60,19 @@
             // ucMenu1
             // 
             this.ucMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucMenu1.Location = new System.Drawing.Point(2, 0);
+            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";
-            this.ucMenu1.Size = new System.Drawing.Size(1215, 43);
+            this.ucMenu1.Size = new System.Drawing.Size(1284, 43);
             this.ucMenu1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtghichu);
             this.groupBox1.Controls.Add(this.txttrangthai);
             this.groupBox1.Controls.Add(this.txtngaynhaphang);
@@ -77,11 +81,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(28, 66);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 263);
+            this.groupBox1.Size = new System.Drawing.Size(637, 295);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtghichu
             // 
@@ -134,6 +137,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.txtdiachi);
             this.groupBox2.Controls.Add(this.label7);
@@ -144,11 +150,10 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(657, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(539, 263);
+            this.groupBox2.Size = new System.Drawing.Size(603, 295);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin nhà cung cấp ";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtEmail
             // 
@@ -156,7 +161,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(286, 26);
             this.txtEmail.TabIndex = 4;
-            this.txtEmail.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // txtdiachi
             // 
@@ -164,7 +168,6 @@
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(286, 26);
             this.txtdiachi.TabIndex = 4;
-            this.txtdiachi.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label7
             // 
@@ -174,7 +177,6 @@
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Email:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtsonhacungcap
             // 
@@ -182,7 +184,6 @@
             this.txtsonhacungcap.Name = "txtsonhacungcap";
             this.txtsonhacungcap.Size = new System.Drawing.Size(286, 26);
             this.txtsonhacungcap.TabIndex = 3;
-            this.txtsonhacungcap.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txttennhacungcap
             // 
@@ -190,7 +191,6 @@
             this.txttennhacungcap.Name = "txttennhacungcap";
             this.txttennhacungcap.Size = new System.Drawing.Size(286, 26);
             this.txttennhacungcap.TabIndex = 3;
-            this.txttennhacungcap.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label6
             // 
@@ -200,7 +200,6 @@
             this.label6.Size = new System.Drawing.Size(106, 20);
             this.label6.TabIndex = 2;
             this.label6.Text = "Số điện thoại:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label4
             // 
@@ -210,7 +209,6 @@
             this.label4.Size = new System.Drawing.Size(140, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tên nhà cung cấp:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -220,16 +218,18 @@
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Địa chỉ:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgvQldonhangnhap);
             this.groupBox3.Controls.Add(this.btnThem);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(28, 350);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1168, 253);
+            this.groupBox3.Size = new System.Drawing.Size(1232, 285);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin sản phẩm ";
@@ -251,6 +251,7 @@
             this.btnThem.TabIndex = 1;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label8
             // 
@@ -260,7 +261,6 @@
             this.label8.Size = new System.Drawing.Size(94, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Danh sách: ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // btntaohoadonnhap
             // 
@@ -270,6 +270,7 @@
             this.btntaohoadonnhap.TabIndex = 4;
             this.btntaohoadonnhap.Text = "Tạo hóa đơn ";
             this.btntaohoadonnhap.UseVisualStyleBackColor = true;
+            this.btntaohoadonnhap.Click += new System.EventHandler(this.btntaohoadonnhap_Click);
             // 
             // btnHuytao
             // 
@@ -285,7 +286,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1220, 659);
+            this.ClientSize = new System.Drawing.Size(1284, 691);
             this.Controls.Add(this.btnHuytao);
             this.Controls.Add(this.btntaohoadonnhap);
             this.Controls.Add(this.groupBox3);
@@ -294,9 +295,12 @@
             this.Controls.Add(this.ucMenu1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frmQldonhangnhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQldonhangnhap";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQldonhangnhap_FormClosing);
+            this.Load += new System.EventHandler(this.frmQldonhangnhap_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

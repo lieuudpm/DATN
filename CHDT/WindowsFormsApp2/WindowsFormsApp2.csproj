@@ -56,7 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classss\dlChung.cs" />
+    <Compile Include="Classss\LoagIMG.cs" />
+    <Compile Include="Classss\tblDonhangnhap.cs" />
+    <Compile Include="Classss\tbl_Baohanh.cs" />
+    <Compile Include="Classss\tbl_Chitietdondathang.cs" />
+    <Compile Include="Classss\tbl_ctDonhangnhap.cs" />
+    <Compile Include="Classss\tbl_Dondathang.cs" />
+    <Compile Include="Classss\tbl_Khachhang.cs" />
+    <Compile Include="Classss\tbl_Nhacungcap.cs" />
     <Compile Include="Classss\tbl_NhanVien.cs" />
+    <Compile Include="Classss\tbl_Thongsokythuat.cs" />
     <Compile Include="Classss\ttTaikhoan.cs" />
     <Compile Include="ct_baohanh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -94,17 +103,17 @@
     <Compile Include="frmDangnhap.Designer.cs">
       <DependentUpon>frmDangnhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHomeUser.cs">
+    <Compile Include="frmDoimatkhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHomeUser.Designer.cs">
-      <DependentUpon>frmHomeUser.cs</DependentUpon>
+    <Compile Include="frmDoimatkhau.Designer.cs">
+      <DependentUpon>frmDoimatkhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHomeAdmin.cs">
+    <Compile Include="frmDondathang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHomeAdmin.Designer.cs">
-      <DependentUpon>frmHomeAdmin.cs</DependentUpon>
+    <Compile Include="frmDondathang.Designer.cs">
+      <DependentUpon>frmDondathang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHome.cs">
       <SubType>Form</SubType>
@@ -222,11 +231,11 @@
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHomeUser.resx">
-      <DependentUpon>frmHomeUser.cs</DependentUpon>
+    <EmbeddedResource Include="frmDoimatkhau.resx">
+      <DependentUpon>frmDoimatkhau.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHomeAdmin.resx">
-      <DependentUpon>frmHomeAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="frmDondathang.resx">
+      <DependentUpon>frmDondathang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
