@@ -4,37 +4,37 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e48a463804444d6a8bd4a98daa3ff784" Name="Diagram1">
-        <EntityTypeShape EntityType="QLCHModel.ct_baohanh" Width="1.5" PointX="15" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.ct_dondathang" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.ct_donhangnhap" Width="1.5" PointX="12.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.ct_sanpham" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.dondathang" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.donhangnhap" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.hang" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.khachhang" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.loaihang" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.loaithongso" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.nhacungcap" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.nhanvien" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.sanpham" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLCHModel.thongsokythuat" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="QLCHModel.FK__ct_baohan__mactd__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_baohanh__manv__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_dondat__macts__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_dondat__maddh__24927208" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_donhan__macts__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_donhan__madhn__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__ct_sanpham__masp__21B6055D" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__dondathang__makh__15502E78" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__dondathang__manv__145C0A3F" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__donhangnh__mancc__2D27B809" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__donhangnha__manv__2C3393D0" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__hang__maloai__1BFD2C07" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__sanpham__mahang__1ED998B2" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__thongsoky__maloa__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__thongsoky__malts__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="QLCHModel.FK__thongsokyt__masp__36B12243" ManuallyRouted="false" />
+      <Diagram DiagramId="e48a463804444d6a8bd4a98daa3ff784" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="QLCHModel.ct_baohanh" Width="1.5" PointX="15" PointY="8.625" />
+        <EntityTypeShape EntityType="QLCHModel.ct_dondathang" Width="1.5" PointX="9.75" PointY="8.375" />
+        <EntityTypeShape EntityType="QLCHModel.ct_donhangnhap" Width="1.5" PointX="12.75" PointY="9" />
+        <EntityTypeShape EntityType="QLCHModel.ct_sanpham" Width="1.5" PointX="7.5" PointY="8.625" />
+        <EntityTypeShape EntityType="QLCHModel.dondathang" Width="1.5" PointX="7.5" PointY="14.75" />
+        <EntityTypeShape EntityType="QLCHModel.donhangnhap" Width="1.5" PointX="10.5" PointY="0.75" />
+        <EntityTypeShape EntityType="QLCHModel.hang" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="QLCHModel.khachhang" Width="1.5" PointX="5.25" PointY="17.125" />
+        <EntityTypeShape EntityType="QLCHModel.loaihang" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="QLCHModel.loaithongso" Width="1.5" PointX="5.25" PointY="2.875" />
+        <EntityTypeShape EntityType="QLCHModel.nhacungcap" Width="1.5" PointX="8.25" PointY="1" />
+        <EntityTypeShape EntityType="QLCHModel.nhanvien" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="QLCHModel.sanpham" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="QLCHModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="QLCHModel.thongsokythuat" Width="1.5" PointX="7.5" PointY="4.5" />
+        <AssociationConnector Association="QLCHModel.FK__ct_baohan__mactd__286302EC" />
+        <AssociationConnector Association="QLCHModel.FK__ct_baohanh__manv__29572725" />
+        <AssociationConnector Association="QLCHModel.FK__ct_dondat__macts__25869641" />
+        <AssociationConnector Association="QLCHModel.FK__ct_dondat__maddh__24927208" />
+        <AssociationConnector Association="QLCHModel.FK__ct_donhan__macts__30F848ED" />
+        <AssociationConnector Association="QLCHModel.FK__ct_donhan__madhn__300424B4" />
+        <AssociationConnector Association="QLCHModel.FK__ct_sanpham__masp__21B6055D" />
+        <AssociationConnector Association="QLCHModel.FK__dondathang__makh__15502E78" />
+        <AssociationConnector Association="QLCHModel.FK__dondathang__manv__145C0A3F" />
+        <AssociationConnector Association="QLCHModel.FK__donhangnh__mancc__2D27B809" />
+        <AssociationConnector Association="QLCHModel.FK__donhangnha__manv__2C3393D0" />
+        <AssociationConnector Association="QLCHModel.FK__hang__maloai__1BFD2C07" />
+        <AssociationConnector Association="QLCHModel.FK__sanpham__mahang__1ED998B2" />
+        <AssociationConnector Association="QLCHModel.FK__thongsoky__malts__37A5467C" />
+        <AssociationConnector Association="QLCHModel.FK__thongsokyt__masp__36B12243" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
