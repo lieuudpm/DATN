@@ -145,6 +145,18 @@
     <Compile Include="frmThemmoichitietbaohanh.Designer.cs">
       <DependentUpon>frmThemmoichitietbaohanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemMoiHangSanXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMoiHangSanXuat.Designer.cs">
+      <DependentUpon>frmThemMoiHangSanXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiHang.Designer.cs">
+      <DependentUpon>frmThemMoiLoaiHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemmoisanpham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemmoichitietbaohanh.resx">
       <DependentUpon>frmThemmoichitietbaohanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMoiHangSanXuat.resx">
+      <DependentUpon>frmThemMoiHangSanXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMoiLoaiHang.resx">
+      <DependentUpon>frmThemMoiLoaiHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemmoisanpham.resx">
       <DependentUpon>frmThemmoisanpham.cs</DependentUpon>
