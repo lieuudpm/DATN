@@ -36,5 +36,10 @@ namespace WindowsFormsApp2
             }
             dlChung.thoatCT = true;
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

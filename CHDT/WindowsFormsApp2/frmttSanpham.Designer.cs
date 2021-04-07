@@ -39,7 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThemsp = new System.Windows.Forms.Button();
+            this.btnQuaylai = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTenhang = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,25 +50,27 @@
             // 
             this.groupBox1.Controls.Add(this.txtmota);
             this.groupBox1.Controls.Add(this.txtha);
+            this.groupBox1.Controls.Add(this.txtTenhang);
             this.groupBox1.Controls.Add(this.txtmahang);
             this.groupBox1.Controls.Add(this.txtTensp);
             this.groupBox1.Controls.Add(this.txtmasp);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(489, 377);
+            this.groupBox1.Size = new System.Drawing.Size(501, 420);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập thông tin sản phẩm ";
             // 
             // txtmota
             // 
-            this.txtmota.Location = new System.Drawing.Point(29, 275);
+            this.txtmota.Location = new System.Drawing.Point(29, 315);
             this.txtmota.Multiline = true;
             this.txtmota.Name = "txtmota";
             this.txtmota.Size = new System.Drawing.Size(454, 82);
@@ -73,7 +78,7 @@
             // 
             // txtha
             // 
-            this.txtha.Location = new System.Drawing.Point(155, 197);
+            this.txtha.Location = new System.Drawing.Point(155, 249);
             this.txtha.Name = "txtha";
             this.txtha.Size = new System.Drawing.Size(328, 26);
             this.txtha.TabIndex = 3;
@@ -103,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 252);
+            this.label5.Location = new System.Drawing.Point(25, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 1;
@@ -112,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 200);
+            this.label4.Location = new System.Drawing.Point(25, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 1;
@@ -123,9 +128,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Mã hãng";
+            this.label3.Text = "Mã hãng \r\n";
             // 
             // label2
             // 
@@ -145,26 +150,56 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã sản phẩm ";
             // 
-            // button1
+            // btnThemsp
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(376, 421);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThemsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemsp.Location = new System.Drawing.Point(255, 459);
+            this.btnThemsp.Name = "btnThemsp";
+            this.btnThemsp.Size = new System.Drawing.Size(125, 32);
+            this.btnThemsp.TabIndex = 1;
+            this.btnThemsp.Text = "Thêm";
+            this.btnThemsp.UseVisualStyleBackColor = true;
+            this.btnThemsp.Click += new System.EventHandler(this.btnThemsp_Click);
+            // 
+            // btnQuaylai
+            // 
+            this.btnQuaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuaylai.Location = new System.Drawing.Point(405, 459);
+            this.btnQuaylai.Name = "btnQuaylai";
+            this.btnQuaylai.Size = new System.Drawing.Size(125, 32);
+            this.btnQuaylai.TabIndex = 1;
+            this.btnQuaylai.Text = "Quay lại ";
+            this.btnQuaylai.UseVisualStyleBackColor = true;
+            this.btnQuaylai.Click += new System.EventHandler(this.btnQuaylai_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 199);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Tên hãng";
+            // 
+            // txtTenhang
+            // 
+            this.txtTenhang.Location = new System.Drawing.Point(155, 196);
+            this.txtTenhang.Name = "txtTenhang";
+            this.txtTenhang.Size = new System.Drawing.Size(328, 26);
+            this.txtTenhang.TabIndex = 2;
             // 
             // frmttSanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(514, 465);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(542, 503);
+            this.Controls.Add(this.btnQuaylai);
+            this.Controls.Add(this.btnThemsp);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmttSanpham";
             this.Text = "frmttSanpham";
+            this.Load += new System.EventHandler(this.frmttSanpham_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -184,6 +219,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThemsp;
+        private System.Windows.Forms.Button btnQuaylai;
+        private System.Windows.Forms.TextBox txtTenhang;
+        private System.Windows.Forms.Label label6;
     }
 }

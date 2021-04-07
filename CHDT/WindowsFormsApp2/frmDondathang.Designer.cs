@@ -45,11 +45,13 @@
             this.clsoluongdat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cltongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cltinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnxacnhan = new System.Windows.Forms.Button();
             this.btnhuy = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdondathang)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucMenu1
@@ -79,13 +81,14 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbxTinhtrang);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnapdungMHD);
             this.groupBox1.Controls.Add(this.txtnhapmaHD);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(0, 121);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 101);
+            this.groupBox1.Size = new System.Drawing.Size(967, 101);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhập thông tin tìm kiếm ";
@@ -100,8 +103,9 @@
             // 
             // btnapdungMHD
             // 
-            this.btnapdungMHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnapdungMHD.Location = new System.Drawing.Point(731, 25);
+            this.btnapdungMHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnapdungMHD.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnapdungMHD.Location = new System.Drawing.Point(635, 36);
             this.btnapdungMHD.Name = "btnapdungMHD";
             this.btnapdungMHD.Size = new System.Drawing.Size(109, 37);
             this.btnapdungMHD.TabIndex = 1;
@@ -150,10 +154,11 @@
             this.clsoluongdat,
             this.cltongtien,
             this.cltinhtrang});
-            this.dgvdondathang.Location = new System.Drawing.Point(0, 248);
+            this.dgvdondathang.Location = new System.Drawing.Point(0, 34);
             this.dgvdondathang.Name = "dgvdondathang";
-            this.dgvdondathang.Size = new System.Drawing.Size(1222, 326);
+            this.dgvdondathang.Size = new System.Drawing.Size(1278, 303);
             this.dgvdondathang.TabIndex = 8;
+            this.dgvdondathang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdondathang_CellContentClick);
             // 
             // clmahd
             // 
@@ -203,18 +208,9 @@
             this.cltinhtrang.Name = "cltinhtrang";
             this.cltinhtrang.Width = 170;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 225);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 20);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Danh Sách ";
-            // 
             // btnxacnhan
             // 
-            this.btnxacnhan.Location = new System.Drawing.Point(760, 624);
+            this.btnxacnhan.Location = new System.Drawing.Point(859, 624);
             this.btnxacnhan.Name = "btnxacnhan";
             this.btnxacnhan.Size = new System.Drawing.Size(182, 35);
             this.btnxacnhan.TabIndex = 10;
@@ -223,12 +219,34 @@
             // 
             // btnhuy
             // 
-            this.btnhuy.Location = new System.Drawing.Point(981, 624);
+            this.btnhuy.Location = new System.Drawing.Point(1059, 624);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(108, 35);
             this.btnhuy.TabIndex = 11;
             this.btnhuy.Text = "Hủy ";
             this.btnhuy.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvdondathang);
+            this.groupBox2.Location = new System.Drawing.Point(0, 259);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1284, 343);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh sách ";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Location = new System.Drawing.Point(795, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm mới ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnapdungMHD_Click);
             // 
             // frmDondathang
             // 
@@ -236,10 +254,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1284, 691);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnhuy);
             this.Controls.Add(this.btnxacnhan);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvdondathang);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucMenu1);
@@ -254,6 +271,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdondathang)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,10 +294,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clsoluongdat;
         private System.Windows.Forms.DataGridViewTextBoxColumn cltongtien;
         private System.Windows.Forms.DataGridViewTextBoxColumn cltinhtrang;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnxacnhan;
         private System.Windows.Forms.Button btnhuy;
         private System.Windows.Forms.ComboBox cbxTinhtrang;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
     }
 }

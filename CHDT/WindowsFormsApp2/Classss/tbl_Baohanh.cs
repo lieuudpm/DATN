@@ -13,5 +13,11 @@ namespace WindowsFormsApp2.Classss
         {
             return dl.ct_baohanh.ToList();
         }
+         public bool add(ct_baohanh chitietbaohanh)
+        {
+            dl.ct_baohanh.Add(chitietbaohanh);
+            dl.SaveChanges();
+            return true;
+        }
     }
 }

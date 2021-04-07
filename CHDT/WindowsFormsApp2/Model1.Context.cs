@@ -38,6 +38,7 @@ namespace WindowsFormsApp2
         public virtual DbSet<nhacungcap> nhacungcaps { get; set; }
         public virtual DbSet<nhanvien> nhanviens { get; set; }
         public virtual DbSet<sanpham> sanphams { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<thongsokythuat> thongsokythuats { get; set; }
     }
 }

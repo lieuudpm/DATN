@@ -156,12 +156,13 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(641, 119);
+            this.groupBox2.Location = new System.Drawing.Point(708, 119);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(568, 255);
+            this.groupBox2.Size = new System.Drawing.Size(557, 255);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khách hàng ";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // rdbnu
             // 
@@ -273,7 +274,7 @@
             this.cltinhtrang});
             this.dgvdondathang.Location = new System.Drawing.Point(3, 452);
             this.dgvdondathang.Name = "dgvdondathang";
-            this.dgvdondathang.Size = new System.Drawing.Size(1217, 228);
+            this.dgvdondathang.Size = new System.Drawing.Size(1269, 228);
             this.dgvdondathang.TabIndex = 10;
             // 
             // clmahd
@@ -335,7 +336,7 @@
             // 
             // btnquaylai
             // 
-            this.btnquaylai.Location = new System.Drawing.Point(1094, 401);
+            this.btnquaylai.Location = new System.Drawing.Point(1146, 396);
             this.btnquaylai.Name = "btnquaylai";
             this.btnquaylai.Size = new System.Drawing.Size(119, 36);
             this.btnquaylai.TabIndex = 14;
@@ -344,7 +345,7 @@
             // 
             // btnxoaHD
             // 
-            this.btnxoaHD.Location = new System.Drawing.Point(969, 401);
+            this.btnxoaHD.Location = new System.Drawing.Point(1021, 396);
             this.btnxoaHD.Name = "btnxoaHD";
             this.btnxoaHD.Size = new System.Drawing.Size(119, 36);
             this.btnxoaHD.TabIndex = 14;
@@ -353,7 +354,7 @@
             // 
             // btnsuaHD
             // 
-            this.btnsuaHD.Location = new System.Drawing.Point(839, 401);
+            this.btnsuaHD.Location = new System.Drawing.Point(891, 396);
             this.btnsuaHD.Name = "btnsuaHD";
             this.btnsuaHD.Size = new System.Drawing.Size(119, 36);
             this.btnsuaHD.TabIndex = 14;
@@ -362,7 +363,7 @@
             // 
             // btnthemHD
             // 
-            this.btnthemHD.Location = new System.Drawing.Point(714, 401);
+            this.btnthemHD.Location = new System.Drawing.Point(766, 396);
             this.btnthemHD.Name = "btnthemHD";
             this.btnthemHD.Size = new System.Drawing.Size(119, 36);
             this.btnthemHD.TabIndex = 14;

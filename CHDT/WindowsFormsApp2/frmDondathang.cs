@@ -52,5 +52,15 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        private void dgvdondathang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

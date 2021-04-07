@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp2.Classss
 {
-   public class tbl_Chitietdondathang
+  public  class tblSanpham
     {
         db_QLCHEntities2 dl = new db_QLCHEntities2();
-        public List<ct_dondathang> getLstChitietdondathang()
+        public List<sanpham> getLstSanpham()
         {
-            return dl.ct_dondathang.ToList();
+            return dl.sanphams.ToList();
         }
-        public bool add(ct_dondathang chitietdondathang)
+
+        public bool add(sanpham Sanpham)
         {
-            dl.ct_dondathang.Add(chitietdondathang);
+            dl.sanphams.Add(Sanpham);
+            dl.SaveChanges();
+            return true;
+        }
+
+        public bool update()
+        {
             dl.SaveChanges();
             return true;
         }
