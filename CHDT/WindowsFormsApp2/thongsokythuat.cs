@@ -17,12 +17,10 @@ namespace WindowsFormsApp2
         public int matskt { get; set; }
         public string ten { get; set; }
         public string thongsokythuat1 { get; set; }
-        public Nullable<int> maloai { get; set; }
         public Nullable<int> masp { get; set; }
         public Nullable<int> sothutu { get; set; }
         public Nullable<int> malts { get; set; }
     
-        public virtual loaihang loaihang { get; set; }
         public virtual loaithongso loaithongso { get; set; }
         public virtual sanpham sanpham { get; set; }
     }

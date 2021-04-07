@@ -18,7 +18,6 @@ namespace WindowsFormsApp2
         public loaihang()
         {
             this.hangs = new HashSet<hang>();
-            this.thongsokythuats = new HashSet<thongsokythuat>();
         }
     
         public int maloai { get; set; }
@@ -26,7 +25,5 @@ namespace WindowsFormsApp2
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hang> hangs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<thongsokythuat> thongsokythuats { get; set; }
     }
 }

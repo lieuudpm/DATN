@@ -24,7 +24,7 @@ namespace WindowsFormsApp2
         private void setcolor()
         {
             Form frm = this.ParentForm;
-            if(frm is frmhome)
+            if (frm is frmhome)
             {
                 setcolor(lbltrangchu);
             }
@@ -53,7 +53,7 @@ namespace WindowsFormsApp2
                 setcolor(lblBaocao);
 
             }
-            else if(frm is frmThongke)
+            else if (frm is frmThongke)
             {
                 setcolor(lblThongke);
             }
@@ -96,17 +96,17 @@ namespace WindowsFormsApp2
                 frmQlsanpham frm = new frmQlsanpham();
                 frm.Show();
             }
-            else if (lbl.Name.ToLower()== "lblqldonhangnhap")
+            else if (lbl.Name.ToLower() == "lblqldonhangnhap")
             {
                 frmQldonhangnhap frm = new frmQldonhangnhap();
                 frm.Show();
             }
-            else if (lbl.Name.ToLower() =="lblqldondathang")
+            else if (lbl.Name.ToLower() == "lblqldondathang")
             {
                 frmDondathang frm = new frmDondathang();
                 frm.Show();
             }
-            else if (lbl.Name.ToLower()=="lblqlbaohanh")
+            else if (lbl.Name.ToLower() == "lblqlbaohanh")
             {
                 frmBaohanh frm = new frmBaohanh();
                 frm.Show();
@@ -142,7 +142,7 @@ namespace WindowsFormsApp2
                 lblThongke.Visible = false;
 
             }
-            else if (nv.quyenhan==2)
+            else if (nv.quyenhan == 2)
             {
                 lbltrangchu.Visible = false;
                 lblQlsanpham.Visible = false;
@@ -161,37 +161,51 @@ namespace WindowsFormsApp2
 
         private void ucMenu_MouseMove(object sender, MouseEventArgs e)
         {
-            Label lbl = (Label)sender;
-            if (lbl.BackColor == Color.Yellow) 
+            try
             {
-                lbl.ForeColor = Color.Yellow;
-                lbl.BackColor = Color.Red;
-                lbl.Font = new Font(lbl.Font, FontStyle.Regular);
+                Label lbl = (Label)sender;
+                if (lbl.BackColor == Color.Yellow)
+                {
+                    lbl.ForeColor = Color.Yellow;
+                    lbl.BackColor = Color.Red;
+                    lbl.Font = new Font(lbl.Font, FontStyle.Regular);
+                }
             }
-           
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void ucMenu_MouseLeave(object sender, EventArgs e)
         {
-            Label lbl = (Label)sender;
-            if (lbl.BackColor== Color.Red)
+            try
             {
-                lbl.ForeColor = Color.Maroon;
-                lbl.BackColor = Color.Yellow;
-                lbl.Font = new Font(lbl.Font, FontStyle.Regular);
+                Label lbl = (Label)sender;
+                if (lbl.BackColor == Color.Red)
+                {
+                    lbl.ForeColor = Color.Maroon;
+                    lbl.BackColor = Color.Yellow;
+                    lbl.Font = new Font(lbl.Font, FontStyle.Regular);
+                }
             }
-         
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void lblDangxuat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốm đăng xuất", "Thông báo", MessageBoxButtons.YesNo)==DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốm đăng xuất", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 frmdangnhap frm = new frmdangnhap();
                 frm.ShowDialog();
-                
+
             }
-            
+
         }
     }
 }
