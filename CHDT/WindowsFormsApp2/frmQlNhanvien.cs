@@ -32,76 +32,59 @@ namespace WindowsFormsApp2
 
         private void frmQlNhanvien_Load(object sender, EventArgs e)
         {
-            cbxQuyenhan.SelectedIndex = 0;
-            tblNhanVien = new tbl_NhanVien();
-            lstNhanvien = tblNhanVien.getLstNhanVien();
+            cbxQuyenhan.SelectedIndex = 4;
+            List<nhanvien> lstNhanvien = dl.nhanviens.ToList();
             loadDgvHienthi(lstNhanvien);
         }
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            lstNhanvien = new tbl_NhanVien().getLstNhanVien();
-            if (cbxQuyenhan.SelectedIndex == 1)
+            lstNhanvien = dl.nhanviens.ToList();
+            if (cbxQuyenhan.SelectedIndex < 4)
             {
-                lstNhanvien = lstNhanvien.Where(c => c.quyenhan == 2).ToList();
+                lstNhanvien = lstNhanvien.Where(c => c.quyenhan == cbxQuyenhan.SelectedIndex).ToList();
             }
-            else if (cbxQuyenhan.SelectedIndex ==2)
+
+            if (txtSoDienThoai.Text != "")
             {
-                lstNhanvien = lstNhanvien.Where(c => c.quyenhan == 1).ToList();
+                lstNhanvien = lstNhanvien.Where(x => x.sdt.Contains(txtSoDienThoai.Text)).ToList();
             }
-            if (txtManv.Text != "")
-            {
-                lstNhanvien = lstNhanvien.Where(c => c.manv.ToString() == txtManv.Text.ToString()).ToList();
-            }
+            
             loadDgvHienthi(lstNhanvien);
         }
 
         private void btnThemnv_Click(object sender, EventArgs e)
         {
-            
+
             frmttNhanvien frm = new frmttNhanvien();
             frm.ShowDialog();
-            lstNhanvien = new tbl_NhanVien().getLstNhanVien();
-            if (lstNhanvien.Count() != dgvttNV.RowCount)
+            if(frm.Tag!=null && frm.Tag.ToString() == "ok")
             {
-                loadDgvHienthi(lstNhanvien);
+                loadDgvHienthi(dl.nhanviens.ToList());
             }
         }
 
         private void loadDgvHienthi(List<nhanvien> lst)
         {
             dgvttNV.Rows.Clear();
-           // lst = lst.Where(c => c.email != "maithulieu@gmail.com" && c.email != ttTaiKhoan.get().email).ToList();
             if (lst.Count > 0)
             {
                 for (int i = 0; i < lst.Count; i++)
                 {
                     dgvttNV.Rows.Add();
-//dgvttNV.Rows[i].Cells["clSTT"].Value = i + 1;
-                  //  dgvttNV.Rows[i].Cells["clManv"].Value = i + 1;
-                    dgvttNV.Rows[i].Cells["clTennv"].Value = lst[i].tennv;
-                    if (lst[i].quyenhan == 1)
-                    {
-                        dgvttNV.Rows[i].Cells["clQuyenhan"].Value = "Admin";
-
-                    }
-                    else if (lst[i].quyenhan == 2)
-                    {
-                        dgvttNV.Rows[i].Cells["clQuyenhan"].Value = "Nhân viên ";
-                    }
+                    dgvttNV.Rows[i].Cells["clQuyenhan"].Value = dlChung.quyenHanLabel(lst[i].quyenhan);
                     if (lst[i].trangthai == 0)
                     {
-                        dgvttNV.Rows[i].DefaultCellStyle.BackColor = Color.Red;
-                        dgvttNV.Rows[i].DefaultCellStyle.ForeColor = Color.Gold;
+                        dgvttNV.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                        dgvttNV.Rows[i].DefaultCellStyle.ForeColor = Color.White;
                     }
                     dgvttNV.Rows[i].Cells["clManv"].Value = lst[i].manv;
                     dgvttNV.Rows[i].Cells["clTennv"].Value = lst[i].tennv;
-                    dgvttNV.Rows[i].Cells["clGioitinh"].Value = (lst[i].giottinh == null) ? "Nam" : "Nữ";
+                    dgvttNV.Rows[i].Cells["clGioitinh"].Value = dlChung.gioiTinhLabel(lst[i].giottinh);
                     dgvttNV.Rows[i].Cells["clSdt"].Value = lst[i].sdt;
                     dgvttNV.Rows[i].Cells["clDiachi"].Value = lst[i].diachi;
                     dgvttNV.Rows[i].Cells["clSocmnd"].Value = lst[i].cmnd;
                     dgvttNV.Rows[i].Cells["clEmail"].Value = lst[i].email;
-                 //   dgvttNV.Rows[i].Cells["clMatkhau"].Value = lst[i].passwword;
-                    dgvttNV.Rows[i].Cells["clTrangthai"].Value = lst[i].trangthai;
+                    dgvttNV.Rows[i].Cells["clTrangthai"].Value = lst[i].trangthai == 0 ? "Không hoạt đông" : " Hoạt động";
                 }
                 dgvttNV.ClearSelection();
             }
@@ -115,36 +98,12 @@ namespace WindowsFormsApp2
                 frmttNhanvien frm = new frmttNhanvien();
                 frm.Tag = maNhanvien;
                 frm.ShowDialog();
-                nhanvien nv = new tbl_NhanVien().getLstNhanVien().FirstOrDefault();
-                if (nv != null)
+                if (frm.Tag != null && frm.Tag.ToString() == "ok")
                 {
-                    if (nv.quyenhan == 1)
-                    {
-                        dgvttNV.Rows[e.RowIndex].Cells["clQuyenhan"].Value = "Admin";
-                    }
-                    else if (nv.quyenhan == 2)
-                    {
-                        dgvttNV.Rows[e.RowIndex].Cells["clQuyenhan"].Value = "Nhân viên";
-                    }
-                    if (nv.trangthai == 0)
-                    {
-                        dgvttNV.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                        dgvttNV.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Gold;
-                    }
-                    dgvttNV.Rows[e.RowIndex].Cells["clTennv"].Value = nv.tennv;
-                    dgvttNV.Rows[e.RowIndex].Cells["clGioitinh"].Value = (nv.giottinh == null) ? "Nam" : "Nữ";
-                    dgvttNV.Rows[e.RowIndex].Cells["clSdt"].Value = nv.sdt;
-                    dgvttNV.Rows[e.RowIndex].Cells["clDiachi"].Value = nv.diachi;
-                    dgvttNV.Rows[e.RowIndex].Cells["clSocmnd"].Value = nv.cmnd;
-                    dgvttNV.Rows[e.RowIndex].Cells["clEmail"].Value = nv.email;
-                 //   dgvttNV.Rows[e.RowIndex].Cells["clMatkhau"].Value = nv.passwword;
-                   // dgvttNV.Rows[e.RowIndex].Cells["clTrangthai"].Value = nv.trangthai;
+                    dl = new db_QLCHEntities2();
+                    loadDgvHienthi(dl.nhanviens.ToList());
                 }
-                else
-                {
-                    dgvttNV.Rows.Remove(dgvttNV.Rows[e.RowIndex]);
-                }
-            }     
+            }
         }
 
         private void dgvttNV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -154,28 +113,24 @@ namespace WindowsFormsApp2
 
         private void btnEnableDisable_Click(object sender, EventArgs e)
         {
-            tbl_NhanVien tbltaikhoan = new tbl_NhanVien();
-            if (dgvttNV.SelectedRows.Count >0)
+            if(dgvttNV.SelectedRows.Count >= 1)
             {
-                foreach (DataGridViewRow row in dgvttNV.SelectedRows )
+                DialogResult result = MessageBox.Show("Bạn thực sự muốn thay đổi trạng thái không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    string maNhanvien = row.Cells["clManv"].Value.ToString();
-                    nhanvien tk = tbltaikhoan.getLstNhanVien().First(c => c.tennv == maNhanvien);
-                    if (tk.trangthai == 0)
-                    {
-                        tk.trangthai = 1;
-                    }
-                    else
-                    {
-                        tk.trangthai = 0;
-                    }
-
-                    if (tbltaikhoan.update()== true)
-                    {
-                        loadDgvHienthi(new tbl_NhanVien().getLstNhanVien());
-                    }
+                    int manv = Int32.Parse(dgvttNV.SelectedRows[0].Cells["clManv"].Value.ToString());
+                    nhanvien editData = dl.nhanviens.FirstOrDefault(x => x.manv == manv);
+                    editData.trangthai = editData.trangthai == 0 ? 1 : 0;
+                    dl.SaveChanges();
+                    dl = new db_QLCHEntities2();
+                    loadDgvHienthi(dl.nhanviens.ToList());
                 }
             }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên để tiếp tục.");
+            }
+            
         }
 
         private void ucMenu1_Load(object sender, EventArgs e)

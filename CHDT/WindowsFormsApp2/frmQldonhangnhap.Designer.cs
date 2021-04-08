@@ -47,16 +47,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvQldonhangnhap = new System.Windows.Forms.DataGridView();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btntaohoadonnhap = new System.Windows.Forms.Button();
-            this.btnHuytao = new System.Windows.Forms.Button();
             this.clMasp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTensp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMahang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHinhanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btntaohoadonnhap = new System.Windows.Forms.Button();
+            this.btnHuytao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             this.ucMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";
@@ -256,44 +256,6 @@
             this.dgvQldonhangnhap.Size = new System.Drawing.Size(1220, 136);
             this.dgvQldonhangnhap.TabIndex = 2;
             // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(17, 34);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(121, 30);
-            this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Danh sách: ";
-            // 
-            // btntaohoadonnhap
-            // 
-            this.btntaohoadonnhap.Location = new System.Drawing.Point(920, 645);
-            this.btntaohoadonnhap.Name = "btntaohoadonnhap";
-            this.btntaohoadonnhap.Size = new System.Drawing.Size(146, 34);
-            this.btntaohoadonnhap.TabIndex = 4;
-            this.btntaohoadonnhap.Text = "Tạo hóa đơn ";
-            this.btntaohoadonnhap.UseVisualStyleBackColor = true;
-            this.btntaohoadonnhap.Click += new System.EventHandler(this.btntaohoadonnhap_Click);
-            // 
-            // btnHuytao
-            // 
-            this.btnHuytao.Location = new System.Drawing.Point(1112, 645);
-            this.btnHuytao.Name = "btnHuytao";
-            this.btnHuytao.Size = new System.Drawing.Size(97, 34);
-            this.btnHuytao.TabIndex = 4;
-            this.btnHuytao.Text = "Hủy ";
-            this.btnHuytao.UseVisualStyleBackColor = true;
-            // 
             // clMasp
             // 
             this.clMasp.HeaderText = "Mã sản phẩm ";
@@ -329,6 +291,44 @@
             this.clMota.HeaderText = "Mô tả";
             this.clMota.Name = "clMota";
             this.clMota.Width = 200;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(342, 25);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(121, 30);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 78);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Danh sách: ";
+            // 
+            // btntaohoadonnhap
+            // 
+            this.btntaohoadonnhap.Location = new System.Drawing.Point(920, 645);
+            this.btntaohoadonnhap.Name = "btntaohoadonnhap";
+            this.btntaohoadonnhap.Size = new System.Drawing.Size(146, 34);
+            this.btntaohoadonnhap.TabIndex = 4;
+            this.btntaohoadonnhap.Text = "Tạo hóa đơn ";
+            this.btntaohoadonnhap.UseVisualStyleBackColor = true;
+            this.btntaohoadonnhap.Click += new System.EventHandler(this.btntaohoadonnhap_Click);
+            // 
+            // btnHuytao
+            // 
+            this.btnHuytao.Location = new System.Drawing.Point(1112, 645);
+            this.btnHuytao.Name = "btnHuytao";
+            this.btnHuytao.Size = new System.Drawing.Size(97, 34);
+            this.btnHuytao.TabIndex = 4;
+            this.btnHuytao.Text = "Hủy ";
+            this.btnHuytao.UseVisualStyleBackColor = true;
             // 
             // frmQldonhangnhap
             // 

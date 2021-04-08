@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp2.Classss;
 
 namespace WindowsFormsApp2
 {
@@ -47,6 +48,24 @@ namespace WindowsFormsApp2
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+      
+
+        private void frmThemMoiLoaiHang_Load(object sender, EventArgs e)
+        {
+            //string maLoaihang = "";
+
+            //try
+            //{
+            //    maLoaihang = this.Tag.ToString();
+            //    tblLoaihang tbl = new tblLoaihang();
+            //    loaihang loaihang = tbl.getLstLoaihang().First(c => c.maloai ==int.Parse(maLoaihang));
+            //    txtLoai.Text = loaihang.tenloai;
+            //}
+            //catch (Exception)
+            //{
+
+            //}
         }
     }
 }

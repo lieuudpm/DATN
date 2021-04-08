@@ -73,6 +73,8 @@
     <Compile Include="Classss\dlChung.cs" />
     <Compile Include="Classss\LoagIMG.cs" />
     <Compile Include="Classss\tblDonhangnhap.cs" />
+    <Compile Include="Classss\tblHangsanxuat.cs" />
+    <Compile Include="Classss\tblLoaihang.cs" />
     <Compile Include="Classss\tblSanpham.cs" />
     <Compile Include="Classss\tbl_Baohanh.cs" />
     <Compile Include="Classss\tbl_Chitietdondathang.cs" />
@@ -142,6 +144,12 @@
     </Compile>
     <Compile Include="frmQldonhangnhap.Designer.cs">
       <DependentUpon>frmQldonhangnhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLloaihang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLloaihang.Designer.cs">
+      <DependentUpon>frmQLloaihang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQlNhanvien.cs">
       <SubType>Form</SubType>
@@ -273,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQldonhangnhap.resx">
       <DependentUpon>frmQldonhangnhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLloaihang.resx">
+      <DependentUpon>frmQLloaihang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQlNhanvien.resx">
       <DependentUpon>frmQlNhanvien.cs</DependentUpon>

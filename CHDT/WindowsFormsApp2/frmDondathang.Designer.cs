@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbxTinhtrang = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnapdungMHD = new System.Windows.Forms.Button();
             this.txtnhapmaHD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.btnxacnhan = new System.Windows.Forms.Button();
             this.btnhuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdondathang)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             this.ucMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";
@@ -100,6 +100,18 @@
             this.cbxTinhtrang.Name = "cbxTinhtrang";
             this.cbxTinhtrang.Size = new System.Drawing.Size(186, 28);
             this.cbxTinhtrang.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.button1.Location = new System.Drawing.Point(795, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 37);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm mới ";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnapdungMHD_Click);
             // 
             // btnapdungMHD
             // 
@@ -235,18 +247,6 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách ";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button1.Location = new System.Drawing.Point(795, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm mới ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnapdungMHD_Click);
             // 
             // frmDondathang
             // 

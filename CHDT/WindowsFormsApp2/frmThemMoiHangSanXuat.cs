@@ -19,7 +19,9 @@ namespace WindowsFormsApp2
 
         private void frmThemmoisanpham_Load(object sender, EventArgs e)
         {
+
             loadLoaiHang();
+      
         }
 
         private void loadLoaiHang()
@@ -56,6 +58,11 @@ namespace WindowsFormsApp2
                     this.Close();
                 }
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

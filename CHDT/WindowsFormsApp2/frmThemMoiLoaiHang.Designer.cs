@@ -128,6 +128,7 @@
             this.Name = "frmThemMoiLoaiHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThemmoisanpham";
+            this.Load += new System.EventHandler(this.frmThemMoiLoaiHang_Load);
             this.cmsNhomHang.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

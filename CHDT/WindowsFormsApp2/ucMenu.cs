@@ -57,6 +57,10 @@ namespace WindowsFormsApp2
             {
                 setcolor(lblThongke);
             }
+            else if (frm is frmQLloaihang)
+            {
+                setcolor(lblQLloaihang);
+            }
         }
 
 
@@ -121,6 +125,11 @@ namespace WindowsFormsApp2
                 frmThongke frm = new frmThongke();
                 frm.Show();
             }
+            else if (lbl.Name.ToLower() == "lblqlloaihang")
+            {
+                frmQLloaihang frm = new frmQLloaihang();
+                frm.Show();
+            }
         }
 
 
@@ -140,6 +149,7 @@ namespace WindowsFormsApp2
                 lblQlbaohanh.Visible = false;
                 lblBaocao.Visible = false;
                 lblThongke.Visible = false;
+                lblQLloaihang.Visible = false;
 
             }
             else if (nv.quyenhan == 2)
@@ -151,6 +161,7 @@ namespace WindowsFormsApp2
                 lblQlbaohanh.Visible = false;
                 lblBaocao.Visible = false;
                 lblThongke.Visible = false;
+                
             }
 
         }

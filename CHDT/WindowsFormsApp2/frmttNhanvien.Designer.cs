@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtmanv = new System.Windows.Forms.TextBox();
             this.btnthemNV = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTennv = new System.Windows.Forms.TextBox();
@@ -50,7 +48,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.rdbNvnu = new System.Windows.Forms.RadioButton();
             this.rdbNvnam = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckxTrangthai = new System.Windows.Forms.CheckBox();
             this.cbxquyenhan = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -58,33 +56,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(212, 9);
+            this.label1.Location = new System.Drawing.Point(174, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông tin nhân viên ";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mã nhân viên:";
-            // 
-            // txtmanv
-            // 
-            this.txtmanv.Location = new System.Drawing.Point(247, 77);
-            this.txtmanv.Name = "txtmanv";
-            this.txtmanv.Size = new System.Drawing.Size(339, 26);
-            this.txtmanv.TabIndex = 2;
-            // 
             // btnthemNV
             // 
             this.btnthemNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnthemNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnthemNV.Location = new System.Drawing.Point(51, 555);
+            this.btnthemNV.Location = new System.Drawing.Point(38, 460);
             this.btnthemNV.Name = "btnthemNV";
             this.btnthemNV.Size = new System.Drawing.Size(108, 33);
             this.btnthemNV.TabIndex = 3;
@@ -95,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(52, 127);
+            this.label3.Location = new System.Drawing.Point(60, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 20);
             this.label3.TabIndex = 1;
@@ -103,7 +85,7 @@
             // 
             // txtTennv
             // 
-            this.txtTennv.Location = new System.Drawing.Point(247, 122);
+            this.txtTennv.Location = new System.Drawing.Point(178, 105);
             this.txtTennv.Name = "txtTennv";
             this.txtTennv.Size = new System.Drawing.Size(339, 26);
             this.txtTennv.TabIndex = 2;
@@ -111,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(52, 171);
+            this.label4.Location = new System.Drawing.Point(60, 149);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 1;
@@ -120,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(52, 215);
+            this.label5.Location = new System.Drawing.Point(60, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 1;
@@ -128,7 +110,7 @@
             // 
             // txtdiachi
             // 
-            this.txtdiachi.Location = new System.Drawing.Point(247, 212);
+            this.txtdiachi.Location = new System.Drawing.Point(178, 191);
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(339, 26);
             this.txtdiachi.TabIndex = 2;
@@ -136,7 +118,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 259);
+            this.label6.Location = new System.Drawing.Point(60, 237);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 20);
             this.label6.TabIndex = 1;
@@ -145,7 +127,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(52, 303);
+            this.label7.Location = new System.Drawing.Point(60, 281);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 20);
             this.label7.TabIndex = 1;
@@ -153,14 +135,14 @@
             // 
             // txtsdt
             // 
-            this.txtsdt.Location = new System.Drawing.Point(247, 257);
+            this.txtsdt.Location = new System.Drawing.Point(178, 235);
             this.txtsdt.Name = "txtsdt";
             this.txtsdt.Size = new System.Drawing.Size(339, 26);
             this.txtsdt.TabIndex = 2;
             // 
             // txtsoCMNN
             // 
-            this.txtsoCMNN.Location = new System.Drawing.Point(247, 302);
+            this.txtsoCMNN.Location = new System.Drawing.Point(178, 279);
             this.txtsoCMNN.Name = "txtsoCMNN";
             this.txtsoCMNN.Size = new System.Drawing.Size(339, 26);
             this.txtsoCMNN.TabIndex = 2;
@@ -168,7 +150,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(52, 347);
+            this.label8.Location = new System.Drawing.Point(60, 325);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 20);
             this.label8.TabIndex = 1;
@@ -176,7 +158,7 @@
             // 
             // txtemail
             // 
-            this.txtemail.Location = new System.Drawing.Point(247, 347);
+            this.txtemail.Location = new System.Drawing.Point(178, 323);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(339, 26);
             this.txtemail.TabIndex = 2;
@@ -184,7 +166,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(52, 397);
+            this.label10.Location = new System.Drawing.Point(60, 369);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 20);
             this.label10.TabIndex = 1;
@@ -194,7 +176,7 @@
             // 
             this.btnsuaNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnsuaNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsuaNV.Location = new System.Drawing.Point(178, 555);
+            this.btnsuaNV.Location = new System.Drawing.Point(165, 460);
             this.btnsuaNV.Name = "btnsuaNV";
             this.btnsuaNV.Size = new System.Drawing.Size(103, 33);
             this.btnsuaNV.TabIndex = 3;
@@ -206,7 +188,7 @@
             // 
             this.btnXoanv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnXoanv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoanv.Location = new System.Drawing.Point(303, 555);
+            this.btnXoanv.Location = new System.Drawing.Point(290, 460);
             this.btnXoanv.Name = "btnXoanv";
             this.btnXoanv.Size = new System.Drawing.Size(109, 33);
             this.btnXoanv.TabIndex = 3;
@@ -218,7 +200,7 @@
             // 
             this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.Location = new System.Drawing.Point(444, 555);
+            this.btnThoat.Location = new System.Drawing.Point(431, 460);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(107, 33);
             this.btnThoat.TabIndex = 3;
@@ -229,7 +211,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(52, 441);
+            this.label11.Location = new System.Drawing.Point(60, 413);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 20);
             this.label11.TabIndex = 1;
@@ -238,7 +220,7 @@
             // rdbNvnu
             // 
             this.rdbNvnu.AutoSize = true;
-            this.rdbNvnu.Location = new System.Drawing.Point(348, 171);
+            this.rdbNvnu.Location = new System.Drawing.Point(278, 149);
             this.rdbNvnu.Name = "rdbNvnu";
             this.rdbNvnu.Size = new System.Drawing.Size(47, 24);
             this.rdbNvnu.TabIndex = 4;
@@ -249,7 +231,7 @@
             // 
             this.rdbNvnam.AutoSize = true;
             this.rdbNvnam.Checked = true;
-            this.rdbNvnam.Location = new System.Drawing.Point(247, 171);
+            this.rdbNvnam.Location = new System.Drawing.Point(178, 149);
             this.rdbNvnam.Name = "rdbNvnam";
             this.rdbNvnam.Size = new System.Drawing.Size(60, 24);
             this.rdbNvnam.TabIndex = 5;
@@ -257,37 +239,40 @@
             this.rdbNvnam.Text = "Nam";
             this.rdbNvnam.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // ckxTrangthai
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(247, 453);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 24);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Hoạt Động ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckxTrangthai.AutoSize = true;
+            this.ckxTrangthai.Checked = true;
+            this.ckxTrangthai.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckxTrangthai.Location = new System.Drawing.Point(178, 413);
+            this.ckxTrangthai.Name = "ckxTrangthai";
+            this.ckxTrangthai.Size = new System.Drawing.Size(110, 24);
+            this.ckxTrangthai.TabIndex = 6;
+            this.ckxTrangthai.Text = "Hoạt Động ";
+            this.ckxTrangthai.UseVisualStyleBackColor = true;
             // 
             // cbxquyenhan
             // 
             this.cbxquyenhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxquyenhan.FormattingEnabled = true;
             this.cbxquyenhan.Items.AddRange(new object[] {
-            "Nhân viên ",
-            "Admin"});
-            this.cbxquyenhan.Location = new System.Drawing.Point(247, 397);
+            "Admin",
+            "Nhân viên bán hàng ",
+            "Nhân viên kế toán",
+            "Nhân viên kho "});
+            this.cbxquyenhan.Location = new System.Drawing.Point(178, 367);
             this.cbxquyenhan.Name = "cbxquyenhan";
-            this.cbxquyenhan.Size = new System.Drawing.Size(121, 28);
+            this.cbxquyenhan.Size = new System.Drawing.Size(339, 28);
             this.cbxquyenhan.TabIndex = 7;
-//this.cbxquyenhan.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // frmttNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(649, 600);
+            this.ClientSize = new System.Drawing.Size(576, 532);
             this.Controls.Add(this.cbxquyenhan);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ckxTrangthai);
             this.Controls.Add(this.rdbNvnu);
             this.Controls.Add(this.rdbNvnam);
             this.Controls.Add(this.btnThoat);
@@ -300,7 +285,6 @@
             this.Controls.Add(this.txtemail);
             this.Controls.Add(this.txtsdt);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtmanv);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -308,7 +292,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -325,8 +308,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtmanv;
         private System.Windows.Forms.Button btnthemNV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTennv;
@@ -346,7 +327,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton rdbNvnu;
         private System.Windows.Forms.RadioButton rdbNvnam;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckxTrangthai;
         private System.Windows.Forms.ComboBox cbxquyenhan;
     }
 }

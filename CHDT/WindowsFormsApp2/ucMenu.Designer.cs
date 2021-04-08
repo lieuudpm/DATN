@@ -37,6 +37,7 @@
             this.lblBaocao = new System.Windows.Forms.Label();
             this.lblThongke = new System.Windows.Forms.Label();
             this.lblDangxuat = new System.Windows.Forms.Label();
+            this.lblQLloaihang = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbltrangchu
@@ -155,11 +156,24 @@
             this.lblDangxuat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDangxuat.Click += new System.EventHandler(this.lblDangxuat_Click);
             // 
+            // lblQLloaihang
+            // 
+            this.lblQLloaihang.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblQLloaihang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQLloaihang.Location = new System.Drawing.Point(930, 0);
+            this.lblQLloaihang.Name = "lblQLloaihang";
+            this.lblQLloaihang.Size = new System.Drawing.Size(117, 43);
+            this.lblQLloaihang.TabIndex = 3;
+            this.lblQLloaihang.Text = "QL Loại hàng ";
+            this.lblQLloaihang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblQLloaihang.Click += new System.EventHandler(this.lbltrangchu_Click);
+            // 
             // ucMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Controls.Add(this.lblQLloaihang);
             this.Controls.Add(this.lblDangxuat);
             this.Controls.Add(this.lblThongke);
             this.Controls.Add(this.lblBaocao);
@@ -170,7 +184,7 @@
             this.Controls.Add(this.lblQlnhanvien);
             this.Controls.Add(this.lbltrangchu);
             this.Name = "ucMenu";
-            this.Size = new System.Drawing.Size(959, 43);
+            this.Size = new System.Drawing.Size(1082, 43);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucMenu_Paint);
             this.MouseLeave += new System.EventHandler(this.ucMenu_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ucMenu_MouseMove);
@@ -189,5 +203,6 @@
         private System.Windows.Forms.Label lblBaocao;
         private System.Windows.Forms.Label lblThongke;
         private System.Windows.Forms.Label lblDangxuat;
+        private System.Windows.Forms.Label lblQLloaihang;
     }
 }
