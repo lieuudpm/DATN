@@ -87,7 +87,7 @@ CREATE TABLE ct_sanpham
   soluong int,
   masp int FOREIGN KEY REFERENCES sanpham (masp),
   giaban bigint,
-  giasale int,
+  giasale bigint,
   thoigianbh int,
 )
 
