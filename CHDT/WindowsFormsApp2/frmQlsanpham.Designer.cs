@@ -270,6 +270,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmQlsanpham";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQlsanpham_FormClosing);
+            this.Load += new System.EventHandler(this.frmQlsanpham_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

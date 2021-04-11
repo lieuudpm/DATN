@@ -32,5 +32,55 @@ namespace WindowsFormsApp2
             }
             dlChung.thoatCT = true;
         }
+
+        private void frmQlsanpham_Load(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void loadData()
+        {
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+            var qry = from sp in dl.sanphams
+                          from ct_sp in dl.ct_sanpham
+                          .Where(x => x.masp == sp.masp).DefaultIfEmpty()
+                          from hang_sp in dl.hangs
+                          .Where(x => x.mahang == sp.mahang).DefaultIfEmpty()
+                          select new
+                          {
+                              id = sp.masp,
+                              loai = hang_sp.loaihang.tenloai,
+                              hangsp = hang_sp.tenhang,
+                              tinhtrang = ct_sp.tinhtrang,
+                              tensp = sp.tensp,
+                              giaban = ct_sp.giaban,
+                              giasale = ct_sp.giasale,
+                              soluong = ct_sp.soluong,
+                              baohanh = ct_sp.thoigianbh
+                          };
+            var lstData = qry.ToList();
+
+            dgvHienThi.Rows.Clear();
+            if (lstData.Count() > 0)
+            {
+                for (int i = 0; i < lstData.Count(); i++)
+                {
+                    dgvHienThi.Rows.Add();
+                    dgvHienThi.Rows[i].Cells["clId"].Value = lstData[i].id;
+                    dgvHienThi.Rows[i].Cells["clLoai"].Value = lstData[i].loai;
+                    dgvHienThi.Rows[i].Cells["clHang"].Value = lstData[i].hangsp;
+                    dgvHienThi.Rows[i].Cells["clTinhTrang"].Value = lstData[i].tinhtrang;
+                    dgvHienThi.Rows[i].Cells["clTen"].Value = lstData[i].tensp;
+                    dgvHienThi.Rows[i].Cells["clGiaBan"].Value = lstData[i].giaban;
+                    dgvHienThi.Rows[i].Cells["clGiaSale"].Value = lstData[i].giasale;
+                    dgvHienThi.Rows[i].Cells["clSoLuong"].Value = lstData[i].soluong;
+                    dgvHienThi.Rows[i].Cells["clBaoHanh"].Value = lstData[i].baohanh;
+
+
+                }
+                dgvHienThi.ClearSelection();
+            }
+
+        }
     }
 }

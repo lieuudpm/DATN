@@ -1,4 +1,12 @@
 
+use master;
+
+go
+
+ALTER DATABASE QLCH SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE  QLCH;
+
+go
 CREATE DATABASE QLCH
 
 GO
@@ -80,7 +88,7 @@ CREATE TABLE ct_sanpham
   masp int FOREIGN KEY REFERENCES sanpham (masp),
   giaban bigint,
   giasale int,
-  thoigianbh date,
+  thoigianbh int,
 )
 
 CREATE TABLE ct_dondathang 
@@ -135,10 +143,12 @@ CREATE TABLE loaithongso (
 CREATE TABLE thongsokythuat (
   matskt int PRIMARY KEY IDENTITY (1, 1),
   ten nvarchar(100),
-  thongsokythuat nvarchar(200)
+  thongsokythuat nvarchar(200),
   masp int FOREIGN KEY REFERENCES sanpham (masp),
   sothutu int,
-  malts int FOREIGN KEY REFERENCES loaithongso (malts)
+  malts int FOREIGN KEY REFERENCES loaithongso (malts),
+  idparent int default 0,
+  isdefault int default 0
 )
 
 

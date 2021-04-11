@@ -52,8 +52,8 @@
           <Property Name="soluong" Type="int" />
           <Property Name="masp" Type="int" />
           <Property Name="giaban" Type="bigint" />
-          <Property Name="giasale" Type="int" />
-          <Property Name="thoigianbh" Type="date" />
+          <Property Name="giasale" Type="bigint" />
+          <Property Name="thoigianbh" Type="int" />
         </EntityType>
         <EntityType Name="dondathang">
           <Key>
@@ -145,16 +145,6 @@
           <Property Name="anh" Type="varbinary" MaxLength="50" />
           <Property Name="mota" Type="nvarchar" MaxLength="300" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="thongsokythuat">
           <Key>
             <PropertyRef Name="matskt" />
@@ -165,6 +155,8 @@
           <Property Name="masp" Type="int" />
           <Property Name="sothutu" Type="int" />
           <Property Name="malts" Type="int" />
+          <Property Name="idparent" Type="int" />
+          <Property Name="isdefault" Type="int" />
         </EntityType>
         <Association Name="FK__ct_baohan__mactd__286302EC">
           <End Role="ct_dondathang" Type="Self.ct_dondathang" Multiplicity="0..1" />
@@ -322,7 +314,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsoky__malts__37A5467C">
+        <Association Name="FK__thongsoky__malts__36B12243">
           <End Role="loaithongso" Type="Self.loaithongso" Multiplicity="0..1" />
           <End Role="thongsokythuat" Type="Self.thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -334,7 +326,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsokyt__masp__36B12243">
+        <Association Name="FK__thongsokyt__masp__35BCFE0A">
           <End Role="sanpham" Type="Self.sanpham" Multiplicity="0..1" />
           <End Role="thongsokythuat" Type="Self.thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,7 +352,6 @@
           <EntitySet Name="nhacungcap" EntityType="Self.nhacungcap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="nhanvien" EntityType="Self.nhanvien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sanpham" EntityType="Self.sanpham" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="thongsokythuat" EntityType="Self.thongsokythuat" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ct_baohan__mactd__286302EC" Association="Self.FK__ct_baohan__mactd__286302EC">
             <End Role="ct_dondathang" EntitySet="ct_dondathang" />
@@ -414,11 +405,11 @@
             <End Role="hang" EntitySet="hang" />
             <End Role="sanpham" EntitySet="sanpham" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsoky__malts__37A5467C" Association="Self.FK__thongsoky__malts__37A5467C">
+          <AssociationSet Name="FK__thongsoky__malts__36B12243" Association="Self.FK__thongsoky__malts__36B12243">
             <End Role="loaithongso" EntitySet="loaithongso" />
             <End Role="thongsokythuat" EntitySet="thongsokythuat" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsokyt__masp__36B12243" Association="Self.FK__thongsokyt__masp__36B12243">
+          <AssociationSet Name="FK__thongsokyt__masp__35BCFE0A" Association="Self.FK__thongsokyt__masp__35BCFE0A">
             <End Role="sanpham" EntitySet="sanpham" />
             <End Role="thongsokythuat" EntitySet="thongsokythuat" />
           </AssociationSet>
@@ -441,7 +432,6 @@
           <EntitySet Name="nhacungcaps" EntityType="QLCHModel.nhacungcap" />
           <EntitySet Name="nhanviens" EntityType="QLCHModel.nhanvien" />
           <EntitySet Name="sanphams" EntityType="QLCHModel.sanpham" />
-          <EntitySet Name="sysdiagrams" EntityType="QLCHModel.sysdiagram" />
           <EntitySet Name="thongsokythuats" EntityType="QLCHModel.thongsokythuat" />
           <AssociationSet Name="FK__ct_baohan__mactd__286302EC" Association="QLCHModel.FK__ct_baohan__mactd__286302EC">
             <End Role="ct_dondathang" EntitySet="ct_dondathang" />
@@ -495,11 +485,11 @@
             <End Role="hang" EntitySet="hangs" />
             <End Role="sanpham" EntitySet="sanphams" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsoky__malts__37A5467C" Association="QLCHModel.FK__thongsoky__malts__37A5467C">
+          <AssociationSet Name="FK__thongsoky__malts__36B12243" Association="QLCHModel.FK__thongsoky__malts__36B12243">
             <End Role="loaithongso" EntitySet="loaithongsoes" />
             <End Role="thongsokythuat" EntitySet="thongsokythuats" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsokyt__masp__36B12243" Association="QLCHModel.FK__thongsokyt__masp__36B12243">
+          <AssociationSet Name="FK__thongsokyt__masp__35BCFE0A" Association="QLCHModel.FK__thongsokyt__masp__35BCFE0A">
             <End Role="sanpham" EntitySet="sanphams" />
             <End Role="thongsokythuat" EntitySet="thongsokythuats" />
           </AssociationSet>
@@ -558,8 +548,8 @@
           <Property Name="soluong" Type="Int32" />
           <Property Name="masp" Type="Int32" />
           <Property Name="giaban" Type="Int64" />
-          <Property Name="giasale" Type="Int32" />
-          <Property Name="thoigianbh" Type="DateTime" Precision="0" />
+          <Property Name="giasale" Type="Int64" />
+          <Property Name="thoigianbh" Type="Int32" />
           <NavigationProperty Name="ct_dondathang" Relationship="QLCHModel.FK__ct_dondat__macts__25869641" FromRole="ct_sanpham" ToRole="ct_dondathang" />
           <NavigationProperty Name="ct_donhangnhap" Relationship="QLCHModel.FK__ct_donhan__macts__30F848ED" FromRole="ct_sanpham" ToRole="ct_donhangnhap" />
           <NavigationProperty Name="sanpham" Relationship="QLCHModel.FK__ct_sanpham__masp__21B6055D" FromRole="ct_sanpham" ToRole="sanpham" />
@@ -628,7 +618,7 @@
           <Property Name="malts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tents" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="stt" Type="Int32" />
-          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsoky__malts__37A5467C" FromRole="loaithongso" ToRole="thongsokythuat" />
+          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsoky__malts__36B12243" FromRole="loaithongso" ToRole="thongsokythuat" />
         </EntityType>
         <EntityType Name="nhacungcap">
           <Key>
@@ -670,17 +660,7 @@
           <Property Name="mota" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_sanpham" Relationship="QLCHModel.FK__ct_sanpham__masp__21B6055D" FromRole="sanpham" ToRole="ct_sanpham" />
           <NavigationProperty Name="hang" Relationship="QLCHModel.FK__sanpham__mahang__1ED998B2" FromRole="sanpham" ToRole="hang" />
-          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsokyt__masp__36B12243" FromRole="sanpham" ToRole="thongsokythuat" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsokyt__masp__35BCFE0A" FromRole="sanpham" ToRole="thongsokythuat" />
         </EntityType>
         <EntityType Name="thongsokythuat">
           <Key>
@@ -692,8 +672,10 @@
           <Property Name="masp" Type="Int32" />
           <Property Name="sothutu" Type="Int32" />
           <Property Name="malts" Type="Int32" />
-          <NavigationProperty Name="loaithongso" Relationship="QLCHModel.FK__thongsoky__malts__37A5467C" FromRole="thongsokythuat" ToRole="loaithongso" />
-          <NavigationProperty Name="sanpham" Relationship="QLCHModel.FK__thongsokyt__masp__36B12243" FromRole="thongsokythuat" ToRole="sanpham" />
+          <Property Name="idparent" Type="Int32" />
+          <Property Name="isdefault" Type="Int32" />
+          <NavigationProperty Name="loaithongso" Relationship="QLCHModel.FK__thongsoky__malts__36B12243" FromRole="thongsokythuat" ToRole="loaithongso" />
+          <NavigationProperty Name="sanpham" Relationship="QLCHModel.FK__thongsokyt__masp__35BCFE0A" FromRole="thongsokythuat" ToRole="sanpham" />
         </EntityType>
         <Association Name="FK__ct_baohan__mactd__286302EC">
           <End Type="QLCHModel.ct_dondathang" Role="ct_dondathang" Multiplicity="0..1" />
@@ -851,7 +833,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsoky__malts__37A5467C">
+        <Association Name="FK__thongsoky__malts__36B12243">
           <End Type="QLCHModel.loaithongso" Role="loaithongso" Multiplicity="0..1" />
           <End Type="QLCHModel.thongsokythuat" Role="thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -863,7 +845,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsokyt__masp__36B12243">
+        <Association Name="FK__thongsokyt__masp__35BCFE0A">
           <End Type="QLCHModel.sanpham" Role="sanpham" Multiplicity="0..1" />
           <End Type="QLCHModel.thongsokythuat" Role="thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1034,20 +1016,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="QLCHModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="thongsokythuats">
             <EntityTypeMapping TypeName="QLCHModel.thongsokythuat">
               <MappingFragment StoreEntitySet="thongsokythuat">
+                <ScalarProperty Name="isdefault" ColumnName="isdefault" />
+                <ScalarProperty Name="idparent" ColumnName="idparent" />
                 <ScalarProperty Name="malts" ColumnName="malts" />
                 <ScalarProperty Name="sothutu" ColumnName="sothutu" />
                 <ScalarProperty Name="masp" ColumnName="masp" />

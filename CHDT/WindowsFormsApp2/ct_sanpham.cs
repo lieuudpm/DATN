@@ -26,8 +26,8 @@ namespace WindowsFormsApp2
         public Nullable<int> soluong { get; set; }
         public Nullable<int> masp { get; set; }
         public Nullable<long> giaban { get; set; }
-        public Nullable<int> giasale { get; set; }
-        public Nullable<System.DateTime> thoigianbh { get; set; }
+        public Nullable<long> giasale { get; set; }
+        public Nullable<int> thoigianbh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ct_dondathang> ct_dondathang { get; set; }

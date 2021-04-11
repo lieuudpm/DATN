@@ -20,6 +20,8 @@ namespace WindowsFormsApp2
         public Nullable<int> masp { get; set; }
         public Nullable<int> sothutu { get; set; }
         public Nullable<int> malts { get; set; }
+        public Nullable<int> idparent { get; set; }
+        public Nullable<int> isdefault { get; set; }
     
         public virtual loaithongso loaithongso { get; set; }
         public virtual sanpham sanpham { get; set; }
