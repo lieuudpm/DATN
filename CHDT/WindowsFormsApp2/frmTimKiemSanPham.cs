@@ -11,9 +11,9 @@ using WindowsFormsApp2.Classss;
 
 namespace WindowsFormsApp2
 {
-    public partial class frmQlsanpham : Form
+    public partial class frmTimKiemSanPham : Form
     {
-        public frmQlsanpham()
+        public frmTimKiemSanPham()
         {
             InitializeComponent();
         }
@@ -22,15 +22,6 @@ namespace WindowsFormsApp2
         {
             frmThemmoisanpham frm = new frmThemmoisanpham();
             frm.ShowDialog();
-        }
-
-        private void frmQlsanpham_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (dlChung.thoatCT == true)
-            {
-                Application.Exit();
-            }
-            dlChung.thoatCT = true;
         }
 
         private void frmQlsanpham_Load(object sender, EventArgs e)
@@ -49,6 +40,7 @@ namespace WindowsFormsApp2
                           select new
                           {
                               id = sp.masp,
+                              id_ctsp = ct_sp.mactsp,
                               loai = hang_sp.loaihang.tenloai,
                               hangsp = hang_sp.tenhang,
                               tinhtrang = ct_sp.tinhtrang,
@@ -56,8 +48,7 @@ namespace WindowsFormsApp2
                               giaban = ct_sp.giaban,
                               giasale = ct_sp.giasale,
                               soluong = ct_sp.soluong,
-                              baohanh = ct_sp.thoigianbh,
-                              anh = sp.anh
+                              baohanh = ct_sp.thoigianbh
                           };
             var lstData = qry.ToList();
 
@@ -67,27 +58,37 @@ namespace WindowsFormsApp2
                 for (int i = 0; i < lstData.Count(); i++)
                 {
                     dgvHienThi.Rows.Add();
-                    dgvHienThi.Rows[i].Cells["clId"].Value = lstData[i].id;
-                    dgvHienThi.Rows[i].Cells["clLoai"].Value = lstData[i].loai;
-                    dgvHienThi.Rows[i].Cells["clHang"].Value = lstData[i].hangsp;
+                    dgvHienThi.Rows[i].Cells["clId"].Value = lstData[i].id_ctsp;
                     dgvHienThi.Rows[i].Cells["clTinhTrang"].Value = lstData[i].tinhtrang;
                     dgvHienThi.Rows[i].Cells["clTen"].Value = lstData[i].tensp;
                     dgvHienThi.Rows[i].Cells["clGiaBan"].Value = lstData[i].giaban;
                     dgvHienThi.Rows[i].Cells["clGiaSale"].Value = lstData[i].giasale;
                     dgvHienThi.Rows[i].Cells["clSoLuong"].Value = lstData[i].soluong;
                     dgvHienThi.Rows[i].Cells["clBaoHanh"].Value = lstData[i].baohanh;
-                    if (lstData[i].anh != null)
-                    {
-                        dgvHienThi.Rows[i].Cells["clImg"].Value = LoadIMG.ByteToImg(lstData[i].anh);
-                    }
+
+
                 }
                 dgvHienThi.ClearSelection();
             }
-            if (dgvHienThi.Columns["clImg"] is DataGridViewImageColumn)
-            {
-                ((DataGridViewImageColumn)dgvHienThi.Columns["clImg"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-            }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Tag = dgvHienThi;
+            MessageBox.Show(" Thêm sản phẩm thành công");
+            this.Close();
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+                db_QLCHEntities2 dl = new db_QLCHEntities2();
+                List<sanpham> lstSanPham = dl.sanphams.ToList();
+                if (txtTimTheoTenSp.Text != "")
+                {
+                    lstSanPham = lstSanPham.Where(x => x.tensp.Contains(txtTimTheoTenSp.Text)).ToList();
+                }
+            loadData();
         }
     }
 }

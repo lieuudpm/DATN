@@ -116,6 +116,11 @@ namespace WindowsFormsApp2
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+          
+        }
+
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
             frmDoimatkhau frm = new frmDoimatkhau();
             frm.ShowDialog();
         }

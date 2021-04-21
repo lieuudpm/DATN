@@ -24,7 +24,7 @@ namespace WindowsFormsApp2
         public Nullable<int> manv { get; set; }
         public Nullable<int> mancc { get; set; }
         public Nullable<System.DateTime> ngaynhaphang { get; set; }
-        public string trangthai { get; set; }
+        public Nullable<int> trangthai { get; set; }
         public string ghichu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

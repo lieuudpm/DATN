@@ -16,7 +16,7 @@
           <Property Name="ngaytradukien" Type="date" />
           <Property Name="soserial" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="ngaytrathucte" Type="date" />
-          <Property Name="tinhtrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="tinhtrang" Type="int" />
         </EntityType>
         <EntityType Name="ct_dondathang">
           <Key>
@@ -30,7 +30,7 @@
           <Property Name="giaban" Type="bigint" />
           <Property Name="thoigianbatdau" Type="nvarchar" MaxLength="50" />
           <Property Name="thoigianketthuc" Type="nvarchar" MaxLength="50" />
-          <Property Name="tinhtrang" Type="nvarchar" MaxLength="100" />
+          <Property Name="tinhtrang" Type="int" />
           <Property Name="soserial" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="ct_donhangnhap">
@@ -63,7 +63,7 @@
           <Property Name="manv" Type="int" />
           <Property Name="makh" Type="int" />
           <Property Name="ngaydathang" Type="datetime" />
-          <Property Name="trangthai" Type="nvarchar" MaxLength="50" />
+          <Property Name="trangthai" Type="int" />
           <Property Name="ghichu" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="donhangnhap">
@@ -73,9 +73,17 @@
           <Property Name="madhn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="manv" Type="int" />
           <Property Name="mancc" Type="int" />
-          <Property Name="ngaynhaphang" Type="date" />
-          <Property Name="trangthai" Type="nvarchar" MaxLength="100" />
+          <Property Name="ngaynhaphang" Type="datetime" />
+          <Property Name="trangthai" Type="int" />
           <Property Name="ghichu" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="fillter_thong_so">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matskt" Type="int" />
+          <Property Name="malts" Type="int" />
         </EntityType>
         <EntityType Name="hang">
           <Key>
@@ -107,7 +115,8 @@
             <PropertyRef Name="malts" />
           </Key>
           <Property Name="malts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tents" Type="nvarchar" MaxLength="200" />
+          <Property Name="title" Type="nvarchar" MaxLength="200" />
+          <Property Name="id_parent" Type="int" />
           <Property Name="stt" Type="int" />
         </EntityType>
         <EntityType Name="nhacungcap">
@@ -142,7 +151,7 @@
           <Property Name="masp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="tensp" Type="nvarchar" MaxLength="100" />
           <Property Name="mahang" Type="int" />
-          <Property Name="anh" Type="varbinary" MaxLength="50" />
+          <Property Name="anh" Type="varbinary(max)" />
           <Property Name="mota" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="thongsokythuat">
@@ -154,7 +163,6 @@
           <Property Name="thongsokythuat" Type="nvarchar" MaxLength="200" />
           <Property Name="masp" Type="int" />
           <Property Name="sothutu" Type="int" />
-          <Property Name="malts" Type="int" />
           <Property Name="idparent" Type="int" />
           <Property Name="isdefault" Type="int" />
         </EntityType>
@@ -290,6 +298,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__fillter_t__malts__3B75D760">
+          <End Role="loaithongso" Type="Self.loaithongso" Multiplicity="0..1" />
+          <End Role="fillter_thong_so" Type="Self.fillter_thong_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loaithongso">
+              <PropertyRef Name="malts" />
+            </Principal>
+            <Dependent Role="fillter_thong_so">
+              <PropertyRef Name="malts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__fillter_t__matsk__3A81B327">
+          <End Role="thongsokythuat" Type="Self.thongsokythuat" Multiplicity="0..1" />
+          <End Role="fillter_thong_so" Type="Self.fillter_thong_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thongsokythuat">
+              <PropertyRef Name="matskt" />
+            </Principal>
+            <Dependent Role="fillter_thong_so">
+              <PropertyRef Name="matskt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__hang__maloai__1BFD2C07">
           <End Role="loaihang" Type="Self.loaihang" Multiplicity="0..1" />
           <End Role="hang" Type="Self.hang" Multiplicity="*" />
@@ -314,19 +346,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsoky__malts__36B12243">
-          <End Role="loaithongso" Type="Self.loaithongso" Multiplicity="0..1" />
-          <End Role="thongsokythuat" Type="Self.thongsokythuat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="loaithongso">
-              <PropertyRef Name="malts" />
-            </Principal>
-            <Dependent Role="thongsokythuat">
-              <PropertyRef Name="malts" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__thongsokyt__masp__35BCFE0A">
+        <Association Name="FK__thongsokyt__masp__33D4B598">
           <End Role="sanpham" Type="Self.sanpham" Multiplicity="0..1" />
           <End Role="thongsokythuat" Type="Self.thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -345,6 +365,7 @@
           <EntitySet Name="ct_sanpham" EntityType="Self.ct_sanpham" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="dondathang" EntityType="Self.dondathang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="donhangnhap" EntityType="Self.donhangnhap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fillter_thong_so" EntityType="Self.fillter_thong_so" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="khachhang" EntityType="Self.khachhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="loaihang" EntityType="Self.loaihang" Schema="dbo" store:Type="Tables" />
@@ -397,6 +418,14 @@
             <End Role="nhanvien" EntitySet="nhanvien" />
             <End Role="donhangnhap" EntitySet="donhangnhap" />
           </AssociationSet>
+          <AssociationSet Name="FK__fillter_t__malts__3B75D760" Association="Self.FK__fillter_t__malts__3B75D760">
+            <End Role="loaithongso" EntitySet="loaithongso" />
+            <End Role="fillter_thong_so" EntitySet="fillter_thong_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK__fillter_t__matsk__3A81B327" Association="Self.FK__fillter_t__matsk__3A81B327">
+            <End Role="thongsokythuat" EntitySet="thongsokythuat" />
+            <End Role="fillter_thong_so" EntitySet="fillter_thong_so" />
+          </AssociationSet>
           <AssociationSet Name="FK__hang__maloai__1BFD2C07" Association="Self.FK__hang__maloai__1BFD2C07">
             <End Role="loaihang" EntitySet="loaihang" />
             <End Role="hang" EntitySet="hang" />
@@ -405,11 +434,7 @@
             <End Role="hang" EntitySet="hang" />
             <End Role="sanpham" EntitySet="sanpham" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsoky__malts__36B12243" Association="Self.FK__thongsoky__malts__36B12243">
-            <End Role="loaithongso" EntitySet="loaithongso" />
-            <End Role="thongsokythuat" EntitySet="thongsokythuat" />
-          </AssociationSet>
-          <AssociationSet Name="FK__thongsokyt__masp__35BCFE0A" Association="Self.FK__thongsokyt__masp__35BCFE0A">
+          <AssociationSet Name="FK__thongsokyt__masp__33D4B598" Association="Self.FK__thongsokyt__masp__33D4B598">
             <End Role="sanpham" EntitySet="sanpham" />
             <End Role="thongsokythuat" EntitySet="thongsokythuat" />
           </AssociationSet>
@@ -425,6 +450,7 @@
           <EntitySet Name="ct_sanpham" EntityType="QLCHModel.ct_sanpham" />
           <EntitySet Name="dondathangs" EntityType="QLCHModel.dondathang" />
           <EntitySet Name="donhangnhaps" EntityType="QLCHModel.donhangnhap" />
+          <EntitySet Name="fillter_thong_so" EntityType="QLCHModel.fillter_thong_so" />
           <EntitySet Name="hangs" EntityType="QLCHModel.hang" />
           <EntitySet Name="khachhangs" EntityType="QLCHModel.khachhang" />
           <EntitySet Name="loaihangs" EntityType="QLCHModel.loaihang" />
@@ -477,6 +503,14 @@
             <End Role="nhanvien" EntitySet="nhanviens" />
             <End Role="donhangnhap" EntitySet="donhangnhaps" />
           </AssociationSet>
+          <AssociationSet Name="FK__fillter_t__malts__3B75D760" Association="QLCHModel.FK__fillter_t__malts__3B75D760">
+            <End Role="loaithongso" EntitySet="loaithongsoes" />
+            <End Role="fillter_thong_so" EntitySet="fillter_thong_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK__fillter_t__matsk__3A81B327" Association="QLCHModel.FK__fillter_t__matsk__3A81B327">
+            <End Role="thongsokythuat" EntitySet="thongsokythuats" />
+            <End Role="fillter_thong_so" EntitySet="fillter_thong_so" />
+          </AssociationSet>
           <AssociationSet Name="FK__hang__maloai__1BFD2C07" Association="QLCHModel.FK__hang__maloai__1BFD2C07">
             <End Role="loaihang" EntitySet="loaihangs" />
             <End Role="hang" EntitySet="hangs" />
@@ -485,11 +519,7 @@
             <End Role="hang" EntitySet="hangs" />
             <End Role="sanpham" EntitySet="sanphams" />
           </AssociationSet>
-          <AssociationSet Name="FK__thongsoky__malts__36B12243" Association="QLCHModel.FK__thongsoky__malts__36B12243">
-            <End Role="loaithongso" EntitySet="loaithongsoes" />
-            <End Role="thongsokythuat" EntitySet="thongsokythuats" />
-          </AssociationSet>
-          <AssociationSet Name="FK__thongsokyt__masp__35BCFE0A" Association="QLCHModel.FK__thongsokyt__masp__35BCFE0A">
+          <AssociationSet Name="FK__thongsokyt__masp__33D4B598" Association="QLCHModel.FK__thongsokyt__masp__33D4B598">
             <End Role="sanpham" EntitySet="sanphams" />
             <End Role="thongsokythuat" EntitySet="thongsokythuats" />
           </AssociationSet>
@@ -505,7 +535,7 @@
           <Property Name="ngaytradukien" Type="DateTime" Precision="0" />
           <Property Name="soserial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ngaytrathucte" Type="DateTime" Precision="0" />
-          <Property Name="tinhtrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tinhtrang" Type="Int32" />
           <NavigationProperty Name="ct_dondathang" Relationship="QLCHModel.FK__ct_baohan__mactd__286302EC" FromRole="ct_baohanh" ToRole="ct_dondathang" />
           <NavigationProperty Name="nhanvien" Relationship="QLCHModel.FK__ct_baohanh__manv__29572725" FromRole="ct_baohanh" ToRole="nhanvien" />
         </EntityType>
@@ -521,7 +551,7 @@
           <Property Name="giaban" Type="Int64" />
           <Property Name="thoigianbatdau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="thoigianketthuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="tinhtrang" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="tinhtrang" Type="Int32" />
           <Property Name="soserial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_baohanh" Relationship="QLCHModel.FK__ct_baohan__mactd__286302EC" FromRole="ct_dondathang" ToRole="ct_baohanh" />
           <NavigationProperty Name="ct_sanpham" Relationship="QLCHModel.FK__ct_dondat__macts__25869641" FromRole="ct_dondathang" ToRole="ct_sanpham" />
@@ -562,7 +592,7 @@
           <Property Name="manv" Type="Int32" />
           <Property Name="makh" Type="Int32" />
           <Property Name="ngaydathang" Type="DateTime" Precision="3" />
-          <Property Name="trangthai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trangthai" Type="Int32" />
           <Property Name="ghichu" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_dondathang" Relationship="QLCHModel.FK__ct_dondat__maddh__24927208" FromRole="dondathang" ToRole="ct_dondathang" />
           <NavigationProperty Name="khachhang" Relationship="QLCHModel.FK__dondathang__makh__15502E78" FromRole="dondathang" ToRole="khachhang" />
@@ -575,12 +605,22 @@
           <Property Name="madhn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="manv" Type="Int32" />
           <Property Name="mancc" Type="Int32" />
-          <Property Name="ngaynhaphang" Type="DateTime" Precision="0" />
-          <Property Name="trangthai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ngaynhaphang" Type="DateTime" Precision="3" />
+          <Property Name="trangthai" Type="Int32" />
           <Property Name="ghichu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_donhangnhap" Relationship="QLCHModel.FK__ct_donhan__madhn__300424B4" FromRole="donhangnhap" ToRole="ct_donhangnhap" />
           <NavigationProperty Name="nhacungcap" Relationship="QLCHModel.FK__donhangnh__mancc__2D27B809" FromRole="donhangnhap" ToRole="nhacungcap" />
           <NavigationProperty Name="nhanvien" Relationship="QLCHModel.FK__donhangnha__manv__2C3393D0" FromRole="donhangnhap" ToRole="nhanvien" />
+        </EntityType>
+        <EntityType Name="fillter_thong_so">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matskt" Type="Int32" />
+          <Property Name="malts" Type="Int32" />
+          <NavigationProperty Name="loaithongso" Relationship="QLCHModel.FK__fillter_t__malts__3B75D760" FromRole="fillter_thong_so" ToRole="loaithongso" />
+          <NavigationProperty Name="thongsokythuat" Relationship="QLCHModel.FK__fillter_t__matsk__3A81B327" FromRole="fillter_thong_so" ToRole="thongsokythuat" />
         </EntityType>
         <EntityType Name="hang">
           <Key>
@@ -616,9 +656,10 @@
             <PropertyRef Name="malts" />
           </Key>
           <Property Name="malts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tents" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="id_parent" Type="Int32" />
           <Property Name="stt" Type="Int32" />
-          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsoky__malts__36B12243" FromRole="loaithongso" ToRole="thongsokythuat" />
+          <NavigationProperty Name="fillter_thong_so" Relationship="QLCHModel.FK__fillter_t__malts__3B75D760" FromRole="loaithongso" ToRole="fillter_thong_so" />
         </EntityType>
         <EntityType Name="nhacungcap">
           <Key>
@@ -656,11 +697,11 @@
           <Property Name="masp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tensp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="mahang" Type="Int32" />
-          <Property Name="anh" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="anh" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="mota" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_sanpham" Relationship="QLCHModel.FK__ct_sanpham__masp__21B6055D" FromRole="sanpham" ToRole="ct_sanpham" />
           <NavigationProperty Name="hang" Relationship="QLCHModel.FK__sanpham__mahang__1ED998B2" FromRole="sanpham" ToRole="hang" />
-          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsokyt__masp__35BCFE0A" FromRole="sanpham" ToRole="thongsokythuat" />
+          <NavigationProperty Name="thongsokythuats" Relationship="QLCHModel.FK__thongsokyt__masp__33D4B598" FromRole="sanpham" ToRole="thongsokythuat" />
         </EntityType>
         <EntityType Name="thongsokythuat">
           <Key>
@@ -671,11 +712,10 @@
           <Property Name="thongsokythuat1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="masp" Type="Int32" />
           <Property Name="sothutu" Type="Int32" />
-          <Property Name="malts" Type="Int32" />
           <Property Name="idparent" Type="Int32" />
           <Property Name="isdefault" Type="Int32" />
-          <NavigationProperty Name="loaithongso" Relationship="QLCHModel.FK__thongsoky__malts__36B12243" FromRole="thongsokythuat" ToRole="loaithongso" />
-          <NavigationProperty Name="sanpham" Relationship="QLCHModel.FK__thongsokyt__masp__35BCFE0A" FromRole="thongsokythuat" ToRole="sanpham" />
+          <NavigationProperty Name="fillter_thong_so" Relationship="QLCHModel.FK__fillter_t__matsk__3A81B327" FromRole="thongsokythuat" ToRole="fillter_thong_so" />
+          <NavigationProperty Name="sanpham" Relationship="QLCHModel.FK__thongsokyt__masp__33D4B598" FromRole="thongsokythuat" ToRole="sanpham" />
         </EntityType>
         <Association Name="FK__ct_baohan__mactd__286302EC">
           <End Type="QLCHModel.ct_dondathang" Role="ct_dondathang" Multiplicity="0..1" />
@@ -809,6 +849,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__fillter_t__malts__3B75D760">
+          <End Type="QLCHModel.loaithongso" Role="loaithongso" Multiplicity="0..1" />
+          <End Type="QLCHModel.fillter_thong_so" Role="fillter_thong_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loaithongso">
+              <PropertyRef Name="malts" />
+            </Principal>
+            <Dependent Role="fillter_thong_so">
+              <PropertyRef Name="malts" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__fillter_t__matsk__3A81B327">
+          <End Type="QLCHModel.thongsokythuat" Role="thongsokythuat" Multiplicity="0..1" />
+          <End Type="QLCHModel.fillter_thong_so" Role="fillter_thong_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thongsokythuat">
+              <PropertyRef Name="matskt" />
+            </Principal>
+            <Dependent Role="fillter_thong_so">
+              <PropertyRef Name="matskt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__hang__maloai__1BFD2C07">
           <End Type="QLCHModel.loaihang" Role="loaihang" Multiplicity="0..1" />
           <End Type="QLCHModel.hang" Role="hang" Multiplicity="*" />
@@ -833,19 +897,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__thongsoky__malts__36B12243">
-          <End Type="QLCHModel.loaithongso" Role="loaithongso" Multiplicity="0..1" />
-          <End Type="QLCHModel.thongsokythuat" Role="thongsokythuat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="loaithongso">
-              <PropertyRef Name="malts" />
-            </Principal>
-            <Dependent Role="thongsokythuat">
-              <PropertyRef Name="malts" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__thongsokyt__masp__35BCFE0A">
+        <Association Name="FK__thongsokyt__masp__33D4B598">
           <End Type="QLCHModel.sanpham" Role="sanpham" Multiplicity="0..1" />
           <End Type="QLCHModel.thongsokythuat" Role="thongsokythuat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -941,6 +993,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="fillter_thong_so">
+            <EntityTypeMapping TypeName="QLCHModel.fillter_thong_so">
+              <MappingFragment StoreEntitySet="fillter_thong_so">
+                <ScalarProperty Name="malts" ColumnName="malts" />
+                <ScalarProperty Name="matskt" ColumnName="matskt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="hangs">
             <EntityTypeMapping TypeName="QLCHModel.hang">
               <MappingFragment StoreEntitySet="hang">
@@ -973,7 +1034,8 @@
             <EntityTypeMapping TypeName="QLCHModel.loaithongso">
               <MappingFragment StoreEntitySet="loaithongso">
                 <ScalarProperty Name="stt" ColumnName="stt" />
-                <ScalarProperty Name="tents" ColumnName="tents" />
+                <ScalarProperty Name="id_parent" ColumnName="id_parent" />
+                <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="malts" ColumnName="malts" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1021,7 +1083,6 @@
               <MappingFragment StoreEntitySet="thongsokythuat">
                 <ScalarProperty Name="isdefault" ColumnName="isdefault" />
                 <ScalarProperty Name="idparent" ColumnName="idparent" />
-                <ScalarProperty Name="malts" ColumnName="malts" />
                 <ScalarProperty Name="sothutu" ColumnName="sothutu" />
                 <ScalarProperty Name="masp" ColumnName="masp" />
                 <ScalarProperty Name="thongsokythuat1" ColumnName="thongsokythuat" />

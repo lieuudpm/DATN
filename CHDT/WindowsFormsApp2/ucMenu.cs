@@ -48,11 +48,6 @@ namespace WindowsFormsApp2
             {
                 setcolor(lblQlbaohanh);
             }
-            else if (frm is frmBaocao)
-            {
-                setcolor(lblBaocao);
-
-            }
             else if (frm is frmThongke)
             {
                 setcolor(lblThongke);
@@ -61,13 +56,17 @@ namespace WindowsFormsApp2
             {
                 setcolor(lblQLloaihang);
             }
+            else if (frm is frmThongTinCaNhan)
+            {
+                setcolor(lblThongTinCaNhan);
+            }
         }
 
 
         private void setcolor(Label lbl)
         {
-            lbl.ForeColor = Color.Yellow;
-            lbl.BackColor = Color.FromArgb(192, 0, 0);
+            lbl.ForeColor = Color.White;
+            lbl.BackColor = Color.FromArgb(128, 128, 255);
             lbl.Font = new Font(lbl.Font, FontStyle.Underline | FontStyle.Regular);
         }
 
@@ -115,11 +114,6 @@ namespace WindowsFormsApp2
                 frmBaohanh frm = new frmBaohanh();
                 frm.Show();
             }
-            else if (lbl.Name.ToLower() == "lblbaocao")
-            {
-                frmBaocao frm = new frmBaocao();
-                frm.Show();
-            }
             else if (lbl.Name.ToLower() == "lblthongke")
             {
                 frmThongke frm = new frmThongke();
@@ -128,6 +122,11 @@ namespace WindowsFormsApp2
             else if (lbl.Name.ToLower() == "lblqlloaihang")
             {
                 frmQLloaihang frm = new frmQLloaihang();
+                frm.Show();
+            }
+            else if (lbl.Name.ToLower() == "lblthongtincanhan")
+            {
+                frmThongTinCaNhan frm = new frmThongTinCaNhan();
                 frm.Show();
             }
         }
@@ -147,7 +146,7 @@ namespace WindowsFormsApp2
                 lblQLdondathang.Visible = false;
                 lblQldonhangnhap.Visible = false;
                 lblQlbaohanh.Visible = false;
-                lblBaocao.Visible = false;
+           
                 lblThongke.Visible = false;
                 lblQLloaihang.Visible = false;
 
@@ -158,8 +157,7 @@ namespace WindowsFormsApp2
                 lblQlsanpham.Visible = false;
                 lblQLdondathang.Visible = false;
                 lblQldonhangnhap.Visible = false;
-                lblQlbaohanh.Visible = false;
-                lblBaocao.Visible = false;
+                lblQlbaohanh.Visible = false;          
                 lblThongke.Visible = false;
                 
             }
@@ -175,9 +173,9 @@ namespace WindowsFormsApp2
             try
             {
                 Label lbl = (Label)sender;
-                if (lbl.BackColor == Color.Yellow)
+                if (lbl.BackColor == Color.Blue)
                 {
-                    lbl.ForeColor = Color.Yellow;
+                    lbl.ForeColor = Color.Blue;
                     lbl.BackColor = Color.Red;
                     lbl.Font = new Font(lbl.Font, FontStyle.Regular);
                 }
@@ -210,12 +208,6 @@ namespace WindowsFormsApp2
 
         private void lblDangxuat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốm đăng xuất", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                frmdangnhap frm = new frmdangnhap();
-                frm.ShowDialog();
-
-            }
 
         }
     }

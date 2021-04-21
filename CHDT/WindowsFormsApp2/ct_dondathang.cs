@@ -28,7 +28,7 @@ namespace WindowsFormsApp2
         public Nullable<long> giaban { get; set; }
         public string thoigianbatdau { get; set; }
         public string thoigianketthuc { get; set; }
-        public string tinhtrang { get; set; }
+        public Nullable<int> tinhtrang { get; set; }
         public string soserial { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

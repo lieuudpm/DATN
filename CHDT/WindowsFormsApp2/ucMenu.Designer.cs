@@ -34,15 +34,14 @@
             this.lblQldonhangnhap = new System.Windows.Forms.Label();
             this.lblQLdondathang = new System.Windows.Forms.Label();
             this.lblQlbaohanh = new System.Windows.Forms.Label();
-            this.lblBaocao = new System.Windows.Forms.Label();
             this.lblThongke = new System.Windows.Forms.Label();
-            this.lblDangxuat = new System.Windows.Forms.Label();
             this.lblQLloaihang = new System.Windows.Forms.Label();
+            this.lblThongTinCaNhan = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbltrangchu
             // 
-            this.lbltrangchu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbltrangchu.BackColor = System.Drawing.Color.Blue;
             this.lbltrangchu.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbltrangchu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltrangchu.Location = new System.Drawing.Point(0, 0);
@@ -55,7 +54,7 @@
             // 
             // lblQlnhanvien
             // 
-            this.lblQlnhanvien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblQlnhanvien.BackColor = System.Drawing.Color.Blue;
             this.lblQlnhanvien.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQlnhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQlnhanvien.Location = new System.Drawing.Point(80, 0);
@@ -68,7 +67,7 @@
             // 
             // lblQlsanpham
             // 
-            this.lblQlsanpham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblQlsanpham.BackColor = System.Drawing.Color.Blue;
             this.lblQlsanpham.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQlsanpham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQlsanpham.Location = new System.Drawing.Point(184, 0);
@@ -81,7 +80,7 @@
             // 
             // lblQldonhangnhap
             // 
-            this.lblQldonhangnhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblQldonhangnhap.BackColor = System.Drawing.Color.Blue;
             this.lblQldonhangnhap.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQldonhangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQldonhangnhap.Location = new System.Drawing.Point(296, 0);
@@ -94,7 +93,7 @@
             // 
             // lblQLdondathang
             // 
-            this.lblQLdondathang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblQLdondathang.BackColor = System.Drawing.Color.Blue;
             this.lblQLdondathang.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQLdondathang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQLdondathang.Location = new System.Drawing.Point(444, 0);
@@ -107,7 +106,7 @@
             // 
             // lblQlbaohanh
             // 
-            this.lblQlbaohanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblQlbaohanh.BackColor = System.Drawing.Color.Blue;
             this.lblQlbaohanh.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQlbaohanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQlbaohanh.Location = new System.Drawing.Point(579, 0);
@@ -118,25 +117,12 @@
             this.lblQlbaohanh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblQlbaohanh.Click += new System.EventHandler(this.lbltrangchu_Click);
             // 
-            // lblBaocao
-            // 
-            this.lblBaocao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblBaocao.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblBaocao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaocao.Location = new System.Drawing.Point(686, 0);
-            this.lblBaocao.Name = "lblBaocao";
-            this.lblBaocao.Size = new System.Drawing.Size(75, 43);
-            this.lblBaocao.TabIndex = 0;
-            this.lblBaocao.Text = "Báo Cáo ";
-            this.lblBaocao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblBaocao.Click += new System.EventHandler(this.lbltrangchu_Click);
-            // 
             // lblThongke
             // 
-            this.lblThongke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblThongke.BackColor = System.Drawing.Color.Blue;
             this.lblThongke.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblThongke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongke.Location = new System.Drawing.Point(761, 0);
+            this.lblThongke.Location = new System.Drawing.Point(686, 0);
             this.lblThongke.Name = "lblThongke";
             this.lblThongke.Size = new System.Drawing.Size(75, 43);
             this.lblThongke.TabIndex = 1;
@@ -144,23 +130,11 @@
             this.lblThongke.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblThongke.Click += new System.EventHandler(this.lbltrangchu_Click);
             // 
-            // lblDangxuat
-            // 
-            this.lblDangxuat.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblDangxuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDangxuat.Location = new System.Drawing.Point(836, 0);
-            this.lblDangxuat.Name = "lblDangxuat";
-            this.lblDangxuat.Size = new System.Drawing.Size(94, 43);
-            this.lblDangxuat.TabIndex = 2;
-            this.lblDangxuat.Text = "Đăng xuất ";
-            this.lblDangxuat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDangxuat.Click += new System.EventHandler(this.lblDangxuat_Click);
-            // 
             // lblQLloaihang
             // 
             this.lblQLloaihang.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblQLloaihang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQLloaihang.Location = new System.Drawing.Point(930, 0);
+            this.lblQLloaihang.Location = new System.Drawing.Point(761, 0);
             this.lblQLloaihang.Name = "lblQLloaihang";
             this.lblQLloaihang.Size = new System.Drawing.Size(117, 43);
             this.lblQLloaihang.TabIndex = 3;
@@ -168,15 +142,26 @@
             this.lblQLloaihang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblQLloaihang.Click += new System.EventHandler(this.lbltrangchu_Click);
             // 
+            // lblThongTinCaNhan
+            // 
+            this.lblThongTinCaNhan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblThongTinCaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongTinCaNhan.Location = new System.Drawing.Point(878, 0);
+            this.lblThongTinCaNhan.Name = "lblThongTinCaNhan";
+            this.lblThongTinCaNhan.Size = new System.Drawing.Size(147, 43);
+            this.lblThongTinCaNhan.TabIndex = 4;
+            this.lblThongTinCaNhan.Text = "Thông Tin cá nhân ";
+            this.lblThongTinCaNhan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblThongTinCaNhan.Click += new System.EventHandler(this.lbltrangchu_Click);
+            // 
             // ucMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.Blue;
+            this.Controls.Add(this.lblThongTinCaNhan);
             this.Controls.Add(this.lblQLloaihang);
-            this.Controls.Add(this.lblDangxuat);
             this.Controls.Add(this.lblThongke);
-            this.Controls.Add(this.lblBaocao);
             this.Controls.Add(this.lblQlbaohanh);
             this.Controls.Add(this.lblQLdondathang);
             this.Controls.Add(this.lblQldonhangnhap);
@@ -184,7 +169,7 @@
             this.Controls.Add(this.lblQlnhanvien);
             this.Controls.Add(this.lbltrangchu);
             this.Name = "ucMenu";
-            this.Size = new System.Drawing.Size(1082, 43);
+            this.Size = new System.Drawing.Size(1028, 43);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucMenu_Paint);
             this.MouseLeave += new System.EventHandler(this.ucMenu_MouseLeave);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ucMenu_MouseMove);
@@ -200,9 +185,8 @@
         private System.Windows.Forms.Label lblQldonhangnhap;
         private System.Windows.Forms.Label lblQLdondathang;
         private System.Windows.Forms.Label lblQlbaohanh;
-        private System.Windows.Forms.Label lblBaocao;
         private System.Windows.Forms.Label lblThongke;
-        private System.Windows.Forms.Label lblDangxuat;
         private System.Windows.Forms.Label lblQLloaihang;
+        private System.Windows.Forms.Label lblThongTinCaNhan;
     }
 }

@@ -25,15 +25,15 @@ namespace WindowsFormsApp2
             tblHangsanxuat tblhangsanxuat = new tblHangsanxuat();
             List<hang> lsthangsx = tblhangsanxuat.getLstHang();
             loadHang(lsthangsx);
-            cbxTimkiemhang.SelectedIndex = 0;
+        
 
             tblLoaihang lblLoaihang = new tblLoaihang();
             List<loaihang> lstloaihang = lblLoaihang.getLstLoaihang();
             loadLoaihang(lstloaihang);
-           LoadcbxTimkiem(lsthangsx);
+           
         }
 
-        public void loadLoaihang( List<loaihang> lstLoaihang)
+        public void loadLoaihang(List<loaihang> lstLoaihang)
         {
             dgvLoaihang.Rows.Clear();
             for (int i = 0; i < lstLoaihang.Count; i++)
@@ -41,7 +41,8 @@ namespace WindowsFormsApp2
                 dgvLoaihang.Rows.Add();
                 dgvLoaihang.Rows[i].Cells["clMaloaihang"].Value = lstLoaihang[i].maloai;
                 dgvLoaihang.Rows[i].Cells["clTenloai"].Value = lstLoaihang[i].tenloai;
-            }dgvLoaihang.ClearSelection();
+            }
+            dgvLoaihang.ClearSelection();
         }
         public void loadHang(List<hang> lstHang)
         {
@@ -56,47 +57,33 @@ namespace WindowsFormsApp2
             dgvHangsanxuat.ClearSelection();
         }
 
-        public void LoadcbxTimkiem(List<hang> lstHangsx)
-        {
-            cbxHangsx.ValueMember = "mahang";
-            cbxHangsx.DisplayMember = "tenhang";
-            cbxHangsx.DataSource = lstHangsx;
-        }
-
         private void btnTimloaihang_Click(object sender, EventArgs e)
         {
             tblLoaihang lblLoaihang = new tblLoaihang();
             List<loaihang> lstLoaihang = lblLoaihang.getLstLoaihang();
-            if (txtTimkiemtenloai.Text !="")
+            if (txtTimkiemtenloai.Text != "")
             {
-                if (cbxTimkiemhang.SelectedIndex == 0)
-                {
-                    lstLoaihang = lstLoaihang.Where(x => x.maloai.ToString().Contains(txtTimkiemtenloai.Text.ToString())).ToList();
-                }
-                else
-                {
-                    lstLoaihang = lstLoaihang.Where(x => x.tenloai.ToLower().Contains(txtTimkiemtenloai.Text.ToLower())).ToList();
-                }
+                lstLoaihang = lstLoaihang.Where(x => x.tenloai.ToLower().Contains(txtTimkiemtenloai.Text.ToLower())).ToList();
+                loadLoaihang(lstLoaihang);
             }
-          
-            loadLoaihang(lstLoaihang);
+            else
+            {
+                loadLoaihang(lstLoaihang);
+            }         
         }
-
+        
         private void btnTimkiemhang_Click(object sender, EventArgs e)
         {
-            tblHangsanxuat tblhangsanxuat = new tblHangsanxuat();
-            List<hang> lstHangsanxuat = tblhangsanxuat.getLstHang();
+            dl = new db_QLCHEntities2();
+            List<hang> lstHangsanxuat = null;
+            lstHangsanxuat = dl.hangs.ToList();
             if (txtTimkiemhang.Text != "")
             {
-                if (cbxHangsx.SelectedIndex == 0)
-                {
-                    lstHangsanxuat = lstHangsanxuat.Where(c => c.mahang.ToString().Contains(txtTimkiemhang.Text.ToString())).ToList();
-                }
-                else
-                {
-                    lstHangsanxuat = lstHangsanxuat.Where(c => c.tenhang.ToLower().Contains(txtTimkiemhang.Text.ToLower())).ToList();
-                }
-            }loadHang(lstHangsanxuat);
+                lstHangsanxuat = lstHangsanxuat.Where(x => x.tenhang.Contains(txtTimkiemhang.Text)).ToList();
+            }
+
+            loadHang(lstHangsanxuat);
+
         }
 
         private void btnThemloai_Click(object sender, EventArgs e)
@@ -123,27 +110,29 @@ namespace WindowsFormsApp2
 
         private void btnXoaloai_Click(object sender, EventArgs e)
         {
-            if (dgvLoaihang.SelectedRows.Count >0)
+            if (dgvLoaihang.SelectedRows.Count > 0)
             {
-                //  bool trl = MessageBox.Show("Xóa loại hàng","Xác nhận","Đồng ý","thoát");
-                tblLoaihang tblLoai = new tblLoaihang();
-                for (int i = 0; i < dgvLoaihang.SelectedRows.Count; i++)
+                DialogResult result = MessageBox.Show("Bạn thực sự muốn xóa không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
-                    if (tblLoai.delete(dgvLoaihang.SelectedRows[i].Cells["clMaloaihang"].Value.ToString())== true)
-                    {
-                        dgvLoaihang.SelectedRows[i].Visible = false;
-                    }
-                }MessageBox.Show(" Xóa thành công");
+                    int maLoai = Int32.Parse(dgvLoaihang.SelectedRows[0].Cells["clMaloaihang"].Value.ToString());
+                 loaihang deleteData = dl.loaihangs.FirstOrDefault(x => x.maloai == maLoai);
+                    dl.loaihangs.Remove(deleteData);
+                    dl.SaveChanges();
+                    dl = new db_QLCHEntities2();
+                   loadLoaihang(dl.loaihangs.ToList());
+
+                }
             }
             else
             {
-                MessageBox.Show(" Chưa chọn hãng");
+                MessageBox.Show("Chọn Một loại hàng để tiếp tục");
             }
         }
 
         private void btnThemhang_Click(object sender, EventArgs e)
         {
-           frmThemMoiHangSanXuat frm = new frmThemMoiHangSanXuat();
+            frmThemMoiHangSanXuat frm = new frmThemMoiHangSanXuat();
             frm.ShowDialog();
             if (frm.Tag != null)
             {
@@ -156,12 +145,12 @@ namespace WindowsFormsApp2
         private void dgvLoaihang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            { 
+            {
                 string Maloaihang = dgvLoaihang.SelectedRows[0].Cells["clMaloaihang"].Value.ToString();
                 frmThemMoiLoaiHang frm = new frmThemMoiLoaiHang();
                 frm.Tag = Maloaihang;
                 frm.ShowDialog();
-                
+
                 if (tblLoaihang.Tenloaihang != "")
                 {
                     dgvLoaihang.SelectedRows[0].Cells["clTenloaihang"].Value = tblLoaihang.Tenloaihang;
@@ -170,7 +159,7 @@ namespace WindowsFormsApp2
             catch (Exception)
             {
 
-               
+
             }
         }
 
@@ -191,8 +180,33 @@ namespace WindowsFormsApp2
             catch (Exception)
             {
 
-            
+
             }
         }
+
+        private void btnXoahang_Click(object sender, EventArgs e)
+        {
+            if (dgvHangsanxuat.SelectedRows.Count >= 1)
+            {
+                DialogResult result = MessageBox.Show("Bạn thực sự muốn xóa không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    int maHang = Int32.Parse(dgvHangsanxuat.SelectedRows[0].Cells["clMahang"].Value.ToString());
+                    hang deleteData = dl.hangs.FirstOrDefault(x => x.mahang == maHang);
+                    dl.hangs.Remove(deleteData);
+                    dl.SaveChanges();
+                    dl = new db_QLCHEntities2();
+                    loadHang(dl.hangs.ToList());
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show(" Vui lòng chọn một hãng để tiếp tục");
+            }
+
+        }
     }
+
 }

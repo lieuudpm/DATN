@@ -18,7 +18,6 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
         db_QLCHEntities2 dl = new db_QLCHEntities2();
-        tbl_NhanVien tblNhanVien = null;
         List<nhanvien> lstNhanvien = null;
 
         private void frmQlNhanvien_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,7 +31,7 @@ namespace WindowsFormsApp2
 
         private void frmQlNhanvien_Load(object sender, EventArgs e)
         {
-            cbxQuyenhan.SelectedIndex = 4;
+            cbxQuyenhan.SelectedIndex = 4;            
             List<nhanvien> lstNhanvien = dl.nhanviens.ToList();
             loadDgvHienthi(lstNhanvien);
         }
@@ -43,12 +42,28 @@ namespace WindowsFormsApp2
             {
                 lstNhanvien = lstNhanvien.Where(c => c.quyenhan == cbxQuyenhan.SelectedIndex).ToList();
             }
-
+           
             if (txtSoDienThoai.Text != "")
             {
                 lstNhanvien = lstNhanvien.Where(x => x.sdt.Contains(txtSoDienThoai.Text)).ToList();
             }
-            
+            if (txtTenNhanVien.Text != "")
+            {
+                lstNhanvien = lstNhanvien.Where(x => x.tennv.Contains(txtTenNhanVien.Text)).ToList();
+            }
+            if (txtSoCmnd.Text != "")
+            {
+                lstNhanvien = lstNhanvien.Where(x => x.cmnd.Contains(txtSoCmnd.Text)).ToList();
+            }
+
+            if (rdbNvnam.Checked == true)
+            {
+                lstNhanvien = lstNhanvien.Where(x =>  dlChung.isGoiTinhNam(x.giottinh)==true).ToList();
+            }
+            else if (rdbNvnu.Checked == true)
+            {
+                lstNhanvien = lstNhanvien.Where(x => dlChung.isGoiTinhNu(x.giottinh) == true).ToList();
+            }
             loadDgvHienthi(lstNhanvien);
         }
 
@@ -132,10 +147,17 @@ namespace WindowsFormsApp2
             }
             
         }
-
-        private void ucMenu1_Load(object sender, EventArgs e)
+   
+        private void btnHoanTac_Click(object sender, EventArgs e)
         {
+            List<nhanvien> lstNhanvien = dl.nhanviens.ToList();
+            loadDgvHienthi(lstNhanvien);
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmDoimatkhau frm = new frmDoimatkhau();
+            frm.ShowDialog();
         }
     }
 }

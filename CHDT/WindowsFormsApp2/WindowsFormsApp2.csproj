@@ -166,6 +166,30 @@
     <Compile Include="frmQlsanpham.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinCaNhan.Designer.cs">
+      <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongTinNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongTinNhaCungCap.Designer.cs">
+      <DependentUpon>frmThongTinNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimKiemSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiemSanPham.Designer.cs">
+      <DependentUpon>frmTimKiemSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemMoiDonHangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMoiDonHangNhap.Designer.cs">
+      <DependentUpon>frmThemMoiDonHangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQlsanpham.Designer.cs">
       <DependentUpon>frmQlsanpham.cs</DependentUpon>
     </Compile>
@@ -223,11 +247,11 @@
     <Compile Include="frmThongke.Designer.cs">
       <DependentUpon>frmThongke.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTtdondathang.cs">
+    <Compile Include="frmThemMoiDonDatHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTtdondathang.Designer.cs">
-      <DependentUpon>frmTtdondathang.cs</DependentUpon>
+    <Compile Include="frmThemMoiDonDatHang.Designer.cs">
+      <DependentUpon>frmThemMoiDonDatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmttNhanvien.cs">
       <SubType>Form</SubType>
@@ -279,9 +303,6 @@
     <Compile Include="sanpham.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="thongsokythuat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -321,6 +342,18 @@
     <EmbeddedResource Include="frmQlsanpham.resx">
       <DependentUpon>frmQlsanpham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinCaNhan.resx">
+      <DependentUpon>frmThongTinCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongTinNhaCungCap.resx">
+      <DependentUpon>frmThongTinNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiemSanPham.resx">
+      <DependentUpon>frmTimKiemSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMoiDonHangNhap.resx">
+      <DependentUpon>frmThemMoiDonHangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemmoichitietbaohanh.resx">
       <DependentUpon>frmThemmoichitietbaohanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,8 +381,8 @@
     <EmbeddedResource Include="frmThongke.resx">
       <DependentUpon>frmThongke.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTtdondathang.resx">
-      <DependentUpon>frmTtdondathang.cs</DependentUpon>
+    <EmbeddedResource Include="frmThemMoiDonDatHang.resx">
+      <DependentUpon>frmThemMoiDonDatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmttNhanvien.resx">
       <DependentUpon>frmttNhanvien.cs</DependentUpon>

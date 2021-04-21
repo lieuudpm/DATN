@@ -20,6 +20,7 @@ namespace WindowsFormsApp2
         }
 
         byte[] img = null;
+        List<ct_sanpham> lstCtsp = new List<ct_sanpham>();
 
 
         private void frmThemmoisanpham_Load(object sender, EventArgs e)
@@ -107,7 +108,6 @@ namespace WindowsFormsApp2
             newData.anh = img;
             dl.sanphams.Add(newData);
 
-            ct_sanpham[] ctsp = new ct_sanpham[dgvLoaiMay.Rows.Count - 1];
             for (int i = 0; i < dgvLoaiMay.Rows.Count - 1; i++)
             {
                 string stt = (dgvLoaiMay.Rows[i].Cells["clSttLoaiMay"].Value ?? "").ToString();
@@ -136,16 +136,19 @@ namespace WindowsFormsApp2
                 {
                     MessageBox.Show("Bảo hành của sản phẩm thứ " + stt + " không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                ctsp[i] = new ct_sanpham();
-                ctsp[i].tinhtrang = Int32.Parse(tinhTrang);
-                ctsp[i].soluong = Int32.Parse(tinhTrang);
-                ctsp[i].giaban = Int64.Parse(tinhTrang);
-                ctsp[i].giasale = Int64.Parse(tinhTrang);
-                ctsp[i].thoigianbh = Int32.Parse(tinhTrang);
-                ctsp[i].masp = newData.masp;
-                dl.ct_sanpham.Add(ctsp[i]);
+                ct_sanpham ctsp = new ct_sanpham();
+                ctsp.tinhtrang = Int32.Parse(tinhTrang);
+                ctsp.soluong = Int32.Parse(soLuong);
+                ctsp.giaban = Int64.Parse(giaBan);
+                ctsp.giasale = Int64.Parse(giaSale);
+                ctsp.thoigianbh = Int32.Parse(BaoHanh);
+                ctsp.masp = newData.masp;
+                dl.ct_sanpham.Add(ctsp);
+                lstCtsp.Add(ctsp);
             }
             dl.SaveChanges();
+            this.Tag = lstCtsp;
+            this.Close();
         }
 
         private void btnQuanLyThongSo_Click(object sender, EventArgs e)

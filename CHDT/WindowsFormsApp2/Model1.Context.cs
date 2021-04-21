@@ -31,6 +31,7 @@ namespace WindowsFormsApp2
         public virtual DbSet<ct_sanpham> ct_sanpham { get; set; }
         public virtual DbSet<dondathang> dondathangs { get; set; }
         public virtual DbSet<donhangnhap> donhangnhaps { get; set; }
+        public virtual DbSet<fillter_thong_so> fillter_thong_so { get; set; }
         public virtual DbSet<hang> hangs { get; set; }
         public virtual DbSet<khachhang> khachhangs { get; set; }
         public virtual DbSet<loaihang> loaihangs { get; set; }

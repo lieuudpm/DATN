@@ -58,7 +58,7 @@
             this.txtMatkhaucu.Size = new System.Drawing.Size(365, 26);
             this.txtMatkhaucu.TabIndex = 1;
             this.txtMatkhaucu.UseSystemPasswordChar = true;
-            this.txtMatkhaucu.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+           
             // 
             // label1
             // 
@@ -68,7 +68,7 @@
             this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nhập mật khẩu cũ ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+     
             // 
             // groupBox1
             // 
@@ -85,7 +85,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đổi mật khẩu ";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+          
             // 
             // label2
             // 
@@ -95,7 +95,7 @@
             this.label2.Size = new System.Drawing.Size(150, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nhập mật khẩu mới ";
-            this.label2.Click += new System.EventHandler(this.label1_Click);
+         
             // 
             // txtMatkhaumoi
             // 
@@ -104,7 +104,7 @@
             this.txtMatkhaumoi.Size = new System.Drawing.Size(365, 26);
             this.txtMatkhaumoi.TabIndex = 1;
             this.txtMatkhaumoi.UseSystemPasswordChar = true;
-            this.txtMatkhaumoi.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+        
             // 
             // label3
             // 
@@ -114,7 +114,7 @@
             this.label3.Size = new System.Drawing.Size(180, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Xác nhận mật khẩu mới ";
-            this.label3.Click += new System.EventHandler(this.label1_Click);
+      
             // 
             // txtMatkhaumoi2
             // 
@@ -123,7 +123,7 @@
             this.txtMatkhaumoi2.Size = new System.Drawing.Size(365, 26);
             this.txtMatkhaumoi2.TabIndex = 1;
             this.txtMatkhaumoi2.UseSystemPasswordChar = true;
-            this.txtMatkhaumoi2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+        
             // 
             // checkBox2
             // 

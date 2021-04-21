@@ -21,7 +21,7 @@ namespace WindowsFormsApp2
         public Nullable<System.DateTime> ngaytradukien { get; set; }
         public string soserial { get; set; }
         public Nullable<System.DateTime> ngaytrathucte { get; set; }
-        public string tinhtrang { get; set; }
+        public Nullable<int> tinhtrang { get; set; }
     
         public virtual ct_dondathang ct_dondathang { get; set; }
         public virtual nhanvien nhanvien { get; set; }
