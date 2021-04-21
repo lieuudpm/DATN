@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classss\dlChung.cs" />
-    <Compile Include="Classss\LoagIMG.cs" />
+    <Compile Include="Classss\LoadIMG.cs" />
     <Compile Include="Classss\tblDonhangnhap.cs" />
     <Compile Include="Classss\tblHangsanxuat.cs" />
     <Compile Include="Classss\tblLoaihang.cs" />
@@ -104,6 +104,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="donhangnhap.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fillter_thong_so.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="frmBaocao.cs">
@@ -171,6 +174,24 @@
     </Compile>
     <Compile Include="frmThemmoichitietbaohanh.Designer.cs">
       <DependentUpon>frmThemmoichitietbaohanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiTimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiTimKiem.Designer.cs">
+      <DependentUpon>frmThemMoiLoaiTimKiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiTimKiemGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemMoiLoaiTimKiemGroup.Designer.cs">
+      <DependentUpon>frmThemMoiLoaiTimKiemGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThongSoSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThongSoSanPham.Designer.cs">
+      <DependentUpon>frmThongSoSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThongSoParentList.cs">
       <SubType>Form</SubType>
@@ -258,6 +279,9 @@
     <Compile Include="sanpham.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="thongsokythuat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -299,6 +323,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemmoichitietbaohanh.resx">
       <DependentUpon>frmThemmoichitietbaohanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMoiLoaiTimKiem.resx">
+      <DependentUpon>frmThemMoiLoaiTimKiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemMoiLoaiTimKiemGroup.resx">
+      <DependentUpon>frmThemMoiLoaiTimKiemGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThongSoSanPham.resx">
+      <DependentUpon>frmThongSoSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongSoParentList.resx">
       <DependentUpon>frmThongSoParentList.cs</DependentUpon>

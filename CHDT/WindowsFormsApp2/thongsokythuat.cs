@@ -14,16 +14,22 @@ namespace WindowsFormsApp2
     
     public partial class thongsokythuat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public thongsokythuat()
+        {
+            this.fillter_thong_so = new HashSet<fillter_thong_so>();
+        }
+    
         public int matskt { get; set; }
         public string ten { get; set; }
         public string thongsokythuat1 { get; set; }
         public Nullable<int> masp { get; set; }
         public Nullable<int> sothutu { get; set; }
-        public Nullable<int> malts { get; set; }
         public Nullable<int> idparent { get; set; }
         public Nullable<int> isdefault { get; set; }
     
-        public virtual loaithongso loaithongso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<fillter_thong_so> fillter_thong_so { get; set; }
         public virtual sanpham sanpham { get; set; }
     }
 }

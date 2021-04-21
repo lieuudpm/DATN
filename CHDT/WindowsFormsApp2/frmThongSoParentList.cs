@@ -75,7 +75,24 @@ namespace WindowsFormsApp2
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-
+            
+            if (dgvHienThi.SelectedRows.Count > 0)
+            {
+                db_QLCHEntities2 db = new db_QLCHEntities2();
+                List<thongsokythuat> lstSelect = new List<thongsokythuat>();
+                for (int i = 0; i < dgvHienThi.SelectedRows.Count; i++)
+                {
+                    int id = (int) dgvHienThi.SelectedRows[0].Cells["clId"].Value;
+                    List<thongsokythuat> lstDetail = db.thongsokythuats.Where(x => x.matskt == id || (x.idparent == id && x.isdefault ==1)).ToList();
+                    lstSelect.AddRange(lstDetail);
+                }
+                this.Tag = lstSelect;
+            }
+            else
+            {
+                this.Tag = null;
+            }
+            
             this.Close();
         }
 
@@ -172,6 +189,7 @@ namespace WindowsFormsApp2
 
         private void loadDataTs()
         {
+            dgvThongSo.Rows.Clear();
             if (dgvHienThi.SelectedRows.Count != 1)
             {
                 return;
@@ -179,7 +197,7 @@ namespace WindowsFormsApp2
             int idNhom = Int32.Parse(dgvHienThi.SelectedRows[0].Cells["clId"].Value.ToString());
             db_QLCHEntities2 db = new db_QLCHEntities2();
             List<thongsokythuat> lstData = db.thongsokythuats.Where(x => x.idparent == idNhom && x.isdefault == 1).OrderBy(x => x.sothutu).ToList();
-            dgvThongSo.Rows.Clear();
+
             if (lstData.Count() > 0)
             {
                 for (int i = 0; i < lstData.Count(); i++)

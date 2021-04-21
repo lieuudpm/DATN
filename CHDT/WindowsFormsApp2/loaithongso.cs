@@ -17,14 +17,15 @@ namespace WindowsFormsApp2
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public loaithongso()
         {
-            this.thongsokythuats = new HashSet<thongsokythuat>();
+            this.fillter_thong_so = new HashSet<fillter_thong_so>();
         }
     
         public int malts { get; set; }
-        public string tents { get; set; }
+        public string title { get; set; }
+        public Nullable<int> id_parent { get; set; }
         public Nullable<int> stt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<thongsokythuat> thongsokythuats { get; set; }
+        public virtual ICollection<fillter_thong_so> fillter_thong_so { get; set; }
     }
 }
