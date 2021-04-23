@@ -134,6 +134,10 @@ namespace WindowsFormsApp2
         {
             frmThemMoiDonHangNhap frm = new frmThemMoiDonHangNhap();
             frm.ShowDialog();
+            if (frm.Tag != null)
+            {
+                loadData();
+            }
         }
 
         private void txtTimKiemNhaCungCap_TextChanged(object sender, EventArgs e)

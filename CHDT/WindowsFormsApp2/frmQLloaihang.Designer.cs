@@ -35,6 +35,9 @@
             this.btnXoahang = new System.Windows.Forms.Button();
             this.btnThemhang = new System.Windows.Forms.Button();
             this.dgvHangsanxuat = new System.Windows.Forms.DataGridView();
+            this.clMahang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clTenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,12 +46,9 @@
             this.btnTimloaihang = new System.Windows.Forms.Button();
             this.btnThemloai = new System.Windows.Forms.Button();
             this.dgvLoaihang = new System.Windows.Forms.DataGridView();
-            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
             this.clMaloaihang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTenloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clMahang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clTenhang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangsanxuat)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -130,6 +130,24 @@
             this.dgvHangsanxuat.Size = new System.Drawing.Size(608, 325);
             this.dgvHangsanxuat.TabIndex = 0;
             this.dgvHangsanxuat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHangsanxuat_CellDoubleClick);
+            // 
+            // clMahang
+            // 
+            this.clMahang.HeaderText = "ID Hãng sản xuất ";
+            this.clMahang.Name = "clMahang";
+            this.clMahang.Width = 200;
+            // 
+            // clTenhang
+            // 
+            this.clTenhang.HeaderText = "Tên hãng sản xuất ";
+            this.clTenhang.Name = "clTenhang";
+            this.clTenhang.Width = 200;
+            // 
+            // clSoluong
+            // 
+            this.clSoluong.HeaderText = "Số lượng ";
+            this.clSoluong.Name = "clSoluong";
+            this.clSoluong.Width = 200;
             // 
             // label1
             // 
@@ -217,17 +235,6 @@
             this.dgvLoaihang.TabIndex = 0;
             this.dgvLoaihang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaihang_CellDoubleClick);
             // 
-            // ucMenu1
-            // 
-            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
-            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
-            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucMenu1.Name = "ucMenu1";
-            this.ucMenu1.Size = new System.Drawing.Size(1284, 43);
-            this.ucMenu1.TabIndex = 0;
-            // 
             // clMaloaihang
             // 
             this.clMaloaihang.HeaderText = "ID Loại hàng";
@@ -240,23 +247,16 @@
             this.clTenloai.Name = "clTenloai";
             this.clTenloai.Width = 340;
             // 
-            // clMahang
+            // ucMenu1
             // 
-            this.clMahang.HeaderText = "ID Hãng sản xuất ";
-            this.clMahang.Name = "clMahang";
-            this.clMahang.Width = 200;
-            // 
-            // clTenhang
-            // 
-            this.clTenhang.HeaderText = "Tên hãng sản xuất ";
-            this.clTenhang.Name = "clTenhang";
-            this.clTenhang.Width = 200;
-            // 
-            // clSoluong
-            // 
-            this.clSoluong.HeaderText = "Số lượng ";
-            this.clSoluong.Name = "clSoluong";
-            this.clSoluong.Width = 200;
+            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
+            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
+            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucMenu1.Name = "ucMenu1";
+            this.ucMenu1.Size = new System.Drawing.Size(1284, 43);
+            this.ucMenu1.TabIndex = 0;
             // 
             // frmQLloaihang
             // 

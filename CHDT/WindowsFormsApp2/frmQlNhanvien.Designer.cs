@@ -57,7 +57,6 @@
             this.clTrangthai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ucMenu1 = new WindowsFormsApp2.ucMenu();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvttNV)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -65,7 +64,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.rdbNvnu);
             this.groupBox1.Controls.Add(this.rdbTatCa);
             this.groupBox1.Controls.Add(this.rdbNvnam);
@@ -343,16 +341,6 @@
             this.ucMenu1.Size = new System.Drawing.Size(1284, 49);
             this.ucMenu1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(215, 131);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmQlNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -409,6 +397,5 @@
         private System.Windows.Forms.RadioButton rdbNvnu;
         private System.Windows.Forms.RadioButton rdbNvnam;
         private System.Windows.Forms.RadioButton rdbTatCa;
-        private System.Windows.Forms.Button button1;
     }
 }

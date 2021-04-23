@@ -65,7 +65,7 @@ namespace WindowsFormsApp2
 
         private void setcolor(Label lbl)
         {
-            lbl.ForeColor = Color.White;
+            lbl.ForeColor = Color.Black;
             lbl.BackColor = Color.FromArgb(128, 128, 255);
             lbl.Font = new Font(lbl.Font, FontStyle.Underline | FontStyle.Regular);
         }

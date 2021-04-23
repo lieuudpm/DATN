@@ -152,12 +152,6 @@ namespace WindowsFormsApp2
         {
             List<nhanvien> lstNhanvien = dl.nhanviens.ToList();
             loadDgvHienthi(lstNhanvien);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmDoimatkhau frm = new frmDoimatkhau();
-            frm.ShowDialog();
-        }
+        }     
     }
 }

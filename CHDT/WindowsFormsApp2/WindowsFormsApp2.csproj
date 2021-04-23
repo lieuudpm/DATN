@@ -77,6 +77,7 @@
     <Compile Include="Classss\LoadIMG.cs" />
     <Compile Include="Classss\tblDonhangnhap.cs" />
     <Compile Include="Classss\tblHangsanxuat.cs" />
+    <Compile Include="Classss\tblKhachHang.cs" />
     <Compile Include="Classss\tblLoaihang.cs" />
     <Compile Include="Classss\tblSanpham.cs" />
     <Compile Include="Classss\tbl_Baohanh.cs" />

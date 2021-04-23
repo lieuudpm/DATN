@@ -31,11 +31,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvHienThi = new System.Windows.Forms.DataGridView();
             this.btnHuytao = new System.Windows.Forms.Button();
             this.btnTaoHoaDon = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvHienThi = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnTimKiemSanPham = new System.Windows.Forms.Button();
+            this.lblTongTienHoaDon = new System.Windows.Forms.Label();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemMoiSanPham = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,8 +57,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTongTienHoaDon = new System.Windows.Forms.Label();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +112,26 @@
             this.label10.TabIndex = 7;
             this.label10.Text = "THÔNG TIN ĐƠN HÀNG NHẬP ";
             // 
+            // btnHuytao
+            // 
+            this.btnHuytao.Location = new System.Drawing.Point(1153, 620);
+            this.btnHuytao.Name = "btnHuytao";
+            this.btnHuytao.Size = new System.Drawing.Size(97, 34);
+            this.btnHuytao.TabIndex = 4;
+            this.btnHuytao.Text = "Hủy ";
+            this.btnHuytao.UseVisualStyleBackColor = true;
+            this.btnHuytao.Click += new System.EventHandler(this.btnHuytao_Click);
+            // 
+            // btnTaoHoaDon
+            // 
+            this.btnTaoHoaDon.Location = new System.Drawing.Point(1001, 620);
+            this.btnTaoHoaDon.Name = "btnTaoHoaDon";
+            this.btnTaoHoaDon.Size = new System.Drawing.Size(146, 34);
+            this.btnTaoHoaDon.TabIndex = 4;
+            this.btnTaoHoaDon.Text = "Tạo hóa đơn ";
+            this.btnTaoHoaDon.UseVisualStyleBackColor = true;
+            this.btnTaoHoaDon.Click += new System.EventHandler(this.btnTaoHoaDon_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -150,25 +170,14 @@
             this.dgvHienThi.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvHienThi_EditingControlShowing);
             this.dgvHienThi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvHienThi_KeyPress);
             // 
-            // btnHuytao
+            // label9
             // 
-            this.btnHuytao.Location = new System.Drawing.Point(1153, 620);
-            this.btnHuytao.Name = "btnHuytao";
-            this.btnHuytao.Size = new System.Drawing.Size(97, 34);
-            this.btnHuytao.TabIndex = 4;
-            this.btnHuytao.Text = "Hủy ";
-            this.btnHuytao.UseVisualStyleBackColor = true;
-            this.btnHuytao.Click += new System.EventHandler(this.btnHuytao_Click);
-            // 
-            // btnTaoHoaDon
-            // 
-            this.btnTaoHoaDon.Location = new System.Drawing.Point(1001, 620);
-            this.btnTaoHoaDon.Name = "btnTaoHoaDon";
-            this.btnTaoHoaDon.Size = new System.Drawing.Size(146, 34);
-            this.btnTaoHoaDon.TabIndex = 4;
-            this.btnTaoHoaDon.Text = "Tạo hóa đơn ";
-            this.btnTaoHoaDon.UseVisualStyleBackColor = true;
-            this.btnTaoHoaDon.Click += new System.EventHandler(this.btnTaoHoaDon_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 20);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Tổng tiền hóa đơn:";
             // 
             // btnTimKiemSanPham
             // 
@@ -179,6 +188,14 @@
             this.btnTimKiemSanPham.Text = "Tìm Kiếm ";
             this.btnTimKiemSanPham.UseVisualStyleBackColor = true;
             this.btnTimKiemSanPham.Click += new System.EventHandler(this.btnTimKiemSanPham_Click);
+            // 
+            // lblTongTienHoaDon
+            // 
+            this.lblTongTienHoaDon.AutoSize = true;
+            this.lblTongTienHoaDon.Location = new System.Drawing.Point(153, 29);
+            this.lblTongTienHoaDon.Name = "lblTongTienHoaDon";
+            this.lblTongTienHoaDon.Size = new System.Drawing.Size(0, 20);
+            this.lblTongTienHoaDon.TabIndex = 2;
             // 
             // btnXoa
             // 
@@ -374,23 +391,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày nhập hàng: ";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(141, 20);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Tổng tiền hóa đơn:";
-            // 
-            // lblTongTienHoaDon
-            // 
-            this.lblTongTienHoaDon.AutoSize = true;
-            this.lblTongTienHoaDon.Location = new System.Drawing.Point(153, 29);
-            this.lblTongTienHoaDon.Name = "lblTongTienHoaDon";
-            this.lblTongTienHoaDon.Size = new System.Drawing.Size(0, 20);
-            this.lblTongTienHoaDon.TabIndex = 2;
-            // 
             // clId
             // 
             this.clId.HeaderText = "ID Sản phẩm";
@@ -399,7 +399,7 @@
             // 
             // clTinhTrang
             // 
-            this.clTinhTrang.HeaderText = "Tình Trạng";
+            this.clTinhTrang.HeaderText = "Tình Trạng %";
             this.clTinhTrang.Name = "clTinhTrang";
             this.clTinhTrang.Width = 200;
             // 
@@ -411,7 +411,7 @@
             // 
             // clGiaMua
             // 
-            this.clGiaMua.HeaderText = "Gia nhập";
+            this.clGiaMua.HeaderText = "Giá nhập";
             this.clGiaMua.Name = "clGiaMua";
             this.clGiaMua.Width = 200;
             // 
@@ -419,13 +419,14 @@
             // 
             this.clSoLuong.HeaderText = "Số lượng ";
             this.clSoLuong.Name = "clSoLuong";
-            this.clSoLuong.Width = 150;
+            this.clSoLuong.Width = 200;
             // 
             // clTongTien
             // 
             this.clTongTien.HeaderText = "Tổng tiền ";
             this.clTongTien.Name = "clTongTien";
             this.clTongTien.ReadOnly = true;
+            this.clTongTien.Width = 200;
             // 
             // frmThemMoiDonHangNhap
             // 

@@ -32,16 +32,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnthoat = new System.Windows.Forms.Button();
             this.btndangnhap = new System.Windows.Forms.Button();
             this.txtmatkhau = new System.Windows.Forms.TextBox();
             this.txtten = new System.Windows.Forms.TextBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.lblemail = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,7 +79,6 @@
             this.panel2.Controls.Add(this.btndangnhap);
             this.panel2.Controls.Add(this.txtmatkhau);
             this.panel2.Controls.Add(this.txtten);
-            this.panel2.Controls.Add(this.linkLabel2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.lblemail);
             this.panel2.Controls.Add(this.label1);
@@ -89,16 +87,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(535, 345);
             this.panel2.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label4.Location = new System.Drawing.Point(467, 307);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 20);
-            this.label4.TabIndex = 28;
             // 
             // btnthoat
             // 
@@ -137,18 +125,6 @@
             this.txtten.TabIndex = 23;
             this.txtten.Text = "maithulieu@gmail.com";
             // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(207, 279);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(113, 18);
-            this.linkLabel2.TabIndex = 22;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Quên mật khẩu ";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -181,6 +157,16 @@
             // 
             this.timer.Interval = 1000;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label4.Location = new System.Drawing.Point(467, 307);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 20);
+            this.label4.TabIndex = 28;
+            // 
             // frmdangnhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,16 +191,15 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnthoat;
         private System.Windows.Forms.Button btndangnhap;
         private System.Windows.Forms.TextBox txtmatkhau;
         private System.Windows.Forms.TextBox txtten;
-        private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label label4;
     }
 }
 

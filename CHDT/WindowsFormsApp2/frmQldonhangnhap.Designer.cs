@@ -43,13 +43,13 @@
             this.txtTimKiemNhaCungCap = new System.Windows.Forms.TextBox();
             this.btnTimKiemDonHang = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.cbxTrangThai = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -131,7 +131,7 @@
             // 
             // btnHuytao
             // 
-            this.btnHuytao.Location = new System.Drawing.Point(1163, 343);
+            this.btnHuytao.Location = new System.Drawing.Point(1066, 343);
             this.btnHuytao.Name = "btnHuytao";
             this.btnHuytao.Size = new System.Drawing.Size(97, 34);
             this.btnHuytao.TabIndex = 4;
@@ -141,7 +141,7 @@
             // 
             // btntaohoadonnhap
             // 
-            this.btntaohoadonnhap.Location = new System.Drawing.Point(986, 343);
+            this.btntaohoadonnhap.Location = new System.Drawing.Point(875, 343);
             this.btntaohoadonnhap.Name = "btntaohoadonnhap";
             this.btntaohoadonnhap.Size = new System.Drawing.Size(146, 34);
             this.btntaohoadonnhap.TabIndex = 4;
@@ -196,6 +196,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bộ lọc ";
             // 
+            // dtpNgayKetThuc
+            // 
+            this.dtpNgayKetThuc.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayKetThuc.Location = new System.Drawing.Point(497, 102);
+            this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
+            this.dtpNgayKetThuc.Size = new System.Drawing.Size(128, 26);
+            this.dtpNgayKetThuc.TabIndex = 6;
+            // 
+            // dtpNgayBatDau
+            // 
+            this.dtpNgayBatDau.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayBatDau.Location = new System.Drawing.Point(168, 102);
+            this.dtpNgayBatDau.Name = "dtpNgayBatDau";
+            this.dtpNgayBatDau.Size = new System.Drawing.Size(128, 26);
+            this.dtpNgayBatDau.TabIndex = 6;
+            // 
             // cbxTrangThai
             // 
             this.cbxTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -218,52 +236,34 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên nhà cung cấp";
             // 
-            // ucMenu1
-            // 
-            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
-            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
-            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucMenu1.Name = "ucMenu1";
-            this.ucMenu1.Size = new System.Drawing.Size(1284, 43);
-            this.ucMenu1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Ngày bắt đầu ";
-            // 
-            // dtpNgayBatDau
-            // 
-            this.dtpNgayBatDau.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayBatDau.Location = new System.Drawing.Point(168, 97);
-            this.dtpNgayBatDau.Name = "dtpNgayBatDau";
-            this.dtpNgayBatDau.Size = new System.Drawing.Size(128, 26);
-            this.dtpNgayBatDau.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(338, 101);
+            this.label3.Location = new System.Drawing.Point(369, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ngày kết thúc";
             // 
-            // dtpNgayKetThuc
+            // label2
             // 
-            this.dtpNgayKetThuc.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKetThuc.Location = new System.Drawing.Point(450, 97);
-            this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            this.dtpNgayKetThuc.Size = new System.Drawing.Size(128, 26);
-            this.dtpNgayKetThuc.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Ngày bắt đầu ";
+            // 
+            // ucMenu1
+            // 
+            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
+            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
+            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucMenu1.Name = "ucMenu1";
+            this.ucMenu1.Size = new System.Drawing.Size(1284, 43);
+            this.ucMenu1.TabIndex = 3;
             // 
             // frmQldonhangnhap
             // 

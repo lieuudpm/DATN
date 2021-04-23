@@ -55,6 +55,10 @@ namespace WindowsFormsApp2
             dgvHienThi.Rows.Clear();
             if (lstData.Count() > 0)
             {
+                if (txtTimTheoTenSp.Text != "")
+                {
+                    lstData = lstData.Where(x => x.tensp.ToLower().Contains(txtTimTheoTenSp.Text.ToLower())).ToList();
+                }
                 for (int i = 0; i < lstData.Count(); i++)
                 {
                     dgvHienThi.Rows.Add();
@@ -82,12 +86,7 @@ namespace WindowsFormsApp2
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-                db_QLCHEntities2 dl = new db_QLCHEntities2();
-                List<sanpham> lstSanPham = dl.sanphams.ToList();
-                if (txtTimTheoTenSp.Text != "")
-                {
-                    lstSanPham = lstSanPham.Where(x => x.tensp.Contains(txtTimTheoTenSp.Text)).ToList();
-                }
+              
             loadData();
         }
     }

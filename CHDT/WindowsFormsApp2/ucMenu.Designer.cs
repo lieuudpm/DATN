@@ -168,6 +168,7 @@
             this.Controls.Add(this.lblQlsanpham);
             this.Controls.Add(this.lblQlnhanvien);
             this.Controls.Add(this.lbltrangchu);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "ucMenu";
             this.Size = new System.Drawing.Size(1028, 43);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ucMenu_Paint);

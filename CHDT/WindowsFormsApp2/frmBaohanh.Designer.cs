@@ -57,7 +57,7 @@
             // 
             this.ucMenu1.BackColor = System.Drawing.Color.Blue;
             this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";
@@ -80,7 +80,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nhập thông tin ";
-        
             // 
             // btnThemmoi
             // 
@@ -110,7 +109,6 @@
             this.label3.Size = new System.Drawing.Size(152, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = " Họ tên khách hàng ";
-       
             // 
             // textBox2
             // 
@@ -119,7 +117,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(172, 33);
             this.textBox2.TabIndex = 0;
-      
             // 
             // label2
             // 

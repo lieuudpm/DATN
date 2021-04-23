@@ -21,16 +21,6 @@ namespace WindowsFormsApp2
         db_QLCHEntities2 dl = new db_QLCHEntities2();
         List<sanpham> lstSanPham = null;
         List<donhangnhap> lstDonNhapHang = null;
-
-        private void btntaohoadonnhap_Click(object sender, EventArgs e)
-        {
-            lstDonNhapHang = dl.donhangnhaps.ToList();
-            donhangnhap Donhang = dl.donhangnhaps.First();
-            if (Donhang != null)
-            {
-                MessageBox.Show("Đơn hàng đã được tạo");
-            }
-        }
         private void frmQldonhangnhap_Load(object sender, EventArgs e)
         {
             loadNhaCungCap();
@@ -208,7 +198,6 @@ namespace WindowsFormsApp2
             newData.mancc = Int32.Parse(maNcc);
             dl.donhangnhaps.Add(newData);
 
-
             sanpham sp = new sanpham();
             ct_donhangnhap[] ctsp = new ct_donhangnhap[dgvHienThi.Rows.Count];
             for (int i = 0; i < dgvHienThi.Rows.Count; i++)
@@ -217,6 +206,7 @@ namespace WindowsFormsApp2
                 string tenSanPham = (dgvHienThi.Rows[i].Cells["clTen"].Value ?? "").ToString();
                 string giaMua = (dgvHienThi.Rows[i].Cells["clGiaMua"].Value ?? "").ToString();
                 string soLuongMua = (dgvHienThi.Rows[i].Cells["clSoLuong"].Value ?? "").ToString();
+                string strTongTien = (dgvHienThi.Rows[i].Cells["clTongTien"].Value ?? "").ToString();
                 if (giaMua == "")
                 {
                     MessageBox.Show("Giá mua của sản phẩm " + tenSanPham + " không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -230,11 +220,14 @@ namespace WindowsFormsApp2
                 ctsp[i] = new ct_donhangnhap();
                 ctsp[i].soluongmua = Int32.Parse(soLuongMua);
                 ctsp[i].mactsp = Int32.Parse(idSanPham);
-                ctsp[i].giamua = Int32.Parse(giaMua);
+                ctsp[i].giamua = Int32.Parse(giaMua);             
                 ctsp[i].madhn = newData.madhn;
                 dl.ct_donhangnhap.Add(ctsp[i]);
             }
             dl.SaveChanges();
+            this.Tag = dgvHienThi;
+            MessageBox.Show("Tạo thành công đơn hàng");
+            this.Close();
         }
 
         private void dgvHienThi_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

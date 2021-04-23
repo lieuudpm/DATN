@@ -71,7 +71,7 @@ namespace WindowsFormsApp2
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
