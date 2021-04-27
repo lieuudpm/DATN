@@ -26,9 +26,9 @@ namespace WindowsFormsApp2
 
 
         private void frmThemmoisanpham_Load(object sender, EventArgs e)
-        {            
+        {
             loadLoaiHang();
-            if (this.Tag != null)
+            if (this.Tag != null && this.Tag.ToString() != "fromFrmThemMoiDonHangNhap")
             {
                 btnThemMoi.Text = "Lưu Lại";
                 db_QLCHEntities2 db = new db_QLCHEntities2();
@@ -40,7 +40,7 @@ namespace WindowsFormsApp2
                     picImg.Image = LoadIMG.ByteToImg(ctSanPham.sanpham.anh);
                     img = ctSanPham.sanpham.anh;
                 }
-                
+
                 txtMota.Text = ctSanPham.sanpham.mota;
                 txtTenSp.Text = ctSanPham.sanpham.tensp;
                 cbxLoaiSp.SelectedValue = ctSanPham.sanpham.hang.loaihang.maloai;
@@ -133,24 +133,24 @@ namespace WindowsFormsApp2
                 return;
             }
             sanpham newData;
-            if (this.Tag != null)
+            if (this.Tag != null && this.Tag.ToString() != "fromFrmThemMoiDonHangNhap")
             {
                 newData = dl.sanphams.FirstOrDefault(x => x.masp == idSanPham);
             }
             else
             {
-                 newData = new sanpham();
+                newData = new sanpham();
             }
-            
+
             newData.tensp = txtTenSp.Text;
             newData.mahang = (int)cbxHangSp.SelectedValue;
             newData.mota = txtMota.Text;
             newData.anh = img;
-            if(this.Tag == null)
+            if (this.Tag == null || this.Tag.ToString() == "fromFrmThemMoiDonHangNhap")
             {
                 dl.sanphams.Add(newData);
             }
-            
+
             dl.SaveChanges();
 
             for (int i = 0; i < dgvLoaiMay.Rows.Count - 1; i++)
@@ -190,20 +190,21 @@ namespace WindowsFormsApp2
                 }
                 else
                 {
-                    ctsp =  new ct_sanpham();
-                }                
+                    ctsp = new ct_sanpham();
+                }
                 ctsp.tinhtrang = Int32.Parse(tinhTrang);
                 ctsp.soluong = Int32.Parse(soLuong);
                 ctsp.giaban = Int64.Parse(giaBan);
                 ctsp.giasale = Int64.Parse(giaSale);
                 ctsp.thoigianbh = Int32.Parse(BaoHanh);
                 ctsp.masp = newData.masp;
-                if(idCt == "")
+                if (idCt == "")
                 {
                     dl.ct_sanpham.Add(ctsp);
                 }
-                lstCtsp.Add(ctsp);
+                
                 dl.SaveChanges();
+                lstCtsp.Add(ctsp);
             }
 
             List<thongsokythuat> tam = lstThongSoGroup.Where(x => x.idparent == 0).OrderBy(x => x.sothutu).ToList();
@@ -219,7 +220,7 @@ namespace WindowsFormsApp2
                 {
                     TsParent[i] = new thongsokythuat();
                 }
-                
+
                 TsParent[i].ten = tam[i].ten;
                 TsParent[i].idparent = 0;
                 TsParent[i].sothutu = tam[i].sothutu;
@@ -228,11 +229,12 @@ namespace WindowsFormsApp2
                 if (tam[i].matskt <= 0)
                 {
                     dl.thongsokythuats.Add(TsParent[i]);
-                }else if (tam[i].sothutu == -1)
+                }
+                else if (tam[i].sothutu == -1)
                 {
                     dl.thongsokythuats.Remove(TsParent[i]);
                 }
-                    
+
                 dl.SaveChanges();
                 int idNhom = tam[i].matskt;
                 idNhom = idNhom > 0 ? idNhom : (int)tam[i].sothutu;
@@ -258,7 +260,8 @@ namespace WindowsFormsApp2
                     if (tamTs[j].matskt <= 0)
                     {
                         dl.thongsokythuats.Add(newDataTs);
-                    }else if(tamTs[j].sothutu == -1)
+                    }
+                    else if (tamTs[j].sothutu == -1)
                     {
                         dl.thongsokythuats.Remove(newDataTs);
                     }
@@ -340,7 +343,7 @@ namespace WindowsFormsApp2
             if (dgvLoaiMay.SelectedRows.Count > 0 && dgvLoaiMay.CurrentRow.Index != (dgvLoaiMay.Rows.Count - 1))
             {
                 string idCt = (dgvLoaiMay.Rows[dgvLoaiMay.CurrentRow.Index].Cells["clId"].Value ?? "").ToString();
-                if (idCt!="")
+                if (idCt != "")
                 {
                     DialogResult result = MessageBox.Show("Bạn thực sự muốn xóa không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
@@ -351,7 +354,7 @@ namespace WindowsFormsApp2
                             db_QLCHEntities2 db = new db_QLCHEntities2();
                             ct_sanpham sp = db.ct_sanpham.FirstOrDefault(c => c.mactsp == id);
                             int countSp = db.ct_sanpham.Count(x => x.masp == sp.masp);
-                            if(countSp == 1)
+                            if (countSp == 1)
                             {
                                 MessageBox.Show("Cần có một sản phẩm. Không thể xóa sản phẩm này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
@@ -366,7 +369,7 @@ namespace WindowsFormsApp2
                         }
                     }
                 }
-               
+
             }
         }
     }
