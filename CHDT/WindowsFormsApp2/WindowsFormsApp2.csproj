@@ -110,12 +110,6 @@
     <Compile Include="fillter_thong_so.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmBaocao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaocao.Designer.cs">
-      <DependentUpon>frmBaocao.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBaohanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,12 +121,6 @@
     </Compile>
     <Compile Include="frmDangnhap.Designer.cs">
       <DependentUpon>frmDangnhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDoimatkhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDoimatkhau.Designer.cs">
-      <DependentUpon>frmDoimatkhau.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDondathang.cs">
       <SubType>Form</SubType>
@@ -260,12 +248,6 @@
     <Compile Include="frmttNhanvien.Designer.cs">
       <DependentUpon>frmttNhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmttSanpham.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmttSanpham.Designer.cs">
-      <DependentUpon>frmttSanpham.cs</DependentUpon>
-    </Compile>
     <Compile Include="hang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -313,17 +295,11 @@
     <Compile Include="ucMenu.Designer.cs">
       <DependentUpon>ucMenu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmBaocao.resx">
-      <DependentUpon>frmBaocao.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBaohanh.resx">
       <DependentUpon>frmBaohanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangnhap.resx">
       <DependentUpon>frmDangnhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDoimatkhau.resx">
-      <DependentUpon>frmDoimatkhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDondathang.resx">
       <DependentUpon>frmDondathang.cs</DependentUpon>
@@ -387,9 +363,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmttNhanvien.resx">
       <DependentUpon>frmttNhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmttSanpham.resx">
-      <DependentUpon>frmttSanpham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

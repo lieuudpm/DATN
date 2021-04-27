@@ -42,7 +42,8 @@ namespace WindowsFormsApp2
                           tenkh = dh.khachhang.tenkh,
                           diachi = dh.khachhang.diachi,
                           sdt = dh.khachhang.sdt,                      
-                          soluong = ct_dh.soluong
+                          soluong = ct_dh.soluong,
+                          soserial = ct_dh.soserial
                       };
             var lstData = qry.ToList();
             dgvHienThi.Rows.Clear();
@@ -58,7 +59,7 @@ namespace WindowsFormsApp2
                 }
                 if (dtpNgayBatDau.Value.Date <= dtpNgayKetThuc.Value.Date)
                 {
-                    lstData = lstData.Where(c => c.ngaydathang.Value.Date >= dtpNgayKetThuc.Value.Date && c.ngaydathang.Value.Date <= dtpNgayKetThuc.Value.Date).ToList();
+                    lstData = lstData.Where(x => x.ngaydathang.Value.Date >= dtpNgayBatDau.Value.Date && x.ngaydathang.Value.Date <= dtpNgayKetThuc.Value.Date).ToList();
                 }
                 else
                 {
@@ -74,11 +75,13 @@ namespace WindowsFormsApp2
                     dgvHienThi.Rows[i].Cells["cldiachi"].Value = lstData[i].diachi;
                     dgvHienThi.Rows[i].Cells["clsdt"].Value = lstData[i].sdt;
                     dgvHienThi.Rows[i].Cells["clsoluongdat"].Value = lstData[i].soluong;
+                    dgvHienThi.Rows[i].Cells["clSoSerial"].Value = lstData[i].soserial;
                     dgvHienThi.Rows[i].Cells["cltinhtrang"].Value =dlChung.TrangThaiLabel(lstData[i].trangthai);
                  
                 }
                 dgvHienThi.ClearSelection();
             }
+     
 
         }
 
@@ -99,8 +102,19 @@ namespace WindowsFormsApp2
 
         private void btnThemBaoHanh_Click(object sender, EventArgs e)
         {
-            frmThemmoichitietbaohanh frm = new frmThemmoichitietbaohanh();
-            frm.Show();
+            if (dgvHienThi.SelectedRows.Count == 1)
+            {
+                int maCtDh = int.Parse(dgvHienThi.SelectedRows[0].Cells["clId"].Value.ToString());
+                frmThemmoichitietbaohanh frm = new frmThemmoichitietbaohanh();
+                frm.Tag = maCtDh;
+                frm.ShowDialog();           
+            }
+            else
+            {
+              MessageBox.Show("Chọn một đơn hàng để tiếp tục");
+            }
+
+           
         }
         private void frmDondathang_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -109,6 +123,22 @@ namespace WindowsFormsApp2
                 Application.Exit();
             }
             dlChung.thoatCT = true;
+        }
+
+        private void dgvHienThi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {            
+                string maCtDh = dgvHienThi.Rows[e.RowIndex].Cells["clId"].Value.ToString();
+               frmThemmoichitietbaohanh frm = new frmThemmoichitietbaohanh();
+                frm.Tag = maCtDh;
+                frm.ShowDialog();
+                if (frm.Tag != null && frm.Tag.ToString() == "ok")
+                {
+                  db_QLCHEntities2  dl= new db_QLCHEntities2();
+                    loadData();
+                }
+            }
         }
     }
 }

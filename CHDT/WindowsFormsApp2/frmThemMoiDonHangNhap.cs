@@ -24,6 +24,12 @@ namespace WindowsFormsApp2
         private void frmQldonhangnhap_Load(object sender, EventArgs e)
         {
             loadNhaCungCap();
+            if (this.Tag != null)
+            {
+                int maDh = int.Parse(this.Tag.ToString());
+                donhangnhap dh = dl.donhangnhaps.FirstOrDefault(x => x.madhn == maDh);
+                
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -197,11 +203,13 @@ namespace WindowsFormsApp2
             newData.ngaynhaphang = dtpNgayNhapHang.Value;
             newData.mancc = Int32.Parse(maNcc);
             dl.donhangnhaps.Add(newData);
-
+            // ct_sp.soluong = "";
+           
             sanpham sp = new sanpham();
             ct_donhangnhap[] ctsp = new ct_donhangnhap[dgvHienThi.Rows.Count];
             for (int i = 0; i < dgvHienThi.Rows.Count; i++)
             {
+                
                 string idSanPham = (dgvHienThi.Rows[i].Cells["clId"].Value ?? "").ToString();
                 string tenSanPham = (dgvHienThi.Rows[i].Cells["clTen"].Value ?? "").ToString();
                 string giaMua = (dgvHienThi.Rows[i].Cells["clGiaMua"].Value ?? "").ToString();
@@ -217,11 +225,23 @@ namespace WindowsFormsApp2
                     MessageBox.Show("Số lương nhạp của sản phẩm " + tenSanPham + " không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                int newUppdate = 0;
+                tblDonhangnhap tbl = new tblDonhangnhap();
+                ct_sanpham ct_sp = new ct_sanpham();
+                
+                ct_sanpham UpdateSl = dl.ct_sanpham.FirstOrDefault(x => x.soluong == ct_sp.soluong);
+                if (UpdateSl != null)
+                {
+                    newUppdate = int.Parse(UpdateSl.ToString()) + int.Parse(soLuongMua.ToString());                
+                }
                 ctsp[i] = new ct_donhangnhap();
+                ctsp[i].tongtien = Int32.Parse(strTongTien);
                 ctsp[i].soluongmua = Int32.Parse(soLuongMua);
+                ctsp[i].ct_sanpham.soluong = newUppdate;
                 ctsp[i].mactsp = Int32.Parse(idSanPham);
-                ctsp[i].giamua = Int32.Parse(giaMua);             
+                ctsp[i].giamua = Int32.Parse(giaMua);                 
                 ctsp[i].madhn = newData.madhn;
+               
                 dl.ct_donhangnhap.Add(ctsp[i]);
             }
             dl.SaveChanges();

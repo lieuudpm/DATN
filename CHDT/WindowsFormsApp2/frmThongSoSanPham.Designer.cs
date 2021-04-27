@@ -44,14 +44,14 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnArrowTop = new FontAwesome.Sharp.IconButton();
             this.dgvThongSoKyThuat = new System.Windows.Forms.DataGridView();
-            this.clTieuDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clIdTs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSttTs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clThongso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTenSanPham = new System.Windows.Forms.Label();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.cbxGroup = new System.Windows.Forms.ComboBox();
+            this.clTieuDe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIdTs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSttTs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clThongso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongSoKyThuat)).BeginInit();
@@ -227,31 +227,6 @@
             this.dgvThongSoKyThuat.Size = new System.Drawing.Size(534, 522);
             this.dgvThongSoKyThuat.TabIndex = 1;
             // 
-            // clTieuDe
-            // 
-            this.clTieuDe.HeaderText = "Tên Thông Số";
-            this.clTieuDe.Name = "clTieuDe";
-            this.clTieuDe.Width = 150;
-            // 
-            // clIdTs
-            // 
-            this.clIdTs.HeaderText = "Column1";
-            this.clIdTs.Name = "clIdTs";
-            this.clIdTs.Visible = false;
-            // 
-            // clSttTs
-            // 
-            this.clSttTs.HeaderText = "Column1";
-            this.clSttTs.Name = "clSttTs";
-            this.clSttTs.Visible = false;
-            // 
-            // clThongso
-            // 
-            this.clThongso.FillWeight = 200F;
-            this.clThongso.HeaderText = "Thông Số Kỹ Thuật";
-            this.clThongso.Name = "clThongso";
-            this.clThongso.Width = 200;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -288,6 +263,31 @@
             this.cbxGroup.Name = "cbxGroup";
             this.cbxGroup.Size = new System.Drawing.Size(300, 28);
             this.cbxGroup.TabIndex = 11;
+            // 
+            // clTieuDe
+            // 
+            this.clTieuDe.HeaderText = "Tên Thông Số";
+            this.clTieuDe.Name = "clTieuDe";
+            this.clTieuDe.Width = 150;
+            // 
+            // clIdTs
+            // 
+            this.clIdTs.HeaderText = "Column1";
+            this.clIdTs.Name = "clIdTs";
+            this.clIdTs.Visible = false;
+            // 
+            // clSttTs
+            // 
+            this.clSttTs.HeaderText = "Column1";
+            this.clSttTs.Name = "clSttTs";
+            this.clSttTs.Visible = false;
+            // 
+            // clThongso
+            // 
+            this.clThongso.FillWeight = 200F;
+            this.clThongso.HeaderText = "Thông Số Kỹ Thuật";
+            this.clThongso.Name = "clThongso";
+            this.clThongso.Width = 200;
             // 
             // frmThongSoSanPham
             // 
@@ -334,10 +334,6 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnArrowTop;
         private System.Windows.Forms.DataGridView dgvThongSoKyThuat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clTieuDe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clIdTs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clSttTs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clThongso;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTenSanPham;
         private System.Windows.Forms.Button btnThemMoi;
@@ -346,5 +342,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clCkx;
         private System.Windows.Forms.ComboBox cbxGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clTieuDe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIdTs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSttTs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clThongso;
     }
 }

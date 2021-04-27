@@ -37,6 +37,7 @@ namespace WindowsFormsApp2
                 db_QLCHEntities2 dl = new db_QLCHEntities2();
 
                 khachhang dlkhachhang = dl.khachhangs.FirstOrDefault(c => c.tenkh == txtTenKhachHang.Text);
+              
                 if (dlkhachhang != null)
                 {
                     MessageBox.Show(" Khách hàng đã tồn tại");
@@ -76,19 +77,29 @@ namespace WindowsFormsApp2
             dl.dondathangs.Add(newData);
 
             ct_dondathang[] ctdh = new ct_dondathang[dgvHienThi.Rows.Count];
-            //for (int i = 0; i < dgvHienThi.Rows.Count; i++)
-            //{
-            //    string idSanPham = (dgvHienThi.Rows[i].Cells["clId"].Value ?? "").ToString();
-            //    string tenSanPham = (dgvHienThi.Rows[i].Cells["clTen"].Value ?? "").ToString();
-            //    string soLuongBan = (dgvHienThi.Rows[i].Cells["clSoLuong"].Value ?? "").ToString();
-            //    string giaban = (dgvHienThi.Rows[i].Cells["clGiaBan"].Value ?? "").ToString();
-            //    ctdh[i] = new ct_dondathang();
-            //    ctdh[i].soluong = Int32.Parse(soLuongBan);
-            //    ctdh[i].giaban = Int64.Parse(giaban);
-            //    ctdh[i].mactsp = Int32.Parse(idSanPham);
-            //    ctdh[i].maddh = newData.maddh;
-            //    dl.ct_dondathang.Add(ctdh[i]);
-            //}
+            for (int i = 0; i < dgvHienThi.Rows.Count; i++)
+            {
+                string idSanPham = (dgvHienThi.Rows[i].Cells["clId"].Value ?? "").ToString();
+                string tenSanPham = (dgvHienThi.Rows[i].Cells["clTen"].Value ?? "").ToString();
+               
+                string soLuongBan = (dgvHienThi.Rows[i].Cells["clSoLuong"].Value ?? "").ToString();
+                string giaban = (dgvHienThi.Rows[i].Cells["clGiaBan"].Value ?? "").ToString();
+                string soSerial = (dgvHienThi.Rows[i].Cells["clSoSerial"].Value ?? "").ToString();
+               // if (soSerial == ctdh[i].soserial)
+                //{
+                //    MessageBox.Show("Số Serial không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
+                ctdh[i] = new ct_dondathang();
+                ctdh[i].soluong = Int32.Parse(soLuongBan);
+                ctdh[i].giaban = Int64.Parse(giaban);
+                ctdh[i].tensp = tenSanPham;
+                ctdh[i].mactsp = Int32.Parse(idSanPham);
+                ctdh[i].soserial = soSerial;
+             //   ctdh[i].thoigianbatdau = newData.ngaydathang.Value;
+                ctdh[i].maddh = newData.maddh;
+                dl.ct_dondathang.Add(ctdh[i]);
+            }
             dl.SaveChanges();
             this.Tag = dgvHienThi;
             MessageBox.Show(" Tạo đơn hàng thành công");
@@ -192,8 +203,9 @@ namespace WindowsFormsApp2
 
         private void dgvHienThi_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
             int rowIndex = dgvHienThi.CurrentRow.Index;
-            if ((e.ColumnIndex == 2 || e.ColumnIndex == 3) && dgvHienThi.Rows[rowIndex].Cells[3].Value != null && dgvHienThi.Rows[rowIndex].Cells[2].Value != null)
+            if ((e.ColumnIndex == 2 || e.ColumnIndex == 3) && dgvHienThi.Rows[rowIndex].Cells[2].Value != null && dgvHienThi.Rows[rowIndex].Cells[3].Value != null)
             {
                 int soluong = (int)dgvHienThi.Rows[rowIndex].Cells[3].Value;
                 Int64 giaban = Int64.Parse(dgvHienThi.Rows[rowIndex].Cells[2].Value.ToString());
@@ -203,7 +215,40 @@ namespace WindowsFormsApp2
 
         private void txtSoDt_KeyPress(object sender, KeyPressEventArgs e)
         {
+            dl = new db_QLCHEntities2();
+            string key = e.KeyChar.ToString();
+            if (key == "\r")
+            {
+                dl = new db_QLCHEntities2();
+               khachhang ncc = dl.khachhangs.FirstOrDefault(x => x.sdt == txtSoDt.Text);
+                Makh= ncc.makh.ToString();
+                if (ncc != null)
+                {
+                    txtDiaChi.Text = ncc.diachi;
+                    txtTenKhachHang.Text = ncc.tenkh;
+                    rdbnam.Checked = dlChung.isGoiTinhNam(ncc.gioitinh);
+                    rdbnu.Checked = dlChung.isGoiTinhNu(ncc.gioitinh);       
+                }
+            }
+        }
 
+        private void txtSoDt_TextChanged(object sender, EventArgs e)
+        {
+
+            int so;
+            string sdt = txtSoDt.Text;
+            if (int.TryParse(sdt, out so))
+            {
+                txtSoDt.Text = sdt;
+            }
+            else
+            {
+                if (txtSoDt.Text.Length > 0)
+                {
+                  txtSoDt.Text = txtSoDt.Text.Substring(0, txtSoDt.Text.Length - 1);
+                    txtSoDt.SelectionStart = txtSoDt.Text.Length;
+                }
+            }
         }
     }
 }

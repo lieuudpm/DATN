@@ -56,6 +56,7 @@
             this.clGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSoSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTongTienHoaDon = new System.Windows.Forms.Label();
             this.btnTaoHoaDon = new System.Windows.Forms.Button();
@@ -199,6 +200,7 @@
             this.txtSoDt.Name = "txtSoDt";
             this.txtSoDt.Size = new System.Drawing.Size(302, 26);
             this.txtSoDt.TabIndex = 2;
+            this.txtSoDt.TextChanged += new System.EventHandler(this.txtSoDt_TextChanged);
             this.txtSoDt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDt_KeyPress);
             // 
             // label9
@@ -300,7 +302,8 @@
             this.clTen,
             this.clGiaBan,
             this.clSoLuong,
-            this.clTongTien});
+            this.clTongTien,
+            this.clSoSerial});
             this.dgvHienThi.Location = new System.Drawing.Point(0, 63);
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1223, 168);
@@ -337,6 +340,12 @@
             this.clTongTien.Name = "clTongTien";
             this.clTongTien.ReadOnly = true;
             this.clTongTien.Width = 200;
+            // 
+            // clSoSerial
+            // 
+            this.clSoSerial.HeaderText = "Số serial";
+            this.clSoSerial.Name = "clSoSerial";
+            this.clSoSerial.Width = 200;
             // 
             // label2
             // 
@@ -427,5 +436,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clGiaBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSoSerial;
     }
 }

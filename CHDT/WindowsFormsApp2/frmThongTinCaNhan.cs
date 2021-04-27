@@ -71,7 +71,40 @@ namespace WindowsFormsApp2
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                frmdangnhap frm = new frmdangnhap();
+                frm.Show();
+                this.Close();
+            }
+        }
+        private void frmThongTinCaNhan_Load(object sender, EventArgs e)
+        {
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+            tbl_NhanVien tbl = new tbl_NhanVien();
+            nhanvien nvExit = ttTaiKhoan.get();
+            lblDiaChi.Text = nvExit.diachi;
+            lblSoDienThoai.Text = nvExit.sdt;
+            lblTenNhanVien.Text = nvExit.tennv;
+            lblGioitinh.Text = dlChung.gioiTinhLabel(nvExit.giottinh);
+
+            if (nvExit.quyenhan == 0)
+            {
+                lblQuyenHan.Text = "Admin";
+            }
+            else if (nvExit.quyenhan == 1)
+            {
+                lblQuyenHan.Text = "Nhân viên bán hàng ";
+            }
+            else if (nvExit.quyenhan == 2)
+            {
+                lblQuyenHan.Text = "Nhân viên kế toán";
+            }
+            else if (nvExit.quyenhan == 3)
+            {
+                lblQuyenHan.Text = "Nhân viên kho ";
+            }
         }
     }
 }

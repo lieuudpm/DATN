@@ -49,6 +49,7 @@
             this.clsdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsoluongdat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cltinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSoSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnhuy = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThemBaoHanh = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             this.ucMenu1.BackColor = System.Drawing.Color.Blue;
             this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.ForeColor = System.Drawing.Color.White;
             this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";
@@ -208,11 +210,13 @@
             this.cldiachi,
             this.clsdt,
             this.clsoluongdat,
-            this.cltinhtrang});
+            this.cltinhtrang,
+            this.clSoSerial});
             this.dgvHienThi.Location = new System.Drawing.Point(0, 34);
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1278, 303);
             this.dgvHienThi.TabIndex = 8;
+            this.dgvHienThi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellDoubleClick);
             // 
             // clId
             // 
@@ -255,6 +259,11 @@
             this.cltinhtrang.HeaderText = "Trạng thái ";
             this.cltinhtrang.Name = "cltinhtrang";
             this.cltinhtrang.Width = 170;
+            // 
+            // clSoSerial
+            // 
+            this.clSoSerial.HeaderText = "Số serial";
+            this.clSoSerial.Name = "clSoSerial";
             // 
             // btnhuy
             // 
@@ -340,5 +349,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clsdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsoluongdat;
         private System.Windows.Forms.DataGridViewTextBoxColumn cltinhtrang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clSoSerial;
     }
 }

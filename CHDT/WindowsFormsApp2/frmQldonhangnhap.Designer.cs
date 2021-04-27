@@ -87,6 +87,7 @@
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1260, 283);
             this.dgvHienThi.TabIndex = 6;
+            this.dgvHienThi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHienThi_CellDoubleClick);
             // 
             // clId
             // 
@@ -259,6 +260,7 @@
             this.ucMenu1.BackColor = System.Drawing.Color.Blue;
             this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.ForeColor = System.Drawing.Color.White;
             this.ucMenu1.Location = new System.Drawing.Point(0, 0);
             this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ucMenu1.Name = "ucMenu1";

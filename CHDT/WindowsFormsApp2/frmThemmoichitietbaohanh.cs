@@ -17,44 +17,82 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-
+        string Id = "";
         private void frmThemmoichitietbaohanh_Load(object sender, EventArgs e)
         {
-
+            dtpNgayBatDau.Value = DateTime.Now.AddDays(-30);
+            loadData();
         }
-
-        private void dgvHienThi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void loadData()
         {
-
-        }
-
-        private void dgvDsbaohanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmThemmoichitietbaohanh_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (dlChung.thoatCT == true)
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+            if (this.Tag != null)
             {
-                Application.Exit();
+                int id = int.Parse(this.Tag.ToString());
+                dondathang ct = dl.dondathangs.FirstOrDefault(c => c.maddh == id);
+                txtTenKhachHang.Text = ct.khachhang.tenkh;
+                txtDiaChi.Text = ct.khachhang.diachi;
+                txtSoDt.Text = ct.khachhang.sdt;
+                txtGhiChu.Text = ct.ghichu;
+                txtIdDonHang.Text = id.ToString();
+                dtpNgayBatDau.Value = ct.ngaydathang.Value;              
+                int i = 0;
+                dgvHienThi.Rows.Clear();
+                foreach (var item in ct.ct_dondathang)
+                {
+                    dgvHienThi.Rows.Add();
+                    dgvHienThi.Rows[i].Cells["clMasp"].Value = item.mactsp;
+                    dgvHienThi.Rows[i].Cells["clTensp"].Value = item.ct_sanpham.sanpham.tensp;
+                    dgvHienThi.Rows[i].Cells["clSoserial"].Value = item.soserial;
+                    i++;
+                }
             }
-            dlChung.thoatCT = true;
+         
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnTaoBaoHanh_Click(object sender, EventArgs e)
+        {
+            Id = txtIdDonHang.Text;
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+            int intSoHoaDon;
+            if (int.TryParse(Id,out intSoHoaDon) == true)
+            {
+                if (txtTenKhachHang.Text != null && txtSoDt.Text != null && txtIdDonHang.Text != null)
+                {
+                    ct_baohanh newData = new ct_baohanh();
+                    newData.manv = ttTaiKhoan.get().manv;
+                    newData.ngaynhanmay = dtpNgayBatDau.Value;
+                    newData.ngaytrathucte = dtpNgayKetThuc.Value;
+                    for (int i = 0; i < dgvHienThi.Rows.Count; i++)
+                    {
+                        string tensp = (dgvHienThi.Rows[i].Cells["clTensp"].Value ?? "").ToString();
+                        string soSerial = (dgvHienThi.Rows[i].Cells["clSoserial"].Value ?? "").ToString();
+
+                        newData.soserial = soSerial;
+                        dl.ct_baohanh.Add(newData);
+                        dl.SaveChanges();
+                    }
+
+                   // dl.ct_baohanh.Add(newData);
+                  
+                    MessageBox.Show("Thêm Bảo hành thành công ");
+                }
+                else
+                {
+                    MessageBox.Show("Bạn cần nhập đủ thông tin để tiếp tục");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Số hóa đơn không hợp lệ ");
+            }
+
         }
     }
 }

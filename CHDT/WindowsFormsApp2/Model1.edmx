@@ -12,10 +12,10 @@
           <Property Name="mactbh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="mactddh" Type="int" />
           <Property Name="manv" Type="int" />
-          <Property Name="ngaynhanmay" Type="date" />
-          <Property Name="ngaytradukien" Type="date" />
+          <Property Name="ngaynhanmay" Type="datetime" />
+          <Property Name="ngaytradukien" Type="datetime" />
           <Property Name="soserial" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="ngaytrathucte" Type="date" />
+          <Property Name="ngaytrathucte" Type="datetime" />
           <Property Name="tinhtrang" Type="int" />
         </EntityType>
         <EntityType Name="ct_dondathang">
@@ -28,8 +28,8 @@
           <Property Name="tensp" Type="nvarchar" MaxLength="100" />
           <Property Name="soluong" Type="int" />
           <Property Name="giaban" Type="bigint" />
-          <Property Name="thoigianbatdau" Type="nvarchar" MaxLength="50" />
-          <Property Name="thoigianketthuc" Type="nvarchar" MaxLength="50" />
+          <Property Name="thoigianbatdau" Type="datetime" />
+          <Property Name="thoigianketthuc" Type="datetime" />
           <Property Name="tinhtrang" Type="int" />
           <Property Name="soserial" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
@@ -42,6 +42,7 @@
           <Property Name="mactsp" Type="int" />
           <Property Name="giamua" Type="bigint" />
           <Property Name="soluongmua" Type="int" />
+          <Property Name="tongtien" Type="bigint" />
         </EntityType>
         <EntityType Name="ct_sanpham">
           <Key>
@@ -531,10 +532,10 @@
           <Property Name="mactbh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="mactddh" Type="Int32" />
           <Property Name="manv" Type="Int32" />
-          <Property Name="ngaynhanmay" Type="DateTime" Precision="0" />
-          <Property Name="ngaytradukien" Type="DateTime" Precision="0" />
+          <Property Name="ngaynhanmay" Type="DateTime" Precision="3" />
+          <Property Name="ngaytradukien" Type="DateTime" Precision="3" />
           <Property Name="soserial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="ngaytrathucte" Type="DateTime" Precision="0" />
+          <Property Name="ngaytrathucte" Type="DateTime" Precision="3" />
           <Property Name="tinhtrang" Type="Int32" />
           <NavigationProperty Name="ct_dondathang" Relationship="QLCHModel.FK__ct_baohan__mactd__286302EC" FromRole="ct_baohanh" ToRole="ct_dondathang" />
           <NavigationProperty Name="nhanvien" Relationship="QLCHModel.FK__ct_baohanh__manv__29572725" FromRole="ct_baohanh" ToRole="nhanvien" />
@@ -549,8 +550,8 @@
           <Property Name="tensp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="soluong" Type="Int32" />
           <Property Name="giaban" Type="Int64" />
-          <Property Name="thoigianbatdau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="thoigianketthuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="thoigianbatdau" Type="DateTime" Precision="3" />
+          <Property Name="thoigianketthuc" Type="DateTime" Precision="3" />
           <Property Name="tinhtrang" Type="Int32" />
           <Property Name="soserial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ct_baohanh" Relationship="QLCHModel.FK__ct_baohan__mactd__286302EC" FromRole="ct_dondathang" ToRole="ct_baohanh" />
@@ -566,6 +567,7 @@
           <Property Name="mactsp" Type="Int32" />
           <Property Name="giamua" Type="Int64" />
           <Property Name="soluongmua" Type="Int32" />
+          <Property Name="tongtien" Type="Int64" />
           <NavigationProperty Name="ct_sanpham" Relationship="QLCHModel.FK__ct_donhan__macts__30F848ED" FromRole="ct_donhangnhap" ToRole="ct_sanpham" />
           <NavigationProperty Name="donhangnhap" Relationship="QLCHModel.FK__ct_donhan__madhn__300424B4" FromRole="ct_donhangnhap" ToRole="donhangnhap" />
         </EntityType>
@@ -948,6 +950,7 @@
           <EntitySetMapping Name="ct_donhangnhap">
             <EntityTypeMapping TypeName="QLCHModel.ct_donhangnhap">
               <MappingFragment StoreEntitySet="ct_donhangnhap">
+                <ScalarProperty Name="tongtien" ColumnName="tongtien" />
                 <ScalarProperty Name="soluongmua" ColumnName="soluongmua" />
                 <ScalarProperty Name="giamua" ColumnName="giamua" />
                 <ScalarProperty Name="mactsp" ColumnName="mactsp" />

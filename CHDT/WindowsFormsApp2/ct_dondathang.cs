@@ -26,8 +26,8 @@ namespace WindowsFormsApp2
         public string tensp { get; set; }
         public Nullable<int> soluong { get; set; }
         public Nullable<long> giaban { get; set; }
-        public string thoigianbatdau { get; set; }
-        public string thoigianketthuc { get; set; }
+        public Nullable<System.DateTime> thoigianbatdau { get; set; }
+        public Nullable<System.DateTime> thoigianketthuc { get; set; }
         public Nullable<int> tinhtrang { get; set; }
         public string soserial { get; set; }
     

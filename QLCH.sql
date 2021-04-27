@@ -99,8 +99,8 @@ CREATE TABLE ct_dondathang
   tensp nvarchar(100),
   soluong int,
   giaban bigint,
-  thoigianbatdau nvarchar(50),
-  thoigianketthuc nvarchar(50),
+  thoigianbatdau datetime,
+  thoigianketthuc datetime,
   tinhtrang int,
   soserial nvarchar(500) NOT NULL
 )
@@ -110,10 +110,10 @@ CREATE TABLE ct_baohanh
   mactbh int PRIMARY KEY IDENTITY (1, 1),
   mactddh int FOREIGN KEY REFERENCES ct_dondathang (mactddh),
   manv int FOREIGN KEY REFERENCES nhanvien (manv),
-  ngaynhanmay date,
-  ngaytradukien date,
+  ngaynhanmay datetime,
+  ngaytradukien datetime,
   soserial nvarchar(500) NOT NULL,
-  ngaytrathucte date,
+  ngaytrathucte datetime,
   tinhtrang int
 )
 
@@ -123,15 +123,17 @@ CREATE TABLE donhangnhap (
   mancc int FOREIGN KEY REFERENCES nhacungcap (mancc),
   ngaynhaphang datetime,
   trangthai int,
+  
   ghichu nvarchar(200)
 )
 
 CREATE TABLE ct_donhangnhap (
   mactdhn int PRIMARY KEY IDENTITY (1, 1),
   madhn int FOREIGN KEY REFERENCES donhangnhap (madhn),
-mactsp int FOREIGN KEY REFERENCES ct_sanpham(mactsp),
+  mactsp int FOREIGN KEY REFERENCES ct_sanpham(mactsp),
   giamua bigint,
-  soluongmua int
+  soluongmua int,
+  tongtien bigint,
 )
 
 CREATE TABLE thongsokythuat (

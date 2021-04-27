@@ -17,36 +17,73 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
         }
-        List<ct_baohanh> lstCtBaohanh = null; 
+        List<ct_baohanh> lstCtBaohanh = null;
         private void frmBaohanh_Load(object sender, EventArgs e)
         {
             lstCtBaohanh = new tbl_Baohanh().getLstChitietaohanh();
-            LoadDgvBaohanh(lstCtBaohanh);
+          //  LoadDgvBaohanh(lstCtBaohanh);
+             LoadData();
         }
-        private void LoadDgvBaohanh( List<ct_baohanh> lst)
+        private void LoadDgvBaohanh(List<ct_baohanh> lst)
         {
-            dgvDsbaohanh.Rows.Clear();
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+
+            dgvHienThi.Rows.Clear();
             if (lst.Count > 0)
             {
                 for (int i = 0; i < lst.Count; i++)
                 {
-                    dgvDsbaohanh.Rows.Add();
-                    dgvDsbaohanh.Rows[i].Cells["clMabh"].Value = lst[i].mactbh;
-                    dgvDsbaohanh.Rows[i].Cells["clManv"].Value = lst[i].manv;
-                    dgvDsbaohanh.Rows[i].Cells["clTennv"].Value = lst[i].nhanvien.tennv;
-                    dgvDsbaohanh.Rows[i].Cells["clNgaynhanmay"].Value = lst[i].ngaynhanmay;
-                    dgvDsbaohanh.Rows[i].Cells["clTenkh"].Value = lst[i].ct_dondathang.dondathang.khachhang.tenkh;
-                    dgvDsbaohanh.Rows[i].Cells["clTensp"].Value = lst[i].ct_dondathang.tensp;
-                    dgvDsbaohanh.Rows[i].Cells["clSdtKh"].Value = lst[i].ct_dondathang.dondathang.khachhang.sdt;
-                    dgvDsbaohanh.Rows[i].Cells["clGhichu"].Value = lst[i].ct_dondathang.dondathang.ghichu;
+                    dgvHienThi.Rows.Add();
+                    dgvHienThi.Rows[i].Cells["clMabh"].Value = lst[i].mactbh;                 
+                    dgvHienThi.Rows[i].Cells["clTennv"].Value = lst[i].nhanvien.tennv;
+                    dgvHienThi.Rows[i].Cells["clNgaynhanmay"].Value =lst[i].ngaynhanmay;
+                    dgvHienThi.Rows[i].Cells["clNgayKetThuc"].Value = lst[i].ngaytrathucte;
+                   // dgvHienThi.Rows[i].Cells["clTenkh"].Value = lst[i].ct_dondathang.maddh;
+                   // dgvHienThi.Rows[i].Cells["clTensp"].Value = lst[i].ct_dondathang.tensp;
+                 //   dgvHienThi.Rows[i].Cells["clSdtKh"].Value =lst[i].ct_dondathang.dondathang.makh;
                 }
             }
 
-            dgvDsbaohanh.ClearSelection();
+            dgvHienThi.ClearSelection();
 
         }
- 
-       private void btnTimkiem_Click(object sender, EventArgs e)
+        private void LoadData()
+        {
+            db_QLCHEntities2 dl = new db_QLCHEntities2();
+            var qry = from ct_bh in dl.ct_baohanh
+                      from ct_dh in dl.ct_dondathang.Where(x => x.mactddh == ct_bh.mactddh).DefaultIfEmpty()
+                      from dh in dl.dondathangs.Where(x => x.maddh == ct_dh.maddh).DefaultIfEmpty()
+                      select new
+                      {
+                          id = ct_bh.mactbh,
+                          tensp = ct_dh.tensp,
+                          tenkh = dh.khachhang.tenkh,
+                          sdt = dh.khachhang.sdt,
+                          ghichu = dh.ghichu,
+                          tennv = dh.nhanvien.tennv,
+                          manv = ct_bh.manv,
+                          Ngaynhanmay = ct_bh.ngaynhanmay,
+                          ngaytramay = ct_bh.ngaytrathucte
+                      };
+            var lstData = qry.ToList();
+            dgvHienThi.Rows.Clear();
+            if (lstData.Count > 0)
+            {
+                for (int i = 0; i < lstData.Count; i++)
+                {
+                    dgvHienThi.Rows.Add();
+                    dgvHienThi.Rows[i].Cells["clMabh"].Value = lstData[i].id;
+                                 dgvHienThi.Rows[i].Cells["clTennv"].Value = lstData[i].tennv;
+                    dgvHienThi.Rows[i].Cells["clNgaynhanmay"].Value = lstData[i].Ngaynhanmay;
+                    dgvHienThi.Rows[i].Cells["clNgayKetThuc"].Value = lstData[i].ngaytramay;
+                    dgvHienThi.Rows[i].Cells["clTenkh"].Value = lstData[i].tenkh;
+                    dgvHienThi.Rows[i].Cells["clTensp"].Value = lstData[i].tensp;
+                    dgvHienThi.Rows[i].Cells["clSdtKh"].Value = lstData[i].sdt;
+                }
+            }
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
         {
 
         }
@@ -60,7 +97,7 @@ namespace WindowsFormsApp2
             dlChung.thoatCT = true;
         }
 
-    
+
 
         private void btnThemmoi_Click(object sender, EventArgs e)
         {
@@ -74,20 +111,20 @@ namespace WindowsFormsApp2
         {
             if (e.RowIndex >= 0)
             {
-               string Mabh = dgvDsbaohanh.Rows[e.RowIndex].Cells["clMabh"].Value.ToString();
+                string Mabh = dgvHienThi.Rows[e.RowIndex].Cells["clMabh"].Value.ToString();
                 frmThemmoichitietbaohanh frm = new frmThemmoichitietbaohanh();
                 frm.Tag = Mabh;
                 frm.ShowDialog();
                 ct_baohanh Bh = new tbl_Baohanh().getLstChitietaohanh().First(c => c.mactbh == int.Parse(Mabh));
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clMabh"].Value = Bh.mactbh;
-            
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clManv"].Value = Bh.manv;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clTennv"].Value = Bh.nhanvien.tennv;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clNgaynhanmay"].Value = Bh.ngaynhanmay;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clTenkh"].Value = Bh.ct_dondathang.dondathang.khachhang.tenkh;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clTensp"].Value =Bh.ct_dondathang.tensp;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clSdtKh"].Value = Bh.ct_dondathang.dondathang.khachhang.sdt;
-                dgvDsbaohanh.Rows[e.RowIndex].Cells["clGhichu"].Value = Bh.ct_dondathang.dondathang.ghichu;
+                dgvHienThi.Rows[e.RowIndex].Cells["clMabh"].Value = Bh.mactbh;
+
+                dgvHienThi.Rows[e.RowIndex].Cells["clManv"].Value = Bh.manv;
+                dgvHienThi.Rows[e.RowIndex].Cells["clTennv"].Value = Bh.nhanvien.tennv;
+                dgvHienThi.Rows[e.RowIndex].Cells["clNgaynhanmay"].Value = Bh.ngaynhanmay;
+                dgvHienThi.Rows[e.RowIndex].Cells["clTenkh"].Value = Bh.ct_dondathang.dondathang.khachhang.tenkh;
+                dgvHienThi.Rows[e.RowIndex].Cells["clTensp"].Value = Bh.ct_dondathang.tensp;
+                dgvHienThi.Rows[e.RowIndex].Cells["clSdtKh"].Value = Bh.ct_dondathang.dondathang.khachhang.sdt;
+                dgvHienThi.Rows[e.RowIndex].Cells["clGhichu"].Value = Bh.ct_dondathang.dondathang.ghichu;
 
             }
         }

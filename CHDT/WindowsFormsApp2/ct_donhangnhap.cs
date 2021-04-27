@@ -19,6 +19,7 @@ namespace WindowsFormsApp2
         public Nullable<int> mactsp { get; set; }
         public Nullable<long> giamua { get; set; }
         public Nullable<int> soluongmua { get; set; }
+        public Nullable<long> tongtien { get; set; }
     
         public virtual ct_sanpham ct_sanpham { get; set; }
         public virtual donhangnhap donhangnhap { get; set; }

@@ -73,10 +73,10 @@ namespace WindowsFormsApp2
                           tenncc = dh.nhacungcap.tenncc,
                           tensp = sp.tensp,
                           soluong = ct_dh.soluongmua,
+                          tongtien = ct_dh.tongtien,
 
                       };
             var lstData = qry.ToList();
-
             dgvHienThi.Rows.Clear();
             if (lstData.Count > 0)
             {
@@ -108,7 +108,7 @@ namespace WindowsFormsApp2
                     dgvHienThi.Rows[i].Cells["clTenNcc"].Value = lstData[i].tenncc;
                     dgvHienThi.Rows[i].Cells["clTenSp"].Value = lstData[i].tensp;
                     dgvHienThi.Rows[i].Cells["clSoLuong"].Value = lstData[i].soluong;
-
+                    dgvHienThi.Rows[i].Cells["clTongTien"].Value = lstData[i].tongtien;
                 }
                 dgvHienThi.ClearSelection();
             }
@@ -143,6 +143,22 @@ namespace WindowsFormsApp2
         private void txtTimKiemNhaCungCap_TextChanged(object sender, EventArgs e)
         {
             LoadTimKiem();
+        }
+
+        private void dgvHienThi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string maDh = dgvHienThi.Rows[e.RowIndex].Cells["clId"].Value.ToString();
+               frmThemMoiDonHangNhap frm = new frmThemMoiDonHangNhap();
+                frm.Tag = maDh;
+                frm.ShowDialog();
+                if (frm.Tag != null && frm.Tag.ToString() == "ok")
+                {
+                    dl = new db_QLCHEntities2();
+                    loadData();
+                }
+            }
         }
     }
 }

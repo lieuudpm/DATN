@@ -54,29 +54,15 @@ namespace WindowsFormsApp2
                     {
                         //trường hợp đăng nhập thành công
 
-                        if (nv.trangthai == 0)
+                        if (nv.trangthai == 4)
                         {
                             //trường hợp tài khoản bị disable
                             MessageBox.Show("Không thể đăng nhập vào tài khoản");
                             return;
                         }
-
                         ttTaiKhoan.set(nv);
-
-                        //if (nv.quyenhan == 1)
-                        //{
-                        //    //trường hợp tài khoản là admin form home admin
-                        //    frmHomeAdmin frm = new frmHomeAdmin();
-                        //    frm.Show();
-                        //}
-                        //else
-                        //{
-                        //    frmHomeUser frm = new frmHomeUser();
-                        //    frm.Show();
-                        //    //trường hợp tài khoản là user sẽ dẫn tời form home user
-                        //}
                         //trường hợp tài khoản là admin form home admin
-                     frmQlNhanvien frm = new frmQlNhanvien();
+                        frmQlNhanvien frm = new frmQlNhanvien();
                         frm.Show();
                         this.Hide();
 
@@ -121,8 +107,7 @@ namespace WindowsFormsApp2
 
         private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDoimatkhau frm = new frmDoimatkhau();
-            frm.ShowDialog();
+          
         }
 
         private void frmdangnhap_Load(object sender, EventArgs e)
