@@ -204,6 +204,7 @@ namespace WindowsFormsApp2
             dl.donhangnhaps.Add(newData);         
             sanpham sp = new sanpham();
             ct_donhangnhap[] ctsp = new ct_donhangnhap[dgvHienThi.Rows.Count];
+            ct_sanpham[] ct_sp = new ct_sanpham[dgvHienThi.Rows.Count];
             for (int i = 0; i < dgvHienThi.Rows.Count; i++)
             {
                 
@@ -222,22 +223,15 @@ namespace WindowsFormsApp2
                     MessageBox.Show("Số lương nhạp của sản phẩm " + tenSanPham + " không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                int newUppdate = 0;
-                tblDonhangnhap tbl = new tblDonhangnhap();
-                ct_sanpham ct_sp = new ct_sanpham();            
-                
-                ct_sanpham UpdateSl = tbl.getLstChiTietSanPham().FirstOrDefault(x => x.soluong == ct_sp.soluong);
-                if (UpdateSl != null)
-                {
-                    newUppdate = int.Parse(UpdateSl.ToString()) + int.Parse(soLuongMua.ToString());                
-                }
                 ctsp[i] = new ct_donhangnhap();
                 ctsp[i].tongtien = Int32.Parse(strTongTien);
                 ctsp[i].soluongmua = Int32.Parse(soLuongMua);
-                ct_sp.soluong = newUppdate;
                 ctsp[i].mactsp = Int32.Parse(idSanPham);
                 ctsp[i].giamua = Int32.Parse(giaMua);                 
-                ctsp[i].madhn = newData.madhn;              
+                ctsp[i].madhn = newData.madhn;
+                int id_ct_sp = Int32.Parse(idSanPham);
+                ct_sp[i] = dl.ct_sanpham.First(x=>x.mactsp == id_ct_sp);
+                ct_sp[i].soluong += ctsp[i].soluongmua;
                 dl.ct_donhangnhap.Add(ctsp[i]);
             }
             dl.SaveChanges();
