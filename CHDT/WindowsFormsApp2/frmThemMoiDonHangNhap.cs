@@ -229,9 +229,12 @@ namespace WindowsFormsApp2
                 ctsp[i].mactsp = Int32.Parse(idSanPham);
                 ctsp[i].giamua = Int32.Parse(giaMua);                 
                 ctsp[i].madhn = newData.madhn;
-                int id_ct_sp = Int32.Parse(idSanPham);
-                ct_sp[i] = dl.ct_sanpham.First(x=>x.mactsp == id_ct_sp);
-                ct_sp[i].soluong += ctsp[i].soluongmua;
+                if (cbxTrangThai.SelectedIndex != 2)
+                {
+                    int id_ct_sp = Int32.Parse(idSanPham);
+                    ct_sp[i] = dl.ct_sanpham.First(x => x.mactsp == id_ct_sp);
+                    ct_sp[i].soluong += ctsp[i].soluongmua;
+                }
                 dl.ct_donhangnhap.Add(ctsp[i]);
             }
             dl.SaveChanges();
