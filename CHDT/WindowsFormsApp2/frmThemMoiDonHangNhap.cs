@@ -196,15 +196,12 @@ namespace WindowsFormsApp2
                 return;
             }
             db_QLCHEntities2 dl = new db_QLCHEntities2();
-
             donhangnhap newData = new donhangnhap();
             newData.trangthai = cbxTrangThai.SelectedIndex;
             newData.ghichu = txtghichu.Text;
             newData.ngaynhaphang = dtpNgayNhapHang.Value;
             newData.mancc = Int32.Parse(maNcc);
-            dl.donhangnhaps.Add(newData);
-            // ct_sp.soluong = "";
-           
+            dl.donhangnhaps.Add(newData);         
             sanpham sp = new sanpham();
             ct_donhangnhap[] ctsp = new ct_donhangnhap[dgvHienThi.Rows.Count];
             for (int i = 0; i < dgvHienThi.Rows.Count; i++)
@@ -227,9 +224,9 @@ namespace WindowsFormsApp2
                 }
                 int newUppdate = 0;
                 tblDonhangnhap tbl = new tblDonhangnhap();
-                ct_sanpham ct_sp = new ct_sanpham();
+                ct_sanpham ct_sp = new ct_sanpham();            
                 
-                ct_sanpham UpdateSl = dl.ct_sanpham.FirstOrDefault(x => x.soluong == ct_sp.soluong);
+                ct_sanpham UpdateSl = tbl.getLstChiTietSanPham().FirstOrDefault(x => x.soluong == ct_sp.soluong);
                 if (UpdateSl != null)
                 {
                     newUppdate = int.Parse(UpdateSl.ToString()) + int.Parse(soLuongMua.ToString());                
@@ -237,11 +234,10 @@ namespace WindowsFormsApp2
                 ctsp[i] = new ct_donhangnhap();
                 ctsp[i].tongtien = Int32.Parse(strTongTien);
                 ctsp[i].soluongmua = Int32.Parse(soLuongMua);
-                ctsp[i].ct_sanpham.soluong = newUppdate;
+                ct_sp.soluong = newUppdate;
                 ctsp[i].mactsp = Int32.Parse(idSanPham);
                 ctsp[i].giamua = Int32.Parse(giaMua);                 
-                ctsp[i].madhn = newData.madhn;
-               
+                ctsp[i].madhn = newData.madhn;              
                 dl.ct_donhangnhap.Add(ctsp[i]);
             }
             dl.SaveChanges();
