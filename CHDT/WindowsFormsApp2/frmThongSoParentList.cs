@@ -82,7 +82,7 @@ namespace WindowsFormsApp2
                 List<thongsokythuat> lstSelect = new List<thongsokythuat>();
                 for (int i = 0; i < dgvHienThi.SelectedRows.Count; i++)
                 {
-                    int id = (int) dgvHienThi.SelectedRows[0].Cells["clId"].Value;
+                    int id = (int) dgvHienThi.SelectedRows[i].Cells["clId"].Value;
                     List<thongsokythuat> lstDetail = db.thongsokythuats.Where(x => x.matskt == id || (x.idparent == id && x.isdefault ==1)).ToList();
                     lstSelect.AddRange(lstDetail);
                 }

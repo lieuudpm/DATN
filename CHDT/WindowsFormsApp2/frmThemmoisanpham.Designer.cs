@@ -52,6 +52,7 @@
             this.btnXoaLoaiMay = new System.Windows.Forms.Button();
             this.dgvLoaiMay = new System.Windows.Forms.DataGridView();
             this.clSttLoaiMay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clTinhTrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +61,6 @@
             this.cmsLoai = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsHang = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnQuanLyThongSo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImg)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -188,9 +188,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 20);
+            this.label6.Size = new System.Drawing.Size(123, 20);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Tên sản phẩm";
+            this.label6.Text = "Mô tả sản phẩm";
             // 
             // label2
             // 
@@ -276,6 +276,7 @@
             this.dgvLoaiMay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoaiMay.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clSttLoaiMay,
+            this.clId,
             this.clTinhTrang,
             this.clSoLuong,
             this.clGiaBan,
@@ -296,6 +297,12 @@
             this.clSttLoaiMay.HeaderText = "Stt";
             this.clSttLoaiMay.Name = "clSttLoaiMay";
             this.clSttLoaiMay.ReadOnly = true;
+            // 
+            // clId
+            // 
+            this.clId.HeaderText = "id";
+            this.clId.Name = "clId";
+            this.clId.Visible = false;
             // 
             // clTinhTrang
             // 
@@ -344,23 +351,12 @@
             this.btnQuanLyThongSo.UseVisualStyleBackColor = true;
             this.btnQuanLyThongSo.Click += new System.EventHandler(this.btnQuanLyThongSo_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(841, 605);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 33);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Quản lý thông số";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnQuanLyThongSo_Click);
-            // 
             // frmThemmoisanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1284, 691);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnQuanLyThongSo);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThemMoi);
@@ -412,13 +408,13 @@
         private System.Windows.Forms.PictureBox picImg;
         private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.Button btnQuanLyThongSo;
+        private System.Windows.Forms.Button btnXoaLoaiMay;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSttLoaiMay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clTinhTrang;
         private System.Windows.Forms.DataGridViewTextBoxColumn clSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn clGiaBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn clGiaSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn clBaoHanh;
-        private System.Windows.Forms.Button btnXoaLoaiMay;
-        private System.Windows.Forms.Button button1;
     }
 }

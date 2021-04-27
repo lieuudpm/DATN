@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbxHang = new System.Windows.Forms.ComboBox();
             this.btnTimkiem = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSanPham = new System.Windows.Forms.TextBox();
+            this.txtTen = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnThemnv = new System.Windows.Forms.Button();
             this.dgvHienThi = new System.Windows.Forms.DataGridView();
-            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
             this.clId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clImg = new System.Windows.Forms.DataGridViewImageColumn();
             this.clLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +49,7 @@
             this.clGiaSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clBaoHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucMenu1 = new WindowsFormsApp2.ucMenu();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHienThi)).BeginInit();
@@ -59,15 +57,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.cbxHang);
             this.groupBox2.Controls.Add(this.btnTimkiem);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtSanPham);
+            this.groupBox2.Controls.Add(this.txtTen);
             this.groupBox2.Location = new System.Drawing.Point(11, 55);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1262, 117);
@@ -75,30 +71,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bộ lọc";
             // 
-            // comboBox2
+            // cbxHang
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(622, 62);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(230, 28);
-            this.comboBox2.TabIndex = 3;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(197, 28);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(506, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Giá bán";
+            this.cbxHang.FormattingEnabled = true;
+            this.cbxHang.Location = new System.Drawing.Point(134, 62);
+            this.cbxHang.Name = "cbxHang";
+            this.cbxHang.Size = new System.Drawing.Size(197, 28);
+            this.cbxHang.TabIndex = 3;
             // 
             // btnTimkiem
             // 
@@ -108,6 +87,7 @@
             this.btnTimkiem.TabIndex = 2;
             this.btnTimkiem.Text = "Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // label3
             // 
@@ -136,21 +116,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên sản phẩm";
             // 
-            // textBox2
+            // txtSanPham
             // 
-            this.textBox2.Location = new System.Drawing.Point(134, 23);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(197, 33);
-            this.textBox2.TabIndex = 0;
+            this.txtSanPham.Location = new System.Drawing.Point(134, 23);
+            this.txtSanPham.Multiline = true;
+            this.txtSanPham.Name = "txtSanPham";
+            this.txtSanPham.Size = new System.Drawing.Size(197, 33);
+            this.txtSanPham.TabIndex = 0;
             // 
-            // textBox1
+            // txtTen
             // 
-            this.textBox1.Location = new System.Drawing.Point(622, 23);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(614, 33);
-            this.textBox1.TabIndex = 0;
+            this.txtTen.Location = new System.Drawing.Point(622, 23);
+            this.txtTen.Multiline = true;
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(614, 33);
+            this.txtTen.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -192,17 +172,7 @@
             this.dgvHienThi.Name = "dgvHienThi";
             this.dgvHienThi.Size = new System.Drawing.Size(1245, 436);
             this.dgvHienThi.TabIndex = 0;
-            // 
-            // ucMenu1
-            // 
-            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
-            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
-            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ucMenu1.Name = "ucMenu1";
-            this.ucMenu1.Size = new System.Drawing.Size(1284, 47);
-            this.ucMenu1.TabIndex = 0;
+            this.dgvHienThi.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHienThi_RowHeaderMouseDoubleClick);
             // 
             // clId
             // 
@@ -261,6 +231,18 @@
             this.clBaoHanh.HeaderText = "Bảo Hành";
             this.clBaoHanh.Name = "clBaoHanh";
             // 
+            // ucMenu1
+            // 
+            this.ucMenu1.BackColor = System.Drawing.Color.Blue;
+            this.ucMenu1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ucMenu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucMenu1.ForeColor = System.Drawing.Color.White;
+            this.ucMenu1.Location = new System.Drawing.Point(0, 0);
+            this.ucMenu1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucMenu1.Name = "ucMenu1";
+            this.ucMenu1.Size = new System.Drawing.Size(1284, 47);
+            this.ucMenu1.TabIndex = 0;
+            // 
             // frmQlsanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -296,13 +278,11 @@
         private System.Windows.Forms.DataGridView dgvHienThi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Button btnThemnv;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxHang;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn clId;
         private System.Windows.Forms.DataGridViewImageColumn clImg;
         private System.Windows.Forms.DataGridViewTextBoxColumn clLoai;
